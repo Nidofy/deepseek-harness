@@ -1,0 +1,16 @@
+{
+  "status": "PASS",
+  "run": "D:\\Documents\\FeiyangChen\\devApps\\dshWinUi\\electron\\apps\\desktop\\.desktop-build\\qualification\\m1-ui-yLc9s7",
+  "credentialsSupplied": false,
+  "enterpriseGatewayCertified": false,
+  "identity": {
+    "name": "Nidofy DSH Intranet",
+    "userData": "D:\\Documents\\FeiyangChen\\devApps\\dshWinUi\\electron\\apps\\desktop\\.desktop-build\\qualification\\m1-ui-yLc9s7\\intranet\\electron",
+    "home": "D:\\Documents\\FeiyangChen\\devApps\\dshWinUi\\electron\\apps\\desktop\\.desktop-build\\qualification\\m1-ui-yLc9s7\\intranet\\harness"
+  },
+  "directLocalEntry": true,
+  "restartWithHostileProfile": true,
+  "coexistence": true,
+  "blockedChromiumRequest": true,
+  "telemetrySinkContacts": 0
+}

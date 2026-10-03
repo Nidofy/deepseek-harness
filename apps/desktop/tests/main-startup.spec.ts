@@ -16,6 +16,13 @@ import { writeCrashReport } from '../src/crash-report.ts'
 type InvokeEvent = { sender?: unknown; senderFrame: { url: string } }
 type InvokeHandler = (event: InvokeEvent, ...args: unknown[]) => unknown
 
+const packagedManifest = vi.hoisted(() => ({ value: '{}' }))
+vi.mock('node:fs', async (importOriginal) => {
+  const original = await importOriginal<typeof import('node:fs')>()
+  return { ...original, readFileSync: (...args: Parameters<typeof original.readFileSync>) =>
+    args[0] === join('desktop-test-app', 'package.json') ? packagedManifest.value : Reflect.apply(original.readFileSync, original, args) }
+})
+
 vi.mock('../src/web-document.ts', () => ({ authenticateWebHost: async () => 'test-cookie', serveWebDocument: vi.fn(), forwardWebRequest: vi.fn() }))
 // Report persistence has its own unit tests; here it resolves within microtasks so the fatal
 // dialog never outlives the test that triggered it.
@@ -159,10 +166,12 @@ const harness = await vi.hoisted(async () => {
     getVersion: () => '1.0.0',
     getAppPath: (): string => 'desktop-test-app',
     setAppLogsPath: vi.fn(),
+    setPath: vi.fn(),
+    setAppUserModelId: vi.fn(),
     getPath: vi.fn<(name: string) => string>(),
     setAboutPanelOptions: vi.fn<(options: Electron.AboutPanelOptionsOptions) => void>(),
     requestSingleInstanceLock: () => true,
-    setAsDefaultProtocolClient: vi.fn(),
+    setAsDefaultProtocolClient: vi.fn<(scheme: string, executable?: string, args?: string[]) => boolean>(() => true),
     exit: vi.fn(),
     relaunch: vi.fn(),
     focus: vi.fn(),
@@ -390,6 +399,7 @@ function applicationMenuItems(): MenuItemConstructorOptions[] {
 }
 
 beforeEach(() => {
+  packagedManifest.value = '{}'
   vi.resetModules()
   vi.clearAllMocks()
   harness.dialog.showMessageBox.mockReset()
@@ -2227,6 +2237,42 @@ it.each([['light', false], ['dark', true]] as const)('opens Platform authorizati
   harness.publishAccount(state)
   harness.publishAccount(state)
   expect(harness.openExternal).toHaveBeenCalledExactlyOnceWith(`https://platform.deepseek.com/dsh/authorize?state=state-1&theme=${theme}`)
+})
+
+it('binds personal login completion to its current executable and trial profile before opening the browser', async () => {
+  const { readDesktopDistribution } = await import('../src/distribution.ts')
+  const { resolveDesktopDistribution } = await import('../scripts/desktop-distribution.mjs')
+  const distribution = readDesktopDistribution(resolveDesktopDistribution({ DSH_DESKTOP_DISTRIBUTION: 'personal', DSH_DESKTOP_APP_ID: 'io.github.nidofy.dsh.desktop' }))!
+  packagedManifest.value = JSON.stringify({ dshDistribution: distribution })
+  const root = harness.app.getPath('userData')
+  vi.stubEnv('NIDOFY_DESKTOP_DATA_ROOT', root)
+  vi.stubEnv('DSH_HOME', undefined)
+  vi.stubEnv('DSH_TELEMETRY_MODE', undefined)
+  await import('../src/main.ts')
+  await harness.preparing.promise
+  harness.prepared.resolve()
+  await harness.hostStarted.promise
+  harness.hosts[0]!.ready.resolve()
+  await Promise.resolve(invoke(DESKTOP_IPC.boot))
+  const prefix = [`--nidofy-desktop-data-root=${root}`]
+  expect(harness.app.setPath).toHaveBeenCalledWith('userData', join(root, 'electron'))
+  expect(harness.app.setAsDefaultProtocolClient).toHaveBeenCalledExactlyOnceWith('nidofy-dsh', process.execPath, prefix)
+  const state: AccountView = {
+    status: 'signed-out', links: { usageUrl: '', topUpUrl: '' },
+    attempt: { id: 'personal-login' as NonNullable<AccountView['attempt']>['id'], phase: 'waiting-browser',
+      authorizeUrl: 'https://platform.deepseek.com/dsh/authorize?state=test' },
+  }
+  harness.publishAccount(state)
+  harness.publishAccount(state)
+  expect(harness.app.setAsDefaultProtocolClient).toHaveBeenCalledTimes(2)
+  expect(harness.app.setAsDefaultProtocolClient).toHaveBeenLastCalledWith('dsh', process.execPath, prefix)
+  expect(harness.app.setAsDefaultProtocolClient.mock.invocationCallOrder.at(-1))
+    .toBeLessThan(harness.openExternal.mock.invocationCallOrder[0]!)
+  expect(harness.openExternal).toHaveBeenCalledOnce()
+  const expected = JSON.parse(readFileSync(new URL('./expected/personal-login-return.json', import.meta.url), 'utf8')) as object[]
+  expect(harness.app.setAsDefaultProtocolClient.mock.calls.map(([scheme, executable, args]) => ({
+    scheme, currentExecutable: executable === process.execPath, currentProfile: JSON.stringify(args) === JSON.stringify(prefix),
+  }))).toEqual(expected)
 })
 
 it('disables native product events for a disabled Desktop launch', async () => {

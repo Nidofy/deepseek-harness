@@ -1,0 +1,19 @@
+{
+  "schemaVersion": 1,
+  "distribution": "intranet",
+  "enterpriseGatewayCertified": false,
+  "site": { "modelBaseUrl": "http://172.16.10.6:18080", "publicInternet": "blocked by enterprise gateway", "reachableFromBuildMachine": false, "source": "user-provided; not independently tested" },
+  "routes": [
+    { "purpose": "Desktop RPC and WebSocket", "caller": "Main/renderer", "destination": "current authenticated 127.0.0.1 Host port", "policy": "allow; Host authentication retained" },
+    { "purpose": "account and platform", "caller": "Host/Main/renderer", "destination": "official account services", "policy": "disabled in final composition and Main" },
+    { "purpose": "product analytics", "caller": "Host/Main/renderer", "destination": "OTLP collector", "policy": "producer and exporter disabled" },
+    { "purpose": "feedback and session telemetry", "caller": "Host", "destination": "official telemetry services", "policy": "disabled" },
+    { "purpose": "API Session-log attachment", "caller": "Host model adapter", "destination": "model API", "policy": "session-log-deepseek disabled; ordinary model input is separate" },
+    { "purpose": "update policy and packages", "caller": "Main", "destination": "online release services", "policy": "offline package replacement; no polling" },
+    { "purpose": "plugin installation", "caller": "Host/pnpm", "destination": "npm registry", "policy": "online plugin manager disabled; build-time assembly only" },
+    { "purpose": "public search and fetch", "caller": "Host", "destination": "public web", "policy": "providers and tools disabled" },
+    { "purpose": "external links and sidebar browser", "caller": "Main/renderer", "destination": "external origins", "policy": "disabled for intranet" },
+    { "purpose": "model requests", "caller": "Node adapter", "destination": "http://172.16.10.6:18080", "policy": "enterprise egress enforcement; M2 connection/credential adapter; site test pending" },
+    { "purpose": "MCP/Git/shell/build or arbitrary plugin sockets", "caller": "Node and descendants", "destination": "approved enterprise services", "policy": "enterprise egress enforcement; not confined by Electron interception" }
+  ]
+}

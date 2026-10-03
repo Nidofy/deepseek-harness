@@ -1,0 +1,19 @@
+# Bilingual-pair consistency record for README.md (docs/i18n/README.md): per heading
+# section, a hash of its English and Chinese blocks outside code blocks and generated regions.
+# After editing either side, bring the other along and re-record with:
+#   pnpm run verify-translation-pairing --write migration/m1/README.md
+/nidofy-intranet-distribution:
+  en: a0741f17236ff074
+  zh: 98401f4617ad6f8a
+/nidofy-intranet-distribution/build-and-launch:
+  en: c250a6904974a71c
+  zh: 2886e311997056a7
+/nidofy-intranet-distribution/policy:
+  en: 58c05c8fc1536b2a
+  zh: aa16310d39c9bf1a
+/nidofy-intranet-distribution/qualification:
+  en: aa82f4d9e1e02a61
+  zh: 960fa0b6a945125b
+/nidofy-intranet-distribution/following-upstream:
+  en: 26e92f4b397c29ea
+  zh: 826d873597a221a3

@@ -1,0 +1,2 @@
+error: patch failed: packages/llm/llm-pi-ai/src/index.ts:85
+error: packages/llm/llm-pi-ai/src/index.ts: patch does not apply

@@ -1,0 +1,1 @@
+PASS task recovery: native-event fold, interruption/unknown side effects, approval/input, bounded state, fork boundary, metadata-only projection

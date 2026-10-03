@@ -24,6 +24,7 @@ import { suggestDesktopBuildVersion } from './desktop-build-version-discovery.ts
 import { desktopBuildCommitEnvironment, readDesktopBuildCommit, resolveDesktopBuildCommit } from './desktop-build-commit.mjs'
 import { requireDesktopToolchain } from './desktop-toolchain-preflight.ts'
 import { withMacOSNotarizationProxy } from './macos-notarization-proxy.ts'
+import { resolveDesktopDistribution } from './desktop-distribution.mjs'
 
 const APP_ROOT = resolve(import.meta.dirname, '..')
 const REPOSITORY_ROOT = resolve(APP_ROOT, '..', '..')
@@ -145,15 +146,16 @@ function writeReleaseRecord(
   }
   const buildVersion = resolveDesktopBuildVersion(environment, dshVersion)
   const packaged = resolveDesktopBuildCommit(environment)
-  const update = resolveDesktopAutoUpdateConfig(environment, target.platform, target.arch)
+  const distribution = resolveDesktopDistribution(environment)
+  const update = distribution === undefined ? resolveDesktopAutoUpdateConfig(environment, target.platform, target.arch) : undefined
   const recordPath = join(artifactsRoot, desktopBuildRecordFilename(target.name))
   const temporaryPath = `${recordPath}.tmp`
   writeFileSync(temporaryPath, `${JSON.stringify({
     schemaVersion: 1,
     target: target.name,
     version: buildVersion,
-    environment: update.environment,
-    publicUrl: update.publicUrl,
+    environment: update?.environment ?? 'offline',
+    ...(update === undefined ? { distribution } : { publicUrl: update.publicUrl }),
     // Upload reads this to tag the commit a production release was packaged from.
     ...packaged === undefined ? {} : { commit: packaged.commit, dirty: packaged.dirty },
   }, null, 2)}\n`)
@@ -321,7 +323,8 @@ async function resolveRequestedBuildVersion(
   const requested = invocation.requestedBuildVersion
   if (requested === undefined) return productVersion
   if (requested !== AUTOMATIC_BUILD_VERSION) return validateDesktopBuildVersion(requested, productVersion)
-  const paths = desktopTargetBuildPaths(invocation.target.name)
+  const paths = desktopTargetBuildPaths(invocation.target.name,
+    resolveDesktopDistribution(environment)?.kind, environment.DSH_DESKTOP_BUILD_CANDIDATE)
   return suggestDesktopBuildVersion({
     productVersion, target: invocation.target.name, environment,
     // Unsigned builds land beside the signed output, so numbering has to read the directory this run writes.
@@ -401,7 +404,8 @@ export async function packageTarget(
   const proxyEvent = (status: string) => { if (journal) recordPackagingEvent(journal, { type: 'notarization-proxy', status }) }
   const mac = target.platform === 'darwin' ? resolveMacOSPackageSettings(environment) : undefined
   const packArguments = mac === undefined ? [] : ['--concurrency', String(mac.packConcurrency)]
-  const buildPaths = desktopTargetBuildPaths(target.name)
+  const buildPaths = desktopTargetBuildPaths(target.name,
+    resolveDesktopDistribution(environment)?.kind, environment.DSH_DESKTOP_BUILD_CANDIDATE)
   const releaseRecordPath = join(buildPaths.artifacts, desktopBuildRecordFilename(target.name))
   if (!invocation.prepareOnly && !invocation.unsigned) {
     rmSync(releaseRecordPath, { force: true })
@@ -456,6 +460,8 @@ export async function packageTarget(
     '--pack-destination',
     buildPaths.packedDsh,
   ], buildEnv, REPOSITORY_ROOT)
+  await execute(['--dir', 'packages/nidofy/desktop-extras', 'pack', '--pack-destination', buildPaths.packedDsh], buildEnv, REPOSITORY_ROOT)
+  await execute(['--dir', 'packages/nidofy/desktop-bundle', 'pack', '--pack-destination', buildPaths.packedDsh], buildEnv, REPOSITORY_ROOT)
   await execute(['run', 'release:pack', '--family', 'vendor', '--out', buildPaths.packedVendor, ...packArguments], buildEnv, REPOSITORY_ROOT)
   rmSync(buildPaths.packedLandlock, { recursive: true, force: true })
   mkdirSync(buildPaths.packedLandlock, { recursive: true })
@@ -470,6 +476,7 @@ export async function packageTarget(
   await execute(['run', 'prepare:runtime', ...(signPrimaryRuntime ? ['--defer-primary-runtime-smoke'] : [])], downloadEnv)
   if (signPrimaryRuntime) await execute(['run', 'sign:primary-runtime'], electronBuilderEnv)
   await execute(['run', 'prepare:packages'], targetEnv)
+  if (target.platform === 'win32' && resolveDesktopDistribution(targetEnv) !== undefined) await execute(['run', 'prepare:protection'], targetEnv)
   await execute(['run', 'prepare:dsh', ...(signPrimaryRuntime ? ['--defer-runtime-smoke'] : [])], downloadEnv)
   if (signPrimaryRuntime) await execute(['run', 'sign:primary-runtime', '--dsh'], electronBuilderEnv)
   if (invocation.prepareOnly) return

@@ -27,13 +27,15 @@ import css from './AppFrame.module.css'
 /** Full composed props: runtime share + child-slot render share + store share. */
 export type AppFrameProps =
   & PropsRuntime<'root'>
-  & PropsRenderSlots<'sidebar' | 'main' | 'rightbar' | 'shell.overlay' | 'shell.leading'>
+  & PropsRenderSlots<'sidebar' | 'main' | 'rightbar' | 'shell.overlay' | 'shell.leading' | 'shell.accessory'>
   & PropsStore<ReturnType<typeof createLayoutStore>>
   & PropsLocale<'common'>
 
 /** Center column grid item (session-body building block). */
-function CenterColumn(props: { children?: ReactNode }) {
-  return <div className={css.centerCol}>{props.children}</div>
+function CenterColumn(props: { children?: ReactNode; accessory?: ReactNode }) {
+  return <div className={css.centerCol} style={{ containerName: 'shell-center' }} data-shell-center>
+    <div className={css.mainCol} data-shell-main>{props.children}</div>{props.accessory}
+  </div>
 }
 
 /** Subscribe to the main key without subscribing the column frame to each panel id. */
@@ -247,6 +249,7 @@ export function AppFrame({
     <MainPanel usePanelInfo={usePanelInfo} renderSlot={renderSlot} />
   ), [usePanelInfo, renderSlot])
   const overlays = useMemo(() => renderSlot('shell.overlay', {}), [renderSlot])
+  const accessory = useMemo(() => renderSlot('shell.accessory', {}), [renderSlot])
   // Window-chrome seat over the main panels' top-left corner: only a fully
   // hidden sidebar column on macOS desktop leaves window chrome without a
   // home — the Windows zero-width collapse keeps its controls in the caption
@@ -281,7 +284,7 @@ export function AppFrame({
         {sidebar}
       </div>
       <>
-        <CenterColumn>{main}</CenterColumn>
+        <CenterColumn accessory={accessory}>{main}</CenterColumn>
         <RightbarColumn>
           {renderSlot('rightbar', { width: normal.rightbar, viewportWidth: viewport, canShow: normal.rightbar > 0 })}
         </RightbarColumn>

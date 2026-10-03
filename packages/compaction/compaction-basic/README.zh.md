@@ -94,6 +94,8 @@ kind: "package-reference"
 <a id="understand-the-implementation"></a>
 ## 理解实现
 
+`compaction/basic-summary` 瀑布事件在基础摘要器执行前提供本次操作的输入及取消信号。监听器通过 `next()` 委托并恢复临时修改。`instructionAppendix` 在末尾的摘要指令中追加内容，不改变重放历史。定价、事务提交与请求记录仍由引擎负责。
+
 <details>
 <summary>实现细节——点击展开</summary>
 
@@ -106,7 +108,7 @@ kind: "package-reference"
 - **一个测量服务为每个决策定价。** 单例 `ctx.tokenMeter` 会在同一个已消费日志 revision 上测量最新规范已记录 envelope 与当前表层。路由适配器声明请求图片定价时，meter 会将其应用于图片历史。压力、近期尾部保留、范围选择与缩减验证使用同一套路由定价的节点数值；已记录的替换影子价仍使用与路由无关的启发式规则，使纯投影 fold 保持一致。
 - **日志记录的标记对就是事务。** 所有入口点共享一个先记录标记的区域事务：验证范围与活动锁，同步追加 `compaction/start`，准备并等待摘要，重新验证，再追加 `compaction/summary` 与替换，最后恰好进行一次闭合尝试。自动调用与显式范围调用要求数字标识的开放轮次归属与整个表层稳定；`compactNow()` 会预留空闲接纳，使用 `turn: null`，允许所选 span 之外追加仅追加上下文，flush 每次已闭合尝试，并在 `finally` 中释放接纳预留。
 - **摘要复用提供方的热前缀。** 逐字回放 surface 节点 0 处 `system/message` 所承载的系统提示词、上次已路由请求的工具与已遮蔽区域消息，使辅助调用成为会话的真正前缀，因此只有尾随指令与摘要输出未缓存。
-- **`summarize()` 是唯一的子类钩子。** 基于模板或远程摘要器的子类可以覆盖它，同时压力、保留、被引用的源事件、缩减验证与已遮蔽 token 计量仍由 token meter 负责。
+- **`summarize()` 是唯一的子类钩子。** 包根入口导出其 `SummarizationInput` 和 `SummaryResult` 类型。 基于模板或远程摘要器的子类可以覆盖它，同时压力、保留、被引用的源事件、缩减验证与已遮蔽 token 计量仍由 token meter 负责。
 
 ### 自动触发与溢出恢复
 

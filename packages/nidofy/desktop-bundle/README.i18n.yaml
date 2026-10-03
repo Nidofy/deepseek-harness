@@ -1,0 +1,40 @@
+# Bilingual-pair consistency record for README.md (docs/i18n/README.md): per heading
+# section, a hash of its English and Chinese blocks outside code blocks and generated regions.
+# After editing either side, bring the other along and re-record with:
+#   pnpm run verify-translation-pairing --write packages/nidofy/desktop-bundle/README.md
+/:
+  en: c4915aefdd1d7596
+  zh: 48bec894baa7b4bc
+/nidofy-dsh-desktop-bundle:
+  en: 9ef9b5e2202236ff
+  zh: 238c77741897fe84
+/nidofy-dsh-desktop-bundle/summary:
+  en: 4b4900e88ed89d59
+  zh: 378603406592bf16
+/nidofy-dsh-desktop-bundle/table-of-contents:
+  en: 2e89ddb1e73218cb
+  zh: b77b8868e46f2ae0
+/nidofy-dsh-desktop-bundle/use-this-package:
+  en: 36df95db56a0809f
+  zh: dd67fc282bad50c9
+/nidofy-dsh-desktop-bundle/model-experience:
+  en: 215e7ba838619b7b
+  zh: a311da3843709f90
+/nidofy-dsh-desktop-bundle/model-experience/activation:
+  en: 3f05b7c39d7f4fae
+  zh: 6747585313cf4e99
+/nidofy-dsh-desktop-bundle/model-experience/activation/what-the-model-sees:
+  en: 5fcd48f134cc666b
+  zh: 3e0a887a5775b766
+/nidofy-dsh-desktop-bundle/model-experience/activation/token-effect:
+  en: 367b6e43e1179014
+  zh: eac731ab2f4023fc
+/nidofy-dsh-desktop-bundle/model-experience/activation/kv-cache-effect:
+  en: 3d351ac0a9b60fd5
+  zh: 55adbfa41b862075
+/nidofy-dsh-desktop-bundle/known-limitations-and-deferred-work:
+  en: abf22badf45f8d50
+  zh: d8d85072c67b5100
+/nidofy-dsh-desktop-bundle/known-limitations-and-deferred-work/dev-note:
+  en: 25cfd68ab028bc5f
+  zh: 408a21ad66aae727

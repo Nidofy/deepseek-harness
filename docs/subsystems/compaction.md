@@ -209,6 +209,22 @@ Types: [CommandId](commands.md) · [SessionSeq](session.md)
 
 Source: [`packages/compaction/compaction/src/index.ts`](../../packages/compaction/compaction/src/index.ts)
 
+<a id="ctxnidofynotebook--notebookservice"></a>
+
+### `ctx.nidofyNotebook` — `NotebookService`
+
+Plugin-scoped facade for the versioned note store used by compaction.
+
+```ts cordis-catalog
+/** Read a validated immutable snapshot.
+ * @param sessionId - Session owning the notes.
+ * @returns the latest committed notebook revision.
+ */
+read(sessionId: string): Promise<Notebook>
+```
+
+Source: [`packages/nidofy/desktop-extras/src/context.ts`](../../packages/nidofy/desktop-extras/src/context.ts)
+
 <a id="ctxtoolresultpruner--toolresultpruner"></a>
 
 ### `ctx.toolResultPruner` — `ToolResultPruner`
@@ -254,6 +270,24 @@ Source: [`packages/compaction/compaction-tool-result-pruner/src/index.ts`](../..
 <a id="compaction-events"></a>
 
 ### `compaction/*` events
+
+<a id="compactionbasic-summary--waterfall"></a>
+
+#### `compaction/basic-summary` — waterfall
+
+Extend one basic summary without replacing its preset or transaction owner. Call next() to delegate; restore temporary input changes before returning.
+
+```ts cordis-catalog
+/**
+ * Extend one basic summary without replacing its preset or transaction owner.
+ * Call next() to delegate; restore temporary input changes before returning.
+ * @param request - operation-local input, owning agent and cancellation.
+ * @mode waterfall
+ */
+'compaction/basic-summary'(request: BasicSummaryRequest, next: () => Promise<SummaryResult>): Promise<SummaryResult>
+```
+
+Source: [`packages/compaction/compaction-basic/src/index.ts`](../../packages/compaction/compaction-basic/src/index.ts)
 
 <a id="compactionsummary-error--waterfall"></a>
 

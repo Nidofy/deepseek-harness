@@ -1,0 +1,45 @@
+{
+  "schemaVersion": 1,
+  "milestone": "M1",
+  "status": "LOCAL_IMPLEMENTATION_VERIFIED_SITE_ACCEPTANCE_PENDING",
+  "runtimeVersion": "0.2.0-rc.1",
+  "distribution": "intranet",
+  "distributionRevision": 1,
+  "upstreamCommit": "4878cdabd87d4041bdaff61d04c966883b9fd07a",
+  "lockfileBlob": "14a4b5454671dd5e0807f24fe79b2cbd94d063fc",
+  "legacyPatchReconstruction": "PASS",
+  "productSourceModified": true,
+  "remotePublished": false,
+  "packageRoot": "D:\\Documents\\FeiyangChen\\devApps\\dshWinUi\\electron\\apps\\desktop\\.desktop-build\\targets\\win-x64\\unsigned-artifacts\\win-unpacked",
+  "unsigned": true,
+  "files": [
+    {
+      "relative": "Nidofy DSH Intranet.exe",
+      "bytes": 244468224,
+      "sha256": "7a9271ca73a226e91d88a46eb6319369fddfe32f443cded607264590e1693549"
+    },
+    {
+      "relative": "resources/app.asar",
+      "bytes": 118202333,
+      "sha256": "a82918451312b96fd144da957179d6225c0db54c77fe4f378a585ef331425229"
+    }
+  ],
+  "verification": {
+    "distinctPassingTests": 84,
+    "hostTypecheck": "PASS",
+    "targetedLint": "PASS",
+    "preparedAndPackagedRuntime": "PASS",
+    "officeConversions": "PASS",
+    "realDesktop": "PASS",
+    "enterpriseGateway": "NOT_RUN",
+    "disconnectedCleanMachine": "NOT_RUN",
+    "localDocumentLinks": 109
+  },
+  "buildRecovery": "First attempt lacked a declaration; second attempt hit Electron/pnpm Windows shutdown failure. Runtime preparation retried successfully, then official builder and packaged-runtime checks completed. Final shell was rebuilt and repackaged.",
+  "testRecovery": "The real builder-policy test exceeded its initial 5s deadline once; its bounded 15s retry passed. The optional policy return type required narrowing an existing upstream test.",
+  "site": {
+    "modelBaseUrl": "http://172.16.10.6:18080",
+    "buildMachineCanReachSite": false,
+    "publicEgress": "blocked according to deployment owner; independently unverified"
+  }
+}

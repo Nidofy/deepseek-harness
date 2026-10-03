@@ -1,0 +1,2 @@
+import type { PiAiPayloadScope, PiAiAdapterOptions } from '@deepseek-ai/dsh-llm-pi-ai'
+export function desktopCacheKeyOptions(profile: PiAiPayloadScope & { desktopCacheKey: { mode: string; models: string[] } }, model: { id: string }, options: { sessionId?: string }, state: { managedProvider: string; home: string; key: Buffer }): { onPayload?: ReturnType<NonNullable<PiAiAdapterOptions['preparePayload']>> }

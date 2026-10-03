@@ -1,0 +1,104 @@
+{
+  "schemaVersion": 1,
+  "milestone": "M2",
+  "status": "LOCAL_IMPLEMENTATION_AND_PERSONAL_CANDIDATE_VERIFIED",
+  "recordedAt": "2026-09-29T09:26:38.2357949Z",
+  "baselineSourceLock": "../../m0/source-lock.json",
+  "runtimeVersion": "0.2.0-rc.1",
+  "sourceDirty": true,
+  "remotePublished": false,
+  "distribution": "personal",
+  "target": "win-x64",
+  "unsigned": true,
+  "packageRoot": "D:\\Documents\\FeiyangChen\\devApps\\dshWinUi\\electron\\apps\\desktop\\.desktop-build\\targets\\win-x64\\personal-unsigned\\win-unpacked",
+  "files": [
+    {
+      "relative": "Nidofy DSH Desktop.exe",
+      "bytes": 244468224,
+      "sha256": "5f5e909858139ccba5744be508cea1eea4fe73433559586bf783199914383d4d"
+    },
+    {
+      "relative": "resources/app.asar",
+      "bytes": 118261220,
+      "sha256": "c0a3587e6ff74b7e8ccb61944f64c3b8fc2dd205a73f8e20b230ff10ed8cd172"
+    },
+    {
+      "relative": "resources/nidofy-protection.exe",
+      "bytes": 762368,
+      "sha256": "4d4cb159654be6deb375a215d299d23e4937aedbf07210ed8974a7e6d4701159"
+    }
+  ],
+  "realCredentialsUsed": false,
+  "realUserDataMigrated": false,
+  "enterpriseAcceptance": "deferred-by-user",
+  "verification": {
+    "regressionTests": 444,
+    "regressionFiles": 24,
+    "docGraphTests": 4,
+    "hostDesktopTypecheck": "PASS",
+    "targetedLint": "PASS",
+    "namedBilingualPairs": 6,
+    "docGraphs": "PASS",
+    "processLoss": "PASS",
+    "realPackagedDesktop": "PASS",
+    "packagedRuntime": "PASS",
+    "officeConversions": "PASS",
+    "realProviderAcceptance": "NOT_RUN",
+    "enterpriseGateway": "NOT_RUN",
+    "cleanDisconnectedMachine": "NOT_RUN"
+  },
+  "build": {
+    "initialRun": "2026-09-29T09-02-03.564Z-LsJCcO",
+    "initialStatus": "FAIL-runtime-pnpm-windows-exit",
+    "resumedRun": "2026-09-29T09-08-48.398Z-Znqluc",
+    "resumedStatus": "PASS",
+    "reusedSameBuiltPackageSet": true,
+    "repeatedStages": [
+      "prepare:dsh",
+      "electron-builder",
+      "smoke-packaged-runtime"
+    ]
+  },
+  "previousIntranetPackage": [
+    {
+      "relative": "Nidofy DSH Intranet.exe",
+      "sha256": "7a9271ca73a226e91d88a46eb6319369fddfe32f443cded607264590e1693549",
+      "unchanged": true
+    },
+    {
+      "relative": "resources/app.asar",
+      "sha256": "a82918451312b96fd144da957179d6225c0db54c77fe4f378a585ef331425229",
+      "unchanged": true
+    }
+  ],
+  "fullDocSync": {
+    "initialPassed": 39,
+    "initialFailed": 3,
+    "fixedAndRechecked": "doc-graphs",
+    "remaining": [
+      "M0 missing Chinese README counterpart",
+      "M0/M1 provenance hashes violate repository-reference rule"
+    ]
+  },
+  "evidence": [
+    "desktop-smoke.json",
+    "process-loss.json",
+    "package-initial-result.json",
+    "package-resumed-result.json",
+    "packaged-runtime-sanitized.log",
+    "m2-tests-qualified.log",
+    "m2-doc-graphs.log",
+    "m2-doc-graphs-check.log",
+    "m2-lint-final.log",
+    "m2-pairing-final.log",
+    "connections.png",
+    "imported.png",
+    "source-inputs.json",
+    "m2-types.log"
+  ],
+  "remainingMilestones": [
+    "M3 engineering workflows and full protection/recovery",
+    "M4 optional capabilities",
+    "M5 release and upstream upgrade rehearsal"
+  ]
+}

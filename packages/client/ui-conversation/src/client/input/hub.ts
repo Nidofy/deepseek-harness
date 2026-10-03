@@ -28,6 +28,7 @@ import type { InputSubmitMode } from '../contract/composer-submission.ts'
 import type { PopupDismissFace } from './facade.ts'
 import { SessionInputShell } from './facade.ts'
 import { reportMessageSubmission } from './submission-analytics.ts'
+import { installWorkbenchDraftBridge } from './workbench-bridge.ts'
 
 /** Structural command face for per-session popup resolution. */
 interface CommandFace {
@@ -140,6 +141,7 @@ export class InputHub implements SessionInputResolver {
     // scope fiber (nothing here outlives the scope).
     actx.effect(() => {
       const offs = [
+        installWorkbenchDraftBridge(String(session.sessionId), shell),
         actx.on('slash/input-begin-command', req =>
           shell.beginCommand(req.claim, req.span) ? true : undefined),
         actx.on('slash/input-insert-reference', req =>

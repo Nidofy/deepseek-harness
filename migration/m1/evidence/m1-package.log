@@ -1,0 +1,35 @@
+$ tsx scripts/package-target.ts win-x64 --dir "--unsigned"
+desktop package: win-x64 publishes 0.2.0-rc.1
+DESKTOP_PACKAGING_RECORD D:\Documents\FeiyangChen\devApps\dshWinUi\electron\apps\desktop\.desktop-build\packaging-runs\2026-09-29T06-42-13.784Z-o03Pkg
+$ tsx scripts/build.ts --profile official
+$ tsx native/system/scripts/build.ts --host-addon-only
+$ pnpm run build:lib:host && pnpm run build:lib:client
+$ node --max-old-space-size=4096 ./node_modules/typescript/bin/tsc -b tsconfig.host.json && tsdown --env.DSH_BUILD_FACE host && pnpm --filter @deepseek-ai/dsh-desktop run bundle
+apps/desktop/scripts/package-target.ts(27,44): error TS7016: Could not find a declaration file for module './desktop-distribution.mjs'. 'D:/Documents/FeiyangChen/devApps/dshWinUi/electron/apps/desktop/scripts/desktop-distribution.mjs' implicitly has an 'any' type.
+apps/desktop/scripts/smoke-packaged-runtime.ts(9,44): error TS7016: Could not find a declaration file for module './desktop-distribution.mjs'. 'D:/Documents/FeiyangChen/devApps/dshWinUi/electron/apps/desktop/scripts/desktop-distribution.mjs' implicitly has an 'any' type.
+apps/desktop/tests/distribution.spec.ts(2,44): error TS7016: Could not find a declaration file for module '../scripts/desktop-distribution.mjs'. 'D:/Documents/FeiyangChen/devApps/dshWinUi/electron/apps/desktop/scripts/desktop-distribution.mjs' implicitly has an 'any' type.
+[ELIFECYCLE] Command failed with exit code 1.
+[ELIFECYCLE] Command failed with exit code 1.
+D:\Documents\FeiyangChen\devApps\dshWinUi\electron\scripts\build.ts:27
+    throw new Error(`build: ${script} exited with ${String(result.status ?? result.signal)}`)
+          ^
+
+Error: build: build:lib exited with 1
+    at runScript (D:\Documents\FeiyangChen\devApps\dshWinUi\electron\scripts\build.ts:27:11)
+    at main (D:\Documents\FeiyangChen\devApps\dshWinUi\electron\scripts\build.ts:45:3)
+    at <anonymous> (D:\Documents\FeiyangChen\devApps\dshWinUi\electron\scripts\build.ts:53:23)
+    at ModuleJob.run (node:internal/modules/esm/module_job:439:25)
+    at async node:internal/modules/esm/loader:633:26
+    at async asyncRunEntryPointWithESMLoader (node:internal/modules/run_main:101:5)
+
+Node.js v24.16.0
+[ELIFECYCLE] Command failed with exit code 1.
+Error: desktop package: run build:official failed; evidence: D:\Documents\FeiyangChen\devApps\dshWinUi\electron\apps\desktop\.desktop-build\packaging-runs\2026-09-29T06-42-13.784Z-o03Pkg
+    at Object.run (file:///D:/Documents/FeiyangChen/devApps/dshWinUi/electron/apps/desktop/scripts/packaging-run.mjs:154:15)
+    at processTicksAndRejections (node:internal/process/task_queues:104:5)
+    at packageTarget (file:///D:/Documents/FeiyangChen/devApps/dshWinUi/electron/apps/desktop/scripts/package-target.ts:6:2832)
+    at packagingStep (file:///D:/Documents/FeiyangChen/devApps/dshWinUi/electron/apps/desktop/scripts/packaging-step.mjs:19:20)
+    at main (file:///D:/Documents/FeiyangChen/devApps/dshWinUi/electron/apps/desktop/scripts/package-target.ts:4:1536)
+    at file:///D:/Documents/FeiyangChen/devApps/dshWinUi/electron/apps/desktop/scripts/package-target.ts:6:5789
+desktop package: failed; see D:\Documents\FeiyangChen\devApps\dshWinUi\electron\apps\desktop\.desktop-build\packaging-runs\2026-09-29T06-42-13.784Z-o03Pkg/events.jsonl
+[ELIFECYCLE] Command failed with exit code 1.

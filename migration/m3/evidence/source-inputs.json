@@ -1,0 +1,130 @@
+{
+  "note": "Current reviewed source snapshot; the immutable upstream tag is recorded in M0. Package hashes identify tested bytes.",
+  "sources": [
+    {
+      "path": "apps/desktop-host/src/workbench/legacy/change-review.d.mts",
+      "bytes": 597,
+      "sha256": "43c82837b2715d200a26247a780c5073480dbfb8d6163d643c7a470625c3cd5c"
+    },
+    {
+      "path": "apps/desktop-host/src/workbench/legacy/change-review.mjs",
+      "bytes": 19145,
+      "sha256": "3ac9a73c1cdf5fed8dd156d435a4403ee590f4c155c34f533d8d9bfe818ff5b3"
+    },
+    {
+      "path": "apps/desktop-host/src/workbench/legacy/desktop-artifacts.d.mts",
+      "bytes": 484,
+      "sha256": "6e12b4b5e2c7aac1be49ec460110256585e796a34d4dc1e3154eb5e6958498f5"
+    },
+    {
+      "path": "apps/desktop-host/src/workbench/legacy/desktop-artifacts.mjs",
+      "bytes": 8312,
+      "sha256": "ec4c70dac6a2ec75349a10dfd5c395c13db70b264eb2b4fec3c189fd64dc4756"
+    },
+    {
+      "path": "apps/desktop-host/src/workbench/legacy/environment-repository.d.mts",
+      "bytes": 471,
+      "sha256": "b107fcb4f9e46d72505ef7e4187d78586da661633a4e2f0790f6672933d43b45"
+    },
+    {
+      "path": "apps/desktop-host/src/workbench/legacy/environment-repository.mjs",
+      "bytes": 7886,
+      "sha256": "f229b46330271671129705312ef6d3b42d3d570bf5eb743729635b37abcc1bf3"
+    },
+    {
+      "path": "apps/desktop-host/src/workbench/legacy/project-actions.d.mts",
+      "bytes": 1410,
+      "sha256": "ea080f7694364d051e2a688025d919d71c73c5191b3b94b7829095b222a53e1d"
+    },
+    {
+      "path": "apps/desktop-host/src/workbench/legacy/project-actions.mjs",
+      "bytes": 17052,
+      "sha256": "583d60f4cc9ed5274d36e1f550af9ee1f078103b541fda3f2e530c14a9d7d34b"
+    },
+    {
+      "path": "apps/desktop-host/src/workbench/legacy/storage-admission.mjs",
+      "bytes": 1189,
+      "sha256": "f85cc1daf600d80eb86359141348ec9879ab1c9b0407ea2d328caf7d7255d85e"
+    },
+    {
+      "path": "apps/desktop-host/src/workbench/legacy/task-recovery.d.mts",
+      "bytes": 386,
+      "sha256": "03f1b18fce871e280bcf8a1ab7633470e55dc092d3b9c68cd250bd97c26ce269"
+    },
+    {
+      "path": "apps/desktop-host/src/workbench/legacy/task-recovery.mjs",
+      "bytes": 3653,
+      "sha256": "cbe182b2b6303ef8018c80f960c75ea7c90421a7e9b7ee7c69bf7b49e0d9d0cf"
+    },
+    {
+      "path": "apps/desktop-host/src/workbench/owner.ts",
+      "bytes": 19350,
+      "sha256": "75f69453167e58b274a6dbb1a6a2bb331fd9c8dae828b9833ab3f052ee7595a5"
+    },
+    {
+      "path": "apps/desktop-host/src/workbench/ui.ts",
+      "bytes": 18206,
+      "sha256": "21512bb09a0c3f93c1e5ecb75e35bd685a9d6dafb63597d4abcf2053a7888dd3"
+    },
+    {
+      "path": "apps/desktop-host/src/connections/protection.ts",
+      "bytes": 8775,
+      "sha256": "55271f71fedd90be7faa7cd73e360365b5d1351dce01cd7b7f8e8f442a684625"
+    },
+    {
+      "path": "apps/desktop-host/src/connections/api.ts",
+      "bytes": 5931,
+      "sha256": "25496ae9b600fe3ca8d811d53adafc70c1168517081580105168e3f14b86d454"
+    },
+    {
+      "path": "apps/desktop-host/tsdown.config.ts",
+      "bytes": 702,
+      "sha256": "3212525547603fc85be391705bdcbed329146cf0b773dd780e83f2aaf9aa2c21"
+    },
+    {
+      "path": "apps/desktop/src/workbench.ts",
+      "bytes": 6147,
+      "sha256": "47462a0411e13beb2559c686bbe75f2cf55afc37fbaed7164cc16bfca16f62ba"
+    },
+    {
+      "path": "apps/desktop/src/main.ts",
+      "bytes": 69563,
+      "sha256": "5f0171be310125e321e8c0b11a787baa7f61ad3607086c644b1e0805a81594a3"
+    },
+    {
+      "path": "apps/desktop/src/preload-app.ts",
+      "bytes": 6195,
+      "sha256": "e83328a98ddaa135958135568812cdebce5547c729a3503e6b54ca354ea47590"
+    },
+    {
+      "path": "packages/client/ui-conversation/src/client/input/workbench-bridge.ts",
+      "bytes": 3989,
+      "sha256": "451c59111ebe497476ec61a22de0ca91c1c3c5b7d81e590d3244d1063b4d50fe"
+    },
+    {
+      "path": "packages/client/ui-conversation/src/client/input/hub.ts",
+      "bytes": 12952,
+      "sha256": "31deedd6adf0a37ce3b8a1f9b65e8cad35f627c4ea4e2634b24b9d6280524934"
+    },
+    {
+      "path": "native/nidofy-protection/src/main.rs",
+      "bytes": 2001,
+      "sha256": "39fa8ee86633e8c2c4504875f1d9b26f852f7a1ce34a6856c226093f1ebf0181"
+    },
+    {
+      "path": "native/nidofy-protection/src/task_snapshots.rs",
+      "bytes": 54473,
+      "sha256": "942b2d0195082b06f37f531ca4e2f659e1ff9db0753281f84d3d10316f4bb7b2"
+    },
+    {
+      "path": "apps/desktop/scripts/desktop-build-paths.mjs",
+      "bytes": 5577,
+      "sha256": "0f5df58a8821a4efa414cd573370b76b7c49d7066512c1418b8de0e94d5d8d2b"
+    },
+    {
+      "path": "apps/desktop/scripts/package-target.ts",
+      "bytes": 25312,
+      "sha256": "8511810028e9a5bcf74c7af7e347fa3e5b61d06da24a8136ccb97f74561e87a9"
+    }
+  ]
+}

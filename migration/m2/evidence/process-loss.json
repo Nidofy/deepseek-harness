@@ -1,0 +1,29 @@
+{
+  "status": "PASS",
+  "result": [
+    {
+      "point": "prepared",
+      "killed": true,
+      "reconciled": true,
+      "committed": false
+    },
+    {
+      "point": "credential-staged",
+      "killed": true,
+      "reconciled": true,
+      "committed": false
+    },
+    {
+      "point": "committed",
+      "killed": true,
+      "reconciled": true,
+      "committed": true
+    },
+    {
+      "point": "applied",
+      "killed": true,
+      "reconciled": true,
+      "committed": true
+    }
+  ]
+}

@@ -7,6 +7,10 @@ node_modules/
 lib/
 *.tsbuildinfo
 pnpm-debug.log
+# Local migration/build transcripts; curated evidence lives in evidence directories.
+/*.log
+/migration/*.log
+/migration/m4-pet-fixes/package.log
 .pnpm-store/
 .cache/
 examples/*/*.jsonl
@@ -32,6 +36,7 @@ mise.toml
 dist-exe/
 /dist/
 apps/desktop/.desktop-build/
+/.build/
 python/sdk-runtime/src/deepseek_harness_runtime/runtime/
 python/**/__pycache__/
 python/**/.pytest_cache/

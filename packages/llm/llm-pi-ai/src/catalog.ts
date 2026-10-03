@@ -633,6 +633,8 @@ export type PiAiModelOverride = Omit<PiAiModelProfile, 'id'>
 
 /** The route-level facts model materialization reads. */
 export interface RouteCatalogRequest {
+  /** Installed catalog source; an explicit missing provider is rejected. Defaults to the route key. */
+  catalogProvider?: string
   /** Provider route key, stamped onto every materialized model. */
   provider: string
   /** Wire protocol override; absent defers to each catalog model's own API. */
@@ -843,8 +845,13 @@ export function resolveRouteModels(
   validation: 'strict' | 'deferred' = 'strict',
 ): RouteCatalog {
   const { provider } = request
-  const defaults = catalogModels(provider)
-  const providerBaseUrl = catalogProvider(provider)?.baseUrl
+  const source = request.catalogProvider ?? provider
+  const installed = catalogProvider(source)
+  if (request.catalogProvider !== undefined && installed === undefined) {
+    invalid(provider, `names catalogProvider "${source}", which the installed catalog does not contain`)
+  }
+  const defaults = catalogModels(source)
+  const providerBaseUrl = installed?.baseUrl
   // An absent `models` key and an empty one are the same request: the config
   // schema materializes `[]` for the absent case, and an empty catalog could
   // serve no request anyway, so both mean "serve the installed catalog".

@@ -1,0 +1,16 @@
+verify-repository-references: use release tags or maintained repository links:
+  migration/m0/couplings.json:3 commit-hash
+  migration/m0/evidence/artifact.json:5 commit-hash
+  migration/m0/evidence/patch-checks.json:5 commit-hash
+  migration/m0/evidence/source-verification.json:3 commit-hash
+  migration/m0/evidence/source-verification.json:5 commit-hash
+  migration/m0/evidence/summary.json:6 commit-hash
+  migration/m0/evidence/summary.json:7 commit-hash
+  migration/m0/source-lock.json:6 commit-hash
+  migration/m0/source-lock.json:13 commit-hash
+  migration/m1/evidence/summary.json:8 commit-hash
+  migration/m4-fixes/build-candidate.ps1:12 commit-hash
+  migration/m4-layout-fixes/build-candidate.ps1:12 commit-hash
+  migration/m4-pet-fixes/build-candidate.ps1:12 commit-hash
+  migration/m4/origin.json:2 commit-hash
+  migration/m4/origin.json:3 commit-hash

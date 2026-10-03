@@ -86,6 +86,8 @@ function harnessApiKeyAuth(name: string): ApiKeyAuth {
 
 /** The resolved route facts provider construction reads. */
 export interface ProviderSpec {
+  /** Installed provider supplying native dispatch and auth; defaults to the route key. */
+  catalogProvider?: string
   /** Provider route key; also the `Models` collection key and each model's `provider`. */
   provider: string
   /** Display name for selectors and status labels. */
@@ -165,7 +167,7 @@ function reuseCatalogProvider(base: Provider, spec: ProviderSpec): Provider {
  * @throws Error when the route names a wire protocol this build cannot serve.
  */
 export function buildProvider(spec: ProviderSpec): Provider {
-  const catalog = catalogProvider(spec.provider)
+  const catalog = catalogProvider(spec.catalogProvider ?? spec.provider)
   // A catalog route keeping its catalog protocol reuses the catalog provider;
   // an explicit protocol means the deployment is repointing the route at a
   // different wire format, which only the protocol table can serve.

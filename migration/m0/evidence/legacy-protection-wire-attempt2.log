@@ -1,0 +1,39 @@
+    Finished `test` profile [unoptimized + debuginfo] target(s) in 0.25s
+     Running unittests src\main.rs (src-tauri\target\debug\deps\DSHDesktop-29fbae4a8261cd2f.exe)
+
+running 1 test
+test task_snapshots::tests::automatic_snapshots_real_dsh_wire has been running for over 60 seconds
+node:internal/modules/run_main:107
+    triggerUncaughtException(
+    ^
+
+AssertionError [ERR_ASSERTION]: {"schemaVersion":1,"kind":"desktop-self-test","status":"RUNNING","mode":"local","startedAt":1790651250408,"endedAt":null,"durationMs":null,"configurationFingerprint":null,"budget":{"timeoutMs":180000,"providerRequests":0,"maxOutputTokensPerRequest":64,"syntheticInputBytesPerCacheRequest":2048,"retries":0},"warning":null,"rows":[{"id":"node","group":"local","label":"捆绑 Node 完整性","scope":"核对实际进程路径、版本及官方固定 SHA-256。","status":"PASS","code":"OK","durationMs":215,"metrics":{}},{"id":"dsh","group":"local","label":"完整运行时文件","scope":"逐文件核对 DSH/依赖、Node、WebView2 和桌面模块；检测缺失、修改及额外文件。清单不是数字签名。","status":"SKIPPED","code":"NOT_SELECTED","durationMs":null,"metrics":{}},{"id":"modules","group":"local","label":"桌面扩展完整性","scope":"逐文件校验构建清单中的桌面扩展。","status":"SKIPPED","code":"NOT_SELECTED","durationMs":null,"metrics":{}},{"id":"webview","group":"local","label":"Fixed WebView2 文件","scope":"逐文件校验浏览器清单；不代表窗口已成功启动。","status":"SKIPPED","code":"NOT_SELECTED","durationMs":null,"metrics":{}},{"id":"storage","group":"local","label":"存储与原子写入","scope":"在自检目录写入、替换、重新读取合成记录。","status":"SKIPPED","code":"NOT_SELECTED","durationMs":null,"metrics":{}},{"id":"shell","group":"local","label":"原生命令与文件读写","scope":"通过 DSH workspace-write 沙箱执行固定命令。","status":"SKIPPED","code":"NOT_SELECTED","durationMs":null,"metrics":{}},{"id":"skills","group":"local","label":"原生 Skill 加载","scope":"只发现并加载自检目录中的合成 Skill。","status":"SKIPPED","code":"NOT_SELECTED","durationMs":null,"metrics":{}},{"id":"action-trust","group":"local","label":"操作信任拦截","scope":"未信任的合成操作必须被拒绝。","status":"SKIPPED","code":"NOT_SELECTED","durationMs":null,"metrics":{}},{"id":"action-run","group":"local","label":"操作执行与冷读","scope":"信任固定合成操作，执行后重新载入持久结果。","status":"SKIPPED","code":"NOT_SELECTED","durationMs":null,"metrics":{}},{"id":"action-change","group":"local","label":"操作配置变更","scope":"修改合成配置后必须重新信任。","status":"SKIPPED","code":"NOT_SELECTED","durationMs":null,"metrics":{}},{"id":"cancel","group":"local","label":"命令取消演练","scope":"取消隔离工作区中的原生长命令，验证取消结果。","status":"SKIPPED","code":"NOT_SELECTED","durationMs":null,"metrics":{}},{"id":"git","group":"local","label":"Git 状态与任务差异","scope":"在新建空仓库中验证状态、基线和修改比较。","status":"SKIPPED","code":"NOT_SELECTED","durationMs":null,"metrics":{}},{"id":"hg","group":"local","label":"Hg 状态与任务差异","scope":"在新建空仓库中验证；未安装 Hg 时跳过。","status":"SKIPPED","code":"NOT_SELECTED","durationMs":null,"metrics":{}},{"id":"artifact","group":"local","label":"产物变化保护","scope":"更新合成文件后旧下载引用必须失效。","status":"SKIPPED","code":"NOT_SELECTED","durationMs":null,"metrics":{}},{"id":"prefix","group":"local","label":"前缀分类契约","scope":"验证追加、改写与缓存路由变化；完整原生序列由构建门禁覆盖。","status":"SKIPPED","code":"NOT_SELECTED","durationMs":null,"metrics":{}},{"id":"recovery","group":"local","label":"中断状态冷读","scope":"持久化合成中断事件投影，保持未确认副作用为未知。","status":"SKIPPED","code":"NOT_SELECTED","durationMs":null,"metrics":{}},{"id":"notification","group":"local","label":"通知去重与隐私","scope":"合成事件仅进入独立内存 feed，不弹系统通知。","status":"SKIPPED","code":"NOT_SELECTED","durationMs":null,"metrics":{}},{"id":"probe-failure","group":"local","label":"探针失败演练","scope":"注入适配失败，确认停止后续请求并保留结束状态。","status":"SKIPPED","code":"NOT_SELECTED","durationMs":null,"metrics":{}},{"id":"connection","group":"provider","label":"连接请求","scope":"使用当前连接和原生适配器发送限定合成请求。","status":"SKIPPED","code":"NOT_SELECTED","durationMs":null,"metrics":{}},{"id":"streaming","group":"provider","label":"流式输出","scope":"检查适配层实际输出块及终止状态。","status":"SKIPPED","code":"NOT_SELECTED","durationMs":null,"metrics":{}},{"id":"tool-call","group":"provider","label":"工具调用协议","scope":"请求固定 echo 工具并验证参数；不执行模型生成命令。","status":"SKIPPED","code":"NOT_SELECTED","durationMs":null,"metrics":{}},{"id":"cache-counter","group":"provider","label":"缓存计数可见性","scope":"呈现适配层计数覆盖；原始服务字段覆盖仍未知。","status":"SKIPPED","code":"NOT_SELECTED","durationMs":null,"metrics":{}},{"id":"cache-repeat","group":"provider","label":"重复前缀缓存读取","scope":"只有重复请求报告正缓存读取才通过；否则未知。","status":"SKIPPED","code":"NOT_SELECTED","durationMs":null,"metrics":{}},{"id":"native-acceptance","group":"manual","label":"原生窗口与恢复现场验收","scope":"需现场检查通知弹出/点击、窗口恢复及真实异常退出。","status":"UNKNOWN","code":"FIELD_UNVERIFIED","durationMs":null,"metrics":{}},{"id":"egress","group":"manual","label":"企业网络现场验收","scope":"需目标机网络观察；本机自检不能证明系统全局无出网。","status":"UNKNOWN","code":"FIELD_UNVERIFIED","durationMs":null,"metrics":{}}],"id":"ae2b7b61-cb57-4209-b664-e68c8d037d40"}
++ actual - expected
+
++ 'RUNNING'
+- 'COMPLETED'
+
+    at file:///D:/Documents/FeiyangChen/devApps/dshWinUi/tests/task-snapshot-wire.mjs:99:10 {
+  generatedMessage: false,
+  code: 'ERR_ASSERTION',
+  actual: 'RUNNING',
+  expected: 'COMPLETED',
+  operator: 'strictEqual',
+  diff: 'simple'
+}
+
+Node.js v24.16.0
+
+thread 'task_snapshots::tests::automatic_snapshots_real_dsh_wire' (17144) panicked at src\task_snapshots.rs:1947:13:
+native DSH snapshot openai failed
+note: run with `RUST_BACKTRACE=1` environment variable to display a backtrace
+test task_snapshots::tests::automatic_snapshots_real_dsh_wire ... FAILED
+
+failures:
+
+failures:
+    task_snapshots::tests::automatic_snapshots_real_dsh_wire
+
+test result: FAILED. 0 passed; 1 failed; 0 ignored; 0 measured; 93 filtered out; finished in 66.60s
+
+error: test failed, to rerun pass `--bin DSHDesktop`

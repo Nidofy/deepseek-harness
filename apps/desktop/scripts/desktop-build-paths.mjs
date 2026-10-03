@@ -38,16 +38,21 @@ function assertSupportedTarget(target) {
 /**
  * Return the mutable preparation and artifact directories owned by one release target.
  * @param {'mac-arm64' | 'mac-x64' | 'win-x64'} target - Supported Desktop target name.
+ * @param {string} distribution - Distribution whose artifacts must remain isolated.
+ * @param {string | undefined} candidate - Optional isolated local candidate directory name.
  * @returns {{ root: string, artifacts: string, unsignedArtifacts: string, runtime: string, packageSet: string, dsh: string, dshPnpm: string, electron: string, packedDsh: string, packedVendor: string, packedLandlock: string, downloads: string }} Target paths plus the shared immutable download cache.
  */
-export function desktopTargetBuildPaths(target) {
+export function desktopTargetBuildPaths(target, distribution = 'upstream', candidate) {
   assertSupportedTarget(target)
-  const root = join(BUILD_ROOT, 'targets', target)
+  if (!['upstream', 'intranet', 'personal'].includes(distribution)) throw new Error('desktop build paths: invalid distribution')
+  if (candidate !== undefined && !/^[a-z0-9][a-z0-9-]{0,31}$/.test(candidate)) throw new Error('desktop build paths: invalid candidate')
+  const targetRoot = join(BUILD_ROOT, 'targets', target)
+  const root = candidate === undefined ? targetRoot : join(targetRoot, 'candidates', candidate)
   const packed = join(root, 'packed')
   return {
     root,
-    artifacts: join(root, 'artifacts'),
-    unsignedArtifacts: join(root, 'unsigned-artifacts'),
+    artifacts: join(root, distribution === 'personal' ? 'personal' : 'artifacts'),
+    unsignedArtifacts: join(root, distribution === 'personal' ? 'personal-unsigned' : 'unsigned-artifacts'),
     runtime: join(root, 'runtime'),
     packageSet: join(root, 'package-set'),
     dsh: join(root, 'dsh'),
@@ -86,7 +91,7 @@ export function resolveDesktopTargetBuildPaths(
   hostPlatform = process.platform,
   hostArch = process.arch,
 ) {
-  return desktopTargetBuildPaths(resolveDesktopBuildTarget(env, hostPlatform, hostArch))
+  return desktopTargetBuildPaths(resolveDesktopBuildTarget(env, hostPlatform, hostArch), env.DSH_DESKTOP_DISTRIBUTION, env.DSH_DESKTOP_BUILD_CANDIDATE)
 }
 
 /**

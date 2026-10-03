@@ -1,0 +1,356 @@
+{
+  "status": "PASS",
+  "scope": "M2+M3+M4",
+  "run": "D:\\Documents\\FeiyangChen\\devApps\\dshWinUi\\electron\\apps\\desktop\\.desktop-build\\qualification\\m4-JRc7uQ",
+  "realCredentialsUsed": false,
+  "enterpriseAcceptance": "deferred",
+  "checks": {
+    "casAndAck": true,
+    "activeRetryUsesAAndNewTurnUsesBWithoutRestart": true,
+    "sameModelIndependentConnections": true,
+    "nativeProtectionPackagedLifecycle": true,
+    "protectionFailurePreventsModelAndTools": true,
+    "desktopConnectionEditor": true,
+    "copyImportIdempotentSourceUnchanged": true,
+    "restartRetainsConnectionsAndHistory": true,
+    "gitOfficialShellPreviewCommitPush": true,
+    "realMenuReviewComposerAppendPreservesDraft": true,
+    "buildTrustOfficialShellCancelNativeRestore": true,
+    "nativeArtifactLeaseOpenRevealSaveAndRecheck": true,
+    "officialPresentEventArtifactProjection": true,
+    "modelToolUsesOfficialSessionShellAndProtection": true,
+    "officialSessionRecoveryNotificationsAutomaticBaseline": true,
+    "workbenchAllTabsRender": true,
+    "chineseWorkbenchAndSessionArtifacts": true,
+    "m4BoundedProbeOfficialPayloadHookRedactionAndArchives": true,
+    "m4IndependentVisionConsentAndImageProtocol": true,
+    "m4ProbeCancellationStopsRemainingBudget": true,
+    "m4PetRealCanvasWindowResourcesPinNavigateDispose": true,
+    "m4OfflineOfficialSchedulePausedImportExplicitFutureRestore": true,
+    "m4CancelledOfficialQuitPreservesPetController": true,
+    "m4BilingualDashboardAllTabsRender": true,
+    "m4OfficialThemeAndFontLiveAdoption": true,
+    "m4OptionalUnloadReloadLeavesCoreOwnersAvailable": true,
+    "importedCopyBootsWithHistoryAndNoCredentials": true
+  },
+  "extras": {
+    "probe": {
+      "schemaVersion": 2,
+      "id": "bb8552ec-e411-4f0e-8216-860fa0832298",
+      "status": "COMPLETED",
+      "budget": {
+        "inputTokens": 512,
+        "inputBytes": 2048,
+        "unit": "estimated-tokens:characters/4",
+        "requests": 4,
+        "maxOutputTokens": 64,
+        "retries": 0
+      },
+      "rows": [
+        {
+          "group": "A",
+          "repeat": 1,
+          "status": "COMPLETED",
+          "usage": {
+            "inputTokens": 3,
+            "outputTokens": 1,
+            "totalTokens": 4,
+            "cacheReadTokens": null,
+            "cacheWriteTokens": null,
+            "reasoningTokens": null,
+            "aggregateInputTokens": 3,
+            "source": "dsh-adapter",
+            "cacheReporting": "unavailable-at-logical-boundary",
+            "aggregateInputSource": "derived-from-total-minus-output"
+          },
+          "firstOutputMs": 34.01850000000559,
+          "durationMs": 34.39080000000831
+        },
+        {
+          "group": "A",
+          "repeat": 2,
+          "status": "COMPLETED",
+          "usage": {
+            "inputTokens": 3,
+            "outputTokens": 1,
+            "totalTokens": 4,
+            "cacheReadTokens": null,
+            "cacheWriteTokens": null,
+            "reasoningTokens": null,
+            "aggregateInputTokens": 3,
+            "source": "dsh-adapter",
+            "cacheReporting": "unavailable-at-logical-boundary",
+            "aggregateInputSource": "derived-from-total-minus-output"
+          },
+          "firstOutputMs": 3.305800000001909,
+          "durationMs": 3.4562000000005355
+        },
+        {
+          "group": "B",
+          "repeat": 1,
+          "status": "COMPLETED",
+          "usage": {
+            "inputTokens": 3,
+            "outputTokens": 1,
+            "totalTokens": 4,
+            "cacheReadTokens": null,
+            "cacheWriteTokens": null,
+            "reasoningTokens": null,
+            "aggregateInputTokens": 3,
+            "source": "dsh-adapter",
+            "cacheReporting": "unavailable-at-logical-boundary",
+            "aggregateInputSource": "derived-from-total-minus-output"
+          },
+          "firstOutputMs": 3.141200000012759,
+          "durationMs": 3.26940000000468
+        },
+        {
+          "group": "B",
+          "repeat": 2,
+          "status": "COMPLETED",
+          "usage": {
+            "inputTokens": 3,
+            "outputTokens": 1,
+            "totalTokens": 4,
+            "cacheReadTokens": null,
+            "cacheWriteTokens": null,
+            "reasoningTokens": null,
+            "aggregateInputTokens": 3,
+            "source": "dsh-adapter",
+            "cacheReporting": "unavailable-at-logical-boundary",
+            "aggregateInputSource": "derived-from-total-minus-output"
+          },
+          "firstOutputMs": 2.631699999998091,
+          "durationMs": 2.747000000003027
+        }
+      ],
+      "conclusion": "INCONCLUSIVE"
+    },
+    "selftest": {
+      "kind": "local-only",
+      "networkRequests": 0,
+      "checks": [
+        {
+          "name": "official-llm",
+          "status": "PASS"
+        },
+        {
+          "name": "image-storage",
+          "status": "PASS"
+        },
+        {
+          "name": "preferences",
+          "status": "PASS"
+        },
+        {
+          "name": "optional-features",
+          "status": "PASS"
+        },
+        {
+          "name": "provider-and-cache",
+          "status": "NOT_RUN",
+          "action": "cache/start requires explicit request budget"
+        },
+        {
+          "name": "vision-provider",
+          "status": "NOT_RUN",
+          "action": "vision requires selected image and confirmation"
+        }
+      ]
+    },
+    "archivedReports": 2,
+    "packageExportSha256": "5646ca6a8866102702c5f46ce64ed134384fe0a2f1ccf366309c7b846f4dbf77"
+  },
+  "requests": [
+    {
+      "protocol": "openai",
+      "path": "/openai/v1/chat/completions",
+      "model": "shared-model",
+      "credentialMatched": true,
+      "credentialSlot": "openai",
+      "marker": "QUALIFIED_OPENAI_1",
+      "toolUse": false
+    },
+    {
+      "protocol": "openai",
+      "path": "/openai/v1/chat/completions",
+      "model": "shared-model",
+      "credentialMatched": true,
+      "credentialSlot": "openai",
+      "marker": "QUALIFIED_OPENAI_2",
+      "toolUse": false
+    },
+    {
+      "protocol": "anthropic",
+      "path": "/anthropic/v1/messages?beta=true",
+      "model": "shared-model",
+      "credentialMatched": true,
+      "credentialSlot": "anthropic",
+      "marker": "QUALIFIED_ANTHROPIC_3",
+      "toolUse": false
+    },
+    {
+      "protocol": "anthropic",
+      "path": "/anthropic/v1/messages?beta=true",
+      "model": "shared-model",
+      "credentialMatched": true,
+      "credentialSlot": "beta",
+      "marker": "QUALIFIED_ANTHROPIC_4",
+      "toolUse": false
+    },
+    {
+      "protocol": "anthropic",
+      "path": "/anthropic/v1/messages?beta=true",
+      "model": "shared-model",
+      "credentialMatched": true,
+      "credentialSlot": "beta",
+      "marker": "QUALIFIED_ANTHROPIC_5",
+      "toolUse": false
+    },
+    {
+      "protocol": "anthropic",
+      "path": "/anthropic/v1/messages?beta=true",
+      "model": "shared-model",
+      "credentialMatched": true,
+      "credentialSlot": "anthropic",
+      "marker": "QUALIFIED_ANTHROPIC_6",
+      "toolUse": false
+    },
+    {
+      "protocol": "anthropic",
+      "path": "/anthropic/v1/messages?beta=true",
+      "model": "shared-model",
+      "credentialMatched": true,
+      "credentialSlot": "anthropic",
+      "marker": "QUALIFIED_ANTHROPIC_7",
+      "toolUse": false
+    },
+    {
+      "protocol": "anthropic",
+      "path": "/anthropic/v1/messages?beta=true",
+      "model": "shared-model",
+      "credentialMatched": true,
+      "credentialSlot": "anthropic",
+      "marker": "QUALIFIED_ANTHROPIC_8",
+      "toolUse": true
+    },
+    {
+      "protocol": "anthropic",
+      "path": "/anthropic/v1/messages?beta=true",
+      "model": "shared-model",
+      "credentialMatched": true,
+      "credentialSlot": "anthropic",
+      "marker": "QUALIFIED_ANTHROPIC_9",
+      "toolUse": true
+    },
+    {
+      "protocol": "anthropic",
+      "path": "/anthropic/v1/messages?beta=true",
+      "model": "shared-model",
+      "credentialMatched": true,
+      "credentialSlot": "anthropic",
+      "marker": "QUALIFIED_ANTHROPIC_10",
+      "toolUse": false
+    },
+    {
+      "protocol": "openai",
+      "path": "/openai/v1/chat/completions",
+      "model": "shared-model",
+      "credentialMatched": true,
+      "credentialSlot": "openai",
+      "marker": "QUALIFIED_OPENAI_11",
+      "toolUse": false
+    },
+    {
+      "protocol": "openai",
+      "path": "/openai/v1/chat/completions",
+      "model": "shared-model",
+      "credentialMatched": true,
+      "credentialSlot": "openai",
+      "marker": "QUALIFIED_OPENAI_12",
+      "toolUse": false
+    },
+    {
+      "protocol": "openai",
+      "path": "/openai/v1/chat/completions",
+      "model": "shared-model",
+      "credentialMatched": true,
+      "credentialSlot": "openai",
+      "marker": "QUALIFIED_OPENAI_13",
+      "toolUse": false
+    },
+    {
+      "protocol": "openai",
+      "path": "/openai/v1/chat/completions",
+      "model": "shared-model",
+      "credentialMatched": true,
+      "credentialSlot": "openai",
+      "marker": "QUALIFIED_OPENAI_14",
+      "toolUse": false
+    },
+    {
+      "protocol": "openai",
+      "path": "/openai/v1/chat/completions",
+      "model": "shared-model",
+      "credentialMatched": true,
+      "credentialSlot": "openai",
+      "marker": "QUALIFIED_OPENAI_15",
+      "toolUse": false
+    },
+    {
+      "protocol": "anthropic",
+      "path": "/anthropic/v1/messages?beta=true",
+      "model": "shared-model",
+      "credentialMatched": true,
+      "credentialSlot": "anthropic",
+      "marker": "QUALIFIED_ANTHROPIC_16",
+      "toolUse": false
+    },
+    {
+      "protocol": "openai",
+      "path": "/openai/v1/chat/completions",
+      "model": "shared-model",
+      "credentialMatched": true,
+      "credentialSlot": "openai",
+      "marker": "QUALIFIED_OPENAI_17",
+      "toolUse": false
+    },
+    {
+      "protocol": "openai",
+      "path": "/openai/v1/chat/completions",
+      "model": "shared-model",
+      "credentialMatched": true,
+      "credentialSlot": "openai",
+      "marker": "QUALIFIED_OPENAI_18",
+      "toolUse": false
+    }
+  ],
+  "modelToolContract": [
+    {
+      "name": "list_project_actions",
+      "description": "List the reviewed project build/test actions. Trust is granted only by the local user in the desktop workbench.",
+      "eager_input_streaming": true,
+      "input_schema": {
+        "type": "object",
+        "properties": {},
+        "required": []
+      }
+    },
+    {
+      "name": "run_project_action",
+      "description": "Run a locally trusted action ID under current session permissions. Never automatically repeat interrupted actions with unknown side effects.",
+      "eager_input_streaming": true,
+      "input_schema": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "string"
+          }
+        },
+        "required": [
+          "id"
+        ]
+      }
+    }
+  ]
+}

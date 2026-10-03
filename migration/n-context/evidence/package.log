@@ -1,0 +1,264 @@
+$ tsc -b && pnpm run bundle
+$ tsdown
+ℹ tsdown v0.22.2 powered by rolldown v1.1.1
+ℹ config file: D:\Documents\FeiyangChen\devApps\dshWinUi\electron\apps\desktop\tsdown.config.ts
+ℹ entry: lib/types/command-manager-entry.js
+ℹ target: es2024
+ℹ tsconfig: tsconfig.json
+ℹ entry: lib/types/preload-app.js
+ℹ target: es2024
+ℹ tsconfig: tsconfig.json
+ℹ entry: lib/types/preload-welcome.js
+ℹ target: es2024
+ℹ tsconfig: tsconfig.json
+ℹ entry: lib/types/preload-platform-account.js
+ℹ target: es2024
+ℹ tsconfig: tsconfig.json
+ℹ entry: lib/types/main.js
+ℹ target: es2024
+ℹ tsconfig: tsconfig.json
+ℹ entry: lib/types/preload-update-dialog.js
+ℹ target: es2024
+ℹ tsconfig: tsconfig.json
+ℹ entry: lib/types/preload-mandatory.js
+ℹ target: es2024
+ℹ tsconfig: tsconfig.json
+ℹ Build start
+ℹ [CJS] lib\preload-platform-account.cjs  2.08 kB │ gzip: 0.90 kB
+ℹ [CJS] 1 files, total: 2.08 kB
+ℹ [CJS] lib\preload-update-dialog.cjs  1.11 kB │ gzip: 0.52 kB
+ℹ [CJS] 1 files, total: 1.11 kB
+ℹ [CJS] lib\preload-welcome.cjs  21.90 kB │ gzip: 7.06 kB
+ℹ [CJS] 1 files, total: 21.90 kB
+ℹ [CJS] lib\preload-mandatory.cjs  1.03 kB │ gzip: 0.47 kB
+ℹ [CJS] 1 files, total: 1.03 kB
+ℹ [CJS] lib\preload-app.cjs  42.38 kB │ gzip: 13.15 kB
+ℹ [CJS] 1 files, total: 42.38 kB
+✔ Build complete in 38ms
+✔ Build complete in 39ms
+✔ Build complete in 39ms
+✔ Build complete in 39ms
+✔ Build complete in 39ms
+ℹ [ESM] lib\command-manager-entry.js  22.86 kB │ gzip: 6.82 kB
+ℹ [ESM] 1 files, total: 22.86 kB
+✔ Build complete in 43ms
+ℹ Hint: consider adding deps.onlyBundle option to avoid unintended bundling of dependencies, or set deps.onlyBundle: false to disable this hint.
+See more at https://tsdown.dev/options/dependencies#deps-onlybundle
+Detected dependencies in bundle:
+- js-yaml
+ℹ [ESM] lib\main.js  511.82 kB │ gzip: 135.30 kB
+ℹ [ESM] 1 files, total: 511.82 kB
+✔ Build complete in 79ms
+vite v6.4.3 building for production...
+transforming...
+✓ 34 modules transformed.
+rendering chunks...
+computing gzip size...
+lib/welcome/Montserrat-OFL.txt          4.40 kB │ gzip:  1.98 kB
+lib/welcome/montserrat-light.woff2     61.55 kB
+lib/welcome/montserrat-regular.woff2   62.01 kB
+lib/welcome/montserrat-medium.woff2    62.15 kB
+lib/welcome/brand-font.css              0.55 kB │ gzip:  0.20 kB
+lib/welcome/welcome.css                36.98 kB │ gzip:  5.16 kB
+lib/welcome/welcome.js                154.65 kB │ gzip: 49.90 kB
+✓ built in 424ms
+package: @deepseek-ai/dsh-client-ui-layout@0.2.0-rc.2
+Tarball Contents
+lib/client.js
+lib/index.js
+lib/types/client/AppFrame.d.ts
+lib/types/client/columns.d.ts
+lib/types/client/DocumentTitle.d.ts
+lib/types/client/index.d.ts
+lib/types/client/service.d.ts
+lib/types/client/shortcut-locales.d.ts
+lib/types/client/stores.d.ts
+lib/types/client/theme-presenter.d.ts
+lib/types/index.d.ts
+LICENSE
+package.json
+README.i18n.yaml
+README.md
+README.zh.md
+Tarball Details
+D:\Documents\FeiyangChen\devApps\dshWinUi\electron\apps\desktop\.desktop-build\targets\win-x64\candidates\n-context\packed\dsh\deepseek-ai-dsh-client-ui-layout-0.2.0-rc.2.tgz
+package: @deepseek-ai/dsh-desktop-host@0.2.0-rc.2
+Tarball Contents
+lib/cli.js
+lib/index.js
+LICENSE
+package.json
+Tarball Details
+D:\Documents\FeiyangChen\devApps\dshWinUi\electron\apps\desktop\.desktop-build\targets\win-x64\candidates\n-context\packed\dsh\deepseek-ai-dsh-desktop-host-0.2.0-rc.2.tgz
+package: @nidofy/dsh-desktop-extras@0.2.0-rc.2
+Tarball Contents
+assets/pet/animation.js
+assets/pet/assets/xiaojing/asset-manifest.json
+assets/pet/assets/xiaojing/atlas-layout.json
+assets/pet/assets/xiaojing/extensions/dragged.webp
+assets/pet/assets/xiaojing/extensions/happy.webp
+assets/pet/assets/xiaojing/extensions/interactions.json
+assets/pet/assets/xiaojing/extensions/manifest.js
+assets/pet/assets/xiaojing/extensions/pat.webp
+assets/pet/assets/xiaojing/manifest.js
+assets/pet/assets/xiaojing/pet.json
+assets/pet/assets/xiaojing/spritesheet.webp
+assets/pet/assets/xiaojing/staging.json
+assets/pet/boot.js
+assets/pet/drag.js
+assets/pet/gestures.js
+assets/pet/idle.js
+assets/pet/index.html
+assets/pet/interactions.js
+assets/pet/pet.css
+assets/pet/pet.js
+assets/pet/state.js
+assets/pets/xiaojing/asset-manifest.json
+assets/pets/xiaojing/atlas-layout.json
+assets/pets/xiaojing/checksums.json
+assets/pets/xiaojing/DEVELOPMENT-PROMPT.md
+assets/pets/xiaojing/extensions/dragged.webp
+assets/pets/xiaojing/extensions/happy.webp
+assets/pets/xiaojing/extensions/interactions.json
+assets/pets/xiaojing/extensions/pat.webp
+assets/pets/xiaojing/INTEGRATION.md
+assets/pets/xiaojing/pet.json
+assets/pets/xiaojing/portrait.png
+assets/pets/xiaojing/preview.html
+assets/pets/xiaojing/spritesheet.png
+assets/pets/xiaojing/spritesheet.webp
+assets/theme/icon.png
+assets/theme/wallpaper.png
+cordis.patch.yml
+lib/client.js
+lib/compaction-CizG1EIN.js
+lib/compaction-DqzWypzz.js
+lib/compaction-f9gWLTDN.js
+lib/compaction.js
+lib/index.js
+lib/paths.js
+lib/types/client/appearance.d.ts
+lib/types/client/Environment.d.ts
+lib/types/client/EnvironmentExplorer.d.ts
+lib/types/client/EnvironmentIcon.d.ts
+lib/types/client/index.d.ts
+lib/types/client/locales.d.ts
+lib/types/client/NotebookPanel.d.ts
+lib/types/compaction.d.ts
+lib/types/connection-contract.d.ts
+lib/types/context.d.ts
+lib/types/index.d.ts
+lib/types/notebook.d.ts
+lib/types/paths.d.ts
+lib/types/pets.d.ts
+lib/types/probe.d.ts
+lib/types/schedules.d.ts
+lib/types/shared/notebook-types.d.ts
+lib/types/state.d.ts
+lib/types/ui.d.ts
+LICENSE
+package.json
+README.i18n.yaml
+README.md
+README.zh.md
+Tarball Details
+D:\Documents\FeiyangChen\devApps\dshWinUi\electron\apps\desktop\.desktop-build\targets\win-x64\candidates\n-context\packed\dsh\nidofy-dsh-desktop-extras-0.2.0-rc.2.tgz
+package: @nidofy/dsh-desktop-bundle@0.2.0-rc.2
+Tarball Contents
+context-presets.patch.yml
+cordis.patch.yml
+lib/index.js
+lib/types/index.d.ts
+LICENSE
+package.json
+README.i18n.yaml
+README.md
+README.zh.md
+Tarball Details
+D:\Documents\FeiyangChen\devApps\dshWinUi\electron\apps\desktop\.desktop-build\targets\win-x64\candidates\n-context\packed\dsh\nidofy-dsh-desktop-bundle-0.2.0-rc.2.tgz
+package: @deepseek-ai/dsh-compaction-basic@0.2.0-rc.2
+Tarball Contents
+lib/index.js
+lib/types/config.d.ts
+lib/types/index.d.ts
+lib/types/region.d.ts
+lib/types/summarizer.d.ts
+lib/types/types.d.ts
+LICENSE
+package.json
+README.i18n.yaml
+README.md
+README.zh.md
+Tarball Details
+D:\Documents\FeiyangChen\devApps\dshWinUi\electron\apps\desktop\.desktop-build\targets\win-x64\candidates\n-context\packed\dsh\deepseek-ai-dsh-compaction-basic-0.2.0-rc.2.tgz
+package: @deepseek-ai/dsh-cordis-client-runner@0.2.0-rc.2
+Tarball Contents
+lib/client.js
+lib/index.js
+lib/types/client/api-catalog.d.ts
+lib/types/client/evaluator.d.ts
+lib/types/client/guard.d.ts
+lib/types/client/index.d.ts
+lib/types/client/inspect-registry.d.ts
+lib/types/client/orchestrator.d.ts
+lib/types/client/providers.d.ts
+lib/types/client/runtime.d.ts
+lib/types/client/slot-catalog.d.ts
+lib/types/client/timer.d.ts
+lib/types/index.d.ts
+LICENSE
+package.json
+README.i18n.yaml
+README.md
+README.zh.md
+Tarball Details
+D:\Documents\FeiyangChen\devApps\dshWinUi\electron\apps\desktop\.desktop-build\targets\win-x64\candidates\n-context\packed\dsh\deepseek-ai-dsh-cordis-client-runner-0.2.0-rc.2.tgz
+package: @deepseek-ai/dsh-tool-cordis@0.2.0-rc.2
+Tarball Contents
+lib/index.js
+lib/types/api-catalog.d.ts
+lib/types/api-catalog.js
+lib/types/config.d.ts
+lib/types/config.js
+lib/types/host.d.ts
+lib/types/host.js
+lib/types/index.d.ts
+lib/types/index.js
+lib/types/present.d.ts
+lib/types/present.js
+lib/types/providers.d.ts
+lib/types/providers.js
+LICENSE
+package.json
+README.i18n.yaml
+README.md
+README.zh.md
+Tarball Details
+D:\Documents\FeiyangChen\devApps\dshWinUi\electron\apps\desktop\.desktop-build\targets\win-x64\candidates\n-context\packed\dsh\deepseek-ai-dsh-tool-cordis-0.2.0-rc.2.tgz
+$ tsx scripts/prepare-package-set.ts
+desktop package set: prepared D:\Documents\FeiyangChen\devApps\dshWinUi\electron\apps\desktop\.desktop-build\targets\win-x64\candidates\n-context\package-set
+$ tsx scripts/prepare-dsh.ts
+Progress: resolved 0, reused 0, downloaded 1, added 0
+Progress: resolved 89, reused 0, downloaded 89, added 0
+Progress: resolved 142, reused 0, downloaded 142, added 0
+Progress: resolved 211, reused 0, downloaded 211, added 0
+Progress: resolved 288, reused 0, downloaded 288, added 0
+Progress: resolved 290, reused 0, downloaded 290, added 0
+Progress: resolved 341, reused 0, downloaded 290, added 0
+Progress: resolved 416, reused 0, downloaded 290, added 0
+Progress: resolved 519, reused 0, downloaded 290, added 0
+Progress: resolved 606, reused 0, downloaded 290, added 0
+Progress: resolved 625, reused 0, downloaded 290, added 0
+[WARN] 1 deprecated subdependencies found: node-domexception@1.0.0
+Progress: resolved 627, reused 0, downloaded 290, added 0
+
+Done in 11.6s using pnpm v11.7.0
+PostQueuedCompletionStatus: (6) �����Ч��
+
+Error: desktop runtime: pnpm exited with 2147483651
+    at ChildProcess.<anonymous> (file:///D:/Documents/FeiyangChen/devApps/dshWinUi/electron/apps/desktop/scripts/prepare-dsh.ts:1:4217)
+    at ChildProcess.wrapper (node:events:639:12)
+    at ChildProcess.emit (node:events:514:28)
+    at maybeClose (node:internal/child_process:1141:16)
+    at Process.ChildProcess._handle.onexit (node:internal/child_process:306:5)
+[ELIFECYCLE] Command failed with exit code 1.

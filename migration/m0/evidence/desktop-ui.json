@@ -1,0 +1,12 @@
+{
+  "status": "PASS",
+  "run": "D:\\Documents\\FeiyangChen\\devApps\\dshWinUi\\electron\\apps\\desktop\\.desktop-build\\qualification\\m0-ui-6ZGhjR",
+  "modelRequests": "not initiated",
+  "networkIsolationCertified": false,
+  "welcomeAnalyticsEnabled": false,
+  "workspaceUrl": "dsh-app://app/",
+  "privateHome": "D:\\Documents\\FeiyangChen\\devApps\\dshWinUi\\electron\\apps\\desktop\\.desktop-build\\qualification\\m0-ui-6ZGhjR\\home",
+  "privateElectronData": "D:\\Documents\\FeiyangChen\\devApps\\dshWinUi\\electron\\apps\\desktop\\.desktop-build\\qualification\\m0-ui-6ZGhjR\\electron-data",
+  "credentialsSupplied": false,
+  "composerMounted": true
+}

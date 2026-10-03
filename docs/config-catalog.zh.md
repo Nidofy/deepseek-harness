@@ -1604,7 +1604,7 @@ export interface Config extends ProtocolConfig {
 
 - `inject`: `llm`
 - `refs`: `Api` (`@earendil-works/pi-ai`) · `CacheRetention` (`@earendil-works/pi-ai`) · `Model` (`@earendil-works/pi-ai`) · `ModelThinkingLevel` (`@earendil-works/pi-ai`) · `OpenAICompletionsCompat` (`@earendil-works/pi-ai`) · [`RetryPolicyConfig`](../packages/llm/llm/src/index.ts) · `ThinkingBudgets` (`@earendil-works/pi-ai`) · `Transport` (`@earendil-works/pi-ai`) · `Volatile` (`@deepseek-ai/cordis`)
-- `source`: [`packages/llm/llm-pi-ai/src/config.ts:222`](../packages/llm/llm-pi-ai/src/config.ts)
+- `source`: [`packages/llm/llm-pi-ai/src/config.ts:225`](../packages/llm/llm-pi-ai/src/config.ts)
 
 ```ts config-catalog
 /** Plugin configuration: the provider routes this instance owns. */
@@ -1619,6 +1619,8 @@ export interface Config {
 
 /** Configuration for one pi-ai provider route; the `providers` dict key IS the route. */
 export interface PiAiProviderProfile {
+  /** Installed provider whose catalog and native dispatch this route inherits; defaults to the route key. */
+  catalogProvider?: string
   /** Credential reference (environment-variable name) resolved per request through `ctx.credentials`. */
   apiKeyEnv?: string
   /** Name shown by configuration surfaces; defaults to the route key. */
@@ -4324,6 +4326,46 @@ export interface Config {
 ```
 <!-- END GENERATED config-catalog:@deepseek-ai/dsh-workspace-changes -->
 
+<!-- BEGIN GENERATED config-catalog:@nidofy/dsh-desktop-extras -->
+<a id="nidofydsh-desktop-extras"></a>
+
+## `@nidofy/dsh-desktop-extras`
+
+- `inject`: `connection` · `llm` · `tools` · `fs` · `attachments` · `sessionQuery` · `sessions` · `agents` · `systemPrompt`
+- `source`: [`packages/nidofy/desktop-extras/src/index.ts:31`](../packages/nidofy/desktop-extras/src/index.ts)
+
+```ts config-catalog
+/** Retention limits for optional local request diagnostics. */
+export interface Config {
+  /** Maximum request records retained in memory. */
+  maxRecords: number
+  /** Maximum approximate bytes retained in memory. */
+  maxBytes: number
+}
+```
+<!-- END GENERATED config-catalog:@nidofy/dsh-desktop-extras -->
+
+<!-- BEGIN GENERATED config-catalog:@nidofy/dsh-working-notebook -->
+<a id="nidofydsh-working-notebook"></a>
+
+## `@nidofy/dsh-working-notebook`
+
+- `inject`: `connection` · `tools` · `sessionQuery` · `sessions` · `systemPrompt`
+- `source`: [`packages/nidofy/working-notebook/src/index.ts:14`](../packages/nidofy/working-notebook/src/index.ts)
+
+```ts config-catalog
+/** Notebook bounds and the initial enhancement choice before a saved preference exists. */
+export interface Config {
+  /** Maximum note entries, including retired entries. */
+  maxEntries: number
+  /** Maximum serialized note snapshot and summary appendix bytes. */
+  maxBytes: number
+  /** Initial profile-wide enhancement choice before the first saved UI preference. */
+  autoOrganize: boolean
+}
+```
+<!-- END GENERATED config-catalog:@nidofy/dsh-working-notebook -->
+
 ## 无配置的可加载插件
 
 这些插件通过 `cordis.yml` 中不含 `config:` 块的条目加载；它们未声明任何配置接口。
@@ -4520,4 +4562,5 @@ export interface Config {
 | `@deepseek-ai/dsh-util-values` | — | [`packages/util/values/src/index.ts`](../packages/util/values/src/index.ts) |
 | `@deepseek-ai/dsh-util-workspace-path` | — | [`packages/util/workspace-path/src/index.ts`](../packages/util/workspace-path/src/index.ts) |
 | `@deepseek-ai/dsh-win32-process` | — | [`packages/subprocess/win32-process/src/index.ts`](../packages/subprocess/win32-process/src/index.ts) |
+| `@nidofy/dsh-desktop-bundle` | — | [`packages/nidofy/desktop-bundle/src/index.ts`](../packages/nidofy/desktop-bundle/src/index.ts) |
 <!-- END GENERATED config-catalog:library -->

@@ -1,0 +1,5 @@
+Final recheck after fixing generated Config documentation and README anchor placement.
+gen-config-catalog: 3 artifact(s) are up to date.
+verify-package-readme-model-experience: 319 README(s) checked (7 audited omissions, 129 structured, 228 model-context entries, 411 KV-cache fields, 18 fenced system-prompt entries, 28 catalog-linked tool-schema entries, 121 explained none, 62 indirect, 50 verbatim markdown blocks), all conform.
+verify-package-readme-limitations: 319 package READMEs checked (1 whitelisted), all conform.
+verify-translation-pairing: 1 named pair(s) consistent; the corpus-wide check still runs in doc-sync.

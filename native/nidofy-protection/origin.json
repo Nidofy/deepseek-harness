@@ -1,0 +1,19 @@
+{
+  "schemaVersion": 1,
+  "desktopVersion": "0.2.5-rc.1",
+  "files": [
+    {
+      "path": "src-tauri/src/task_snapshots.rs",
+      "sha256": "8fcd9c7631ed9a4746a96742e2a7637960625c791ac01af8fdeb9af379f079d1"
+    },
+    {
+      "path": "src-tauri/src/task_snapshots/archive.rs",
+      "sha256": "f21de80ca7d6eb60b0f7afdd3ad6d6a02b7d2b67701522643905a18c381d1cbb"
+    },
+    {
+      "path": "src-tauri/src/task_snapshots/details.rs",
+      "sha256": "81e65940c3fee8fa559210a9c3f2b6382f0783159cf01668b3b09d9ed251b53d"
+    }
+  ],
+  "extraction": "TaskBridge and Tauri-dependent test module excluded; native Store, scopes, archive and file identity code retained. Private-pipe begin/check wrapper and standalone executable added."
+}

@@ -1,0 +1,71 @@
+{
+  "status": "QUALIFIED_LOCAL_CANDIDATE",
+  "date": "2026-10-03",
+  "baseline": "dsh-v0.2.0-rc.2",
+  "candidate": "n-context",
+  "signed": false,
+  "published": false,
+  "realModelCredentialsUsed": false,
+  "appAsarSha256": "103bbabe9377c196a7f63efd925c81a8c65bb43d6b02538b96b722206eff76c5",
+  "m5BaselineUnchanged": true,
+  "coreChecks": {
+    "officialHistoryAndNotebookTools": true,
+    "chinesePersistentHistoryAnchor": true,
+    "inlineEditSearchSourceAndLiteralSnapshot": true,
+    "notesDoNotOverlapNarrowConversation": true,
+    "packagedManualCompactionPublishesNotebook": true,
+    "officialExplicitSessionReference": true,
+    "threeOptInPresetsMountAndRun": true,
+    "restartPreservesNotesIndexAndSnapshot": true
+  },
+  "layoutChecks": {
+    "bilingualRailAndOfficialDarkTheme": true,
+    "railNoOverlapAndResponsiveSidebars": true,
+    "foldExpandsCompanionAndHiddenPauses": true,
+    "tauriArtworkDecodesAndForcedColors": true,
+    "railNativeShortcuts": true,
+    "environmentInlinePatch": true,
+    "environmentDirtySwitchRefused": true,
+    "environmentCommitRequiresConfirmation": true,
+    "environmentCreateBranchConfirmed": true,
+    "environmentStalePreviewRefused": true,
+    "environmentPushPreviewNoMutation": true,
+    "environmentMenuDismissal": true,
+    "environmentExplicitWorkbenchOnly": true,
+    "environmentSessionSwitchAndNoRepository": true,
+    "environmentLocalizedDetails": true
+  },
+  "documentationGates": 43,
+  "testRuns": [
+    {
+      "passed": 127,
+      "scope": "Notebook, extras and official history tools"
+    },
+    {
+      "scope": "Notebook integration, official compaction and reference UI",
+      "passed": 184,
+      "includesThreeCompactionCycles": true
+    }
+  ],
+  "evaluation": {
+    "literalFixtures": [
+      "Chinese complete token",
+      "English phrase",
+      "file path",
+      "error string"
+    ],
+    "persistentReopen": "passed",
+    "tokenOrCacheSavings": "not claimed",
+    "realModelLongTaskQuality": "not measured",
+    "foreignCwdExclusion": "passed",
+    "chineseSubstring": "unsupported",
+    "unifiedRecallAndEmbeddings": "not added without evaluation evidence"
+  },
+  "pending": [
+    "clean Windows install/uninstall",
+    "real suspend/resume",
+    "signing and publication",
+    "enterprise gateway acceptance",
+    "real model long-task quality and cost evaluation"
+  ]
+}

@@ -1132,4 +1132,48 @@ Waterfall around every streaming model call (retry, replay, routing). Bound to t
 ```
 
 Source: [`packages/llm/llm/src/index.ts`](../../packages/llm/llm/src/index.ts)
+
+<a id="llm-pi-ai-events"></a>
+
+### `llm-pi-ai/*` events
+
+<a id="llm-pi-aiprepare-payload--bail"></a>
+
+#### `llm-pi-ai/prepare-payload` — bail
+
+Capture the deployment's optional final transport-payload transform. The listener returns a callback with request-local policy already frozen. The callback must preserve logged model content, tools and generation parameters.
+
+```ts cordis-catalog
+/**
+ * Capture the deployment's optional final transport-payload transform.
+ * The listener returns a callback with request-local policy already frozen.
+ * The callback must preserve logged model content, tools and generation parameters.
+ * @param scope - routing facts without prompt content or credentials.
+ * @mode bail
+ */
+'llm-pi-ai/prepare-payload'(scope: PiAiPayloadScope): ReturnType<NonNullable<PiAiAdapterOptions['preparePayload']>>
+```
+
+Source: [`packages/llm/llm-pi-ai/src/index.ts`](../../packages/llm/llm-pi-ai/src/index.ts)
+
+<a id="nidofy-events"></a>
+
+### `nidofy/*` events
+
+<a id="nidofyconnection-route--bail"></a>
+
+#### `nidofy/connection-route` — bail
+
+Return an immutable managed provider route, or undefined for an unowned provider.
+
+```ts cordis-catalog
+/**
+ * Return an immutable managed provider route, or undefined for an unowned provider.
+ * @mode bail
+ * @param provider - Public provider alias whose current revision the caller freezes.
+ */
+'nidofy/connection-route'(provider: string): string | undefined
+```
+
+Source: [`packages/nidofy/desktop-extras/src/connection-contract.ts`](../../packages/nidofy/desktop-extras/src/connection-contract.ts)
 <!-- END GENERATED cordis-surface -->

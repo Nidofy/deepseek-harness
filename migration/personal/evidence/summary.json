@@ -1,0 +1,32 @@
+{
+  "legacyDataImported": false,
+  "m1Repair": {
+    "asarUnchanged": true,
+    "runtime": "PASS",
+    "userProcessTerminated": false,
+    "restoredMissingFiles": 9756,
+    "exeUnchanged": true
+  },
+  "package": "apps/desktop/.desktop-build/targets/win-x64/personal-unsigned/win-unpacked",
+  "tests": 58,
+  "packagedRuntime": "PASS",
+  "publicNetwork": "HTTP 200 https://example.com/",
+  "buildProvenance": "Personal shell and final overlay packaged with the verified same-baseline M1 prepared Host/runtime; runtime verification repeated after relocation to short output path.",
+  "enterpriseAcceptance": "USER_DEFERRED",
+  "distribution": "personal",
+  "unsigned": true,
+  "typecheck": "PASS",
+  "baseline": "dsh-v0.2.0-rc.1",
+  "dirty": true,
+  "exeSHA256": "c8a685b056a0235bafc5e882992bd8bf1765b96d1955f4108c0fc98edc043bef",
+  "testFiles": 4,
+  "revision": 1,
+  "integration": "PASS",
+  "date": "2026-09-29",
+  "m2Complete": false,
+  "asarSHA256": "d4067c49ad6cab2689e3b93e632a5fc56ff5f490e368cfe3f000087bd847c3ca",
+  "realProviderTested": false,
+  "sourceLock": "migration/m0/source-lock.json",
+  "lint": "PASS",
+  "docs": "18/20 full gates pass; remaining findings only in existing M0/M1 files. Both changed bilingual pairs pass."
+}

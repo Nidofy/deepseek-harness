@@ -1,4 +1,5 @@
 import { execFileSync } from 'node:child_process'
+import { createHash } from 'node:crypto'
 import { mkdirSync, mkdtempSync, rmSync, symlinkSync, unlinkSync, writeFileSync } from 'node:fs'
 import { tmpdir } from 'node:os'
 import { dirname, join } from 'node:path'
@@ -44,6 +45,32 @@ function repository(test: TestContext) {
 }
 
 describe('maintained repository reference policy', () => {
+  it('keeps frozen qualification identities while rejecting altered evidence and maintained source exemptions', (test) => {
+    const fixture = repository(test)
+    const path = 'migration/m0/evidence/source.json', source = JSON.stringify({ commit: fixture.commit })
+    fixture.write(path, source)
+    const manifest = (file: string, bytes: string) =>{  fixture.write('migration/frozen-evidence.json', JSON.stringify({
+      schemaVersion: 1, files: [{ path: file, sha256: createHash('sha256').update(bytes).digest('hex') }],
+    })) }
+    manifest(path, source)
+    expect(scanRepositoryReferences(fixture.root)).toEqual([])
+    fixture.write('current.md', fixture.commit)
+    expect(scanRepositoryReferences(fixture.root)).toEqual([{ file: 'current.md', line: 1, kind: 'commit-hash' }])
+    fixture.write(path, source + '\n')
+    expect(() => scanRepositoryReferences(fixture.root)).toThrow('Frozen evidence changed')
+    manifest('current.md', fixture.commit)
+    expect(() => scanRepositoryReferences(fixture.root)).toThrow('Invalid frozen evidence entry')
+  })
+
+  it('still rejects organization URLs inside correctly hashed frozen evidence', (test) => {
+    const fixture = repository(test), path = 'migration/m0/evidence/source.json'
+    const source = JSON.stringify({ url: organizationUrl })
+    fixture.write(path, source)
+    fixture.write('migration/frozen-evidence.json', JSON.stringify({ schemaVersion: 1, files: [
+      { path, sha256: createHash('sha256').update(source).digest('hex') },
+    ] }))
+    expect(scanRepositoryReferences(fixture.root)).toEqual([{ file: path, line: 1, kind: 'organization-url' }])
+  })
   it('permits only the independent kit repository and its source URLs', () => {
     for (const suffix of ['', '.git', '/tree/main/packages/entry']) {
       expect(findRepositoryReferences('package.json', `${organizationUrl}/libreoffice-kit${suffix}`, new Set())).toEqual([])

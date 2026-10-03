@@ -7,6 +7,10 @@ A service can be a core spine service, a swappable capability seam, a bundle/com
 
 ```mermaid
 flowchart LR
+  pkg_desktop_extras["desktop-extras"]
+  svc_nidofyContextPaths["ctx.nidofyContextPaths<br/>Desktop context storage paths"]
+  pkg_session_query_sqlite["session-query-sqlite"]
+  svc_nidofyNotebook["ctx.nidofyNotebook<br/>Desktop working notes"]
   pkg_hmr["hmr"]
   svc_hmr["ctx.hmr<br/>Serialized module and configuration reloads"]
   pkg_app_boot["app-boot"]
@@ -62,7 +66,6 @@ flowchart LR
   pkg_agent["agent"]
   pkg_session_persistence["session-persistence"]
   pkg_session_query["session-query"]
-  pkg_session_query_sqlite["session-query-sqlite"]
   pkg_subagent_in_process_driver["subagent-in-process-driver"]
   pkg_invariants["invariants"]
   pkg_message_feedback["message-feedback"]
@@ -317,6 +320,8 @@ flowchart LR
   pkg_deepseek_account --> svc_deepseekAccount
   pkg_deepseek_account_platform --> svc_deepseekAccount
   pkg_deepseek_llm_api_extensions --> svc_deepseekLlmApiExtensions
+  pkg_desktop_extras --> svc_nidofyContextPaths
+  pkg_desktop_extras --> svc_nidofyNotebook
   pkg_experimental_agent_team --> svc_agentTeams
   pkg_experimental_api_speech_to_text --> svc_speechController
   pkg_experimental_browser_use_chrome_devtools_mcp --> svc_browserUse
@@ -479,6 +484,8 @@ flowchart LR
   svc_llm --> pkg_compaction_basic
   svc_lsp --> pkg_tool_lsp
   svc_mcpResources --> pkg_mcp_resources
+  svc_nidofyContextPaths --> pkg_session_query_sqlite
+  svc_nidofyNotebook --> pkg_desktop_extras
   svc_officeToPdf --> pkg_client_ui_sidebar_documentpreview
   svc_otel --> pkg_host_product_telemetry_otel
   svc_otel --> pkg_session_telemetry_otel
@@ -577,6 +584,8 @@ flowchart LR
 
 | ctx key | Role | Owner | Implementations | Direct consumers | Companion plugins | Note |
 | --- | --- | --- | --- | --- | --- | --- |
+| `ctx.nidofyContextPaths` | `service` | `desktop-extras` | - | [`session-query-sqlite`](../packages/session-query/session-query-sqlite) | - | Resolves the derived search index under the active Harness home before the query provider starts. |
+| `ctx.nidofyNotebook` | `service` | `desktop-extras` | - | `desktop-extras` | - | Exposes validated, versioned notes to the optional compaction summary hook; the owning plugin serializes writes and retains source anchors. |
 | `ctx.hmr` | `core` | [`hmr`](../packages/boot/hmr) | - | [`app-boot`](../packages/boot/app-boot) | - | Owns module and exact configuration watchers; application mutations share its queue and automatic reloads await the application file lock. |
 | `ctx.pluginRegistryProbe` | `core` | [`client-ui-plugin-manager`](../packages/client/ui-plugin-manager) | - | [`client-ui-plugin-manager`](../packages/client/ui-plugin-manager) | - | Races public registry responses on the Host; the Client owns the initial registry recommendation. |
 | `ctx.pluginManager` | `core` | [`plugin-manager`](../packages/boot/plugin-manager) | - | [`plugin-manager`](../packages/boot/plugin-manager), `ui-settings-plugin-inventory` | - | Shares profile package operations with the CLI and reports persisted and running state to Web and agent callers. |

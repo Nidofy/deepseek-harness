@@ -1,0 +1,10 @@
+{
+  "status": "PASS",
+  "upstreamCommit": "4878cdabd87d4041bdaff61d04c966883b9fd07a",
+  "lockfileBlob": "14a4b5454671dd5e0807f24fe79b2cbd94d063fc",
+  "legacyBase": "00102833dfaee1da9f48a3a8eae9d34005a75218",
+  "restoredTree": "a69cd11266a43b29e57eeea664855fa7b6f684ed",
+  "patchCount": 2,
+  "productCodePatched": false,
+  "remotePublished": false
+}

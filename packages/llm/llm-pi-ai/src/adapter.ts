@@ -70,8 +70,29 @@ interface PiAiSnapshot {
   models: Models
 }
 
-/** Constructor options for {@link PiAiAdapter}: the two resolution hooks the plugin owns. */
+/** Request routing facts captured before credential resolution; contains no model content or key. */
+export interface PiAiPayloadScope {
+  /** Harness provider route selected for this call. */
+  readonly provider: string
+  /** Model identifier within the selected route. */
+  readonly model: string
+  /** Resolved pi-ai protocol. */
+  readonly api: string
+  /** Resolved model endpoint, without the request credential. */
+  readonly baseURL: string
+  /** Session routing scope when the caller supplies one. */
+  readonly sessionId: string | undefined
+}
+
+/** Constructor options for {@link PiAiAdapter}: request resolution and payload hooks. */
 export interface PiAiAdapterOptions {
+  /**
+   * Capture an optional transport-payload transform once before the credential await.
+   * The returned callback must preserve logged content, tools and generation parameters.
+   * @param scope - frozen routing facts without prompt content or the request credential.
+   * @returns a request-local callback, or undefined to preserve native payload behavior.
+   */
+  preparePayload?: (scope: PiAiPayloadScope) => SimpleStreamOptions['onPayload']
   /** Current validated profiles by provider route; called once per operation. */
   profiles: () => ReadonlyMap<string, ResolvedPiAiProviderProfile>
   /**
@@ -345,6 +366,13 @@ export class PiAiAdapter extends LlmAdapter {
       model,
       options.reasoningEffort ?? profile.reasoning,
     )
+    const onPayload = this.config.preparePayload?.(Object.freeze({
+      provider: options.provider,
+      model: options.model,
+      api: model.api,
+      baseURL: model.baseUrl,
+      sessionId: options.sessionId === undefined ? undefined : String(options.sessionId),
+    }))
     const apiKey = await this.config.resolveApiKey(options.provider, profile)
 
     const consumer = new AbortController()
@@ -379,6 +407,7 @@ export class PiAiAdapter extends LlmAdapter {
         }, onReplayDegrade)
       const events = snapshot.models.streamSimple(model, context, {
         ...profileOptions(profile, reasoning, apiKey),
+        ...onPayload === undefined ? {} : { onPayload },
         ...options.temperature === undefined ? {} : { temperature: options.temperature },
         ...options.maxTokens === undefined ? {} : { maxTokens: options.maxTokens },
         ...options.sessionId === undefined ? {} : { sessionId: String(options.sessionId) },

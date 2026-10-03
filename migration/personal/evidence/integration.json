@@ -1,0 +1,69 @@
+{
+  "status": "PASS",
+  "run": "apps/desktop/.desktop-build/qualification/personal-YtD5pC",
+  "realCredentialsUsed": false,
+  "enterpriseAcceptance": "deferred",
+  "checks": {
+    "chromiumNetworkEnabled": true,
+    "pluginsAvailableAccountAnalyticsAbsent": true,
+    "settingsStaleRevisionRejected": true,
+    "protocolsSameModelSeparateCredentials": true,
+    "nextTurnUsesRotatedCredential": true,
+    "restartPreservesSettingsCredentialsAndSessions": true,
+    "officialModelSettingsUi": true
+  },
+  "identity": {
+    "name": "Nidofy DSH Desktop",
+    "userData": "$PRIVATE_DATA/electron",
+    "home": "$PRIVATE_DATA/harness"
+  },
+  "publicNetwork": {
+    "url": "https://example.com/",
+    "ok": true,
+    "status": 200
+  },
+  "requests": [
+    {
+      "protocol": "openai",
+      "path": "/openai/v1/chat/completions",
+      "model": "shared-model",
+      "credentialMatched": true,
+      "marker": "QUALIFIED_OPENAI_1"
+    },
+    {
+      "protocol": "openai",
+      "path": "/openai/v1/chat/completions",
+      "model": "shared-model",
+      "credentialMatched": true,
+      "marker": "QUALIFIED_OPENAI_2"
+    },
+    {
+      "protocol": "anthropic",
+      "path": "/anthropic/v1/messages?beta=true",
+      "model": "shared-model",
+      "credentialMatched": true,
+      "marker": "QUALIFIED_ANTHROPIC_3"
+    },
+    {
+      "protocol": "anthropic",
+      "path": "/anthropic/v1/messages?beta=true",
+      "model": "shared-model",
+      "credentialMatched": true,
+      "marker": "QUALIFIED_ANTHROPIC_4"
+    },
+    {
+      "protocol": "openai",
+      "path": "/openai/v1/chat/completions",
+      "model": "shared-model",
+      "credentialMatched": true,
+      "marker": "QUALIFIED_OPENAI_5"
+    },
+    {
+      "protocol": "openai",
+      "path": "/openai/v1/chat/completions",
+      "model": "shared-model",
+      "credentialMatched": true,
+      "marker": "QUALIFIED_OPENAI_6"
+    }
+  ]
+}

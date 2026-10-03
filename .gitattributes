@@ -8,6 +8,12 @@
 
 *.pdf binary
 
+# Archived unified diffs retain significant context-line spaces verbatim.
+migration/m0/legacy-patches/*.patch -whitespace
+
+# Archived unified diffs retain significant context-line spaces verbatim.
+migration/m0/legacy-patches/*.patch -whitespace
+
 # The persistence catalog is the readable projection of these generated schemas.
 docs/persistence-schema.json linguist-generated=true
 docs/persistence-changes/*.schema.json linguist-generated=true

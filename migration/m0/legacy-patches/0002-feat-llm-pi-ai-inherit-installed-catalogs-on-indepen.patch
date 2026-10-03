@@ -1,0 +1,523 @@
+From 5e2879f0478ba9336128312e715dee7a9f56c3db Mon Sep 17 00:00:00 2001
+From: Nidofy <nidocfy@gmail.com>
+Date: Thu, 24 Sep 2026 09:39:08 +0800
+Subject: [PATCH 2/2] feat(llm-pi-ai): inherit installed catalogs on
+ independent provider routes
+
+---
+ docs/config-catalog.i18n.yaml                 |  4 +-
+ docs/config-catalog.md                        |  4 +-
+ docs/config-catalog.zh.md                     |  4 +-
+ docs/event-producer-consumer.i18n.yaml        |  4 +-
+ docs/event-producer-consumer.md               |  1 +
+ docs/event-producer-consumer.zh.md            |  1 +
+ docs/subsystems/llm-streaming.i18n.yaml       |  4 +-
+ docs/subsystems/llm-streaming.md              |  1 -
+ docs/subsystems/llm-streaming.zh.md           |  1 -
+ .../extensions/tool-cordis/src/api-catalog.ts |  2 +-
+ packages/llm/llm-pi-ai/README.i18n.yaml       |  4 +-
+ packages/llm/llm-pi-ai/README.md              |  3 +
+ packages/llm/llm-pi-ai/README.zh.md           |  3 +
+ packages/llm/llm-pi-ai/src/catalog.ts         | 11 ++-
+ packages/llm/llm-pi-ai/src/config.ts          | 11 ++-
+ packages/llm/llm-pi-ai/src/index.ts           |  1 -
+ packages/llm/llm-pi-ai/src/provider.ts        |  4 +-
+ .../llm/llm-pi-ai/tests/catalog-alias.spec.ts | 84 +++++++++++++++++++
+ .../tests/loader-composition.spec.ts          | 17 ++++
+ scripts/gen-doc-graphs.spec.ts                |  9 +-
+ scripts/gen-doc-graphs.ts                     |  4 +-
+ 21 files changed, 156 insertions(+), 21 deletions(-)
+ create mode 100644 packages/llm/llm-pi-ai/tests/catalog-alias.spec.ts
+
+diff --git a/docs/config-catalog.i18n.yaml b/docs/config-catalog.i18n.yaml
+index 106db59c55..60735ef7c6 100644
+--- a/docs/config-catalog.i18n.yaml
++++ b/docs/config-catalog.i18n.yaml
+@@ -2,5 +2,5 @@
+ # side as of the last confirmed-consistent state. Both languages carry equal authority;
+ # after editing either side, bring the other along and re-record with:
+ #   pnpm run verify-translation-pairing --write docs/config-catalog.md
+-config-catalog.md: b9e75f6679d43aef41808a30ed370e26070c1331
+-config-catalog.zh.md: d76c88fb806998abee414347822a3d11c3b2b7de
++config-catalog.md: b4bcaf793bf097fdda11571bba89b7b32047dfc9
++config-catalog.zh.md: 4479236e59b2cbb4b0b47bfea3a9b3c3535d8d8f
+diff --git a/docs/config-catalog.md b/docs/config-catalog.md
+index b9e75f6679..b4bcaf793b 100644
+--- a/docs/config-catalog.md
++++ b/docs/config-catalog.md
+@@ -1540,6 +1540,8 @@ export interface Config {
+ 
+ /** Configuration for one pi-ai provider route; the `providers` dict key IS the route. */
+ export interface PiAiProviderProfile {
++  /** Installed provider whose catalog and native dispatch this route inherits; defaults to the route key. */
++  catalogProvider?: string
+   /** Credential reference (environment-variable name) resolved per request through `ctx.credentials`. */
+   apiKeyEnv?: string
+   /** Name shown by configuration surfaces; defaults to the route key. */
+@@ -1794,7 +1796,7 @@ export type PiAiThinkingTokenBudgetField = NonNullable<OpenAICompletionsCompat['
+ 
+ Depends on: `Api` (`@earendil-works/pi-ai`) · `CacheRetention` (`@earendil-works/pi-ai`) · `Model` (`@earendil-works/pi-ai`) · `ModelThinkingLevel` (`@earendil-works/pi-ai`) · `OpenAICompletionsCompat` (`@earendil-works/pi-ai`) · [`RetryPolicyConfig`](../packages/llm/llm/src/index.ts) · `ThinkingBudgets` (`@earendil-works/pi-ai`) · `Transport` (`@earendil-works/pi-ai`) · `Volatile` (`@deepseek-ai/cordis`)
+ 
+-Source: [`packages/llm/llm-pi-ai/src/config.ts:222`](../packages/llm/llm-pi-ai/src/config.ts)
++Source: [`packages/llm/llm-pi-ai/src/config.ts:225`](../packages/llm/llm-pi-ai/src/config.ts)
+ 
+ <a id="deepseek-aidsh-llm-replay"></a>
+ 
+diff --git a/docs/config-catalog.zh.md b/docs/config-catalog.zh.md
+index d76c88fb80..4479236e59 100644
+--- a/docs/config-catalog.zh.md
++++ b/docs/config-catalog.zh.md
+@@ -1542,6 +1542,8 @@ export interface Config {
+ 
+ /** Configuration for one pi-ai provider route; the `providers` dict key IS the route. */
+ export interface PiAiProviderProfile {
++  /** Installed provider whose catalog and native dispatch this route inherits; defaults to the route key. */
++  catalogProvider?: string
+   /** Credential reference (environment-variable name) resolved per request through `ctx.credentials`. */
+   apiKeyEnv?: string
+   /** Name shown by configuration surfaces; defaults to the route key. */
+@@ -1796,7 +1798,7 @@ export type PiAiThinkingTokenBudgetField = NonNullable<OpenAICompletionsCompat['
+ 
+ Depends on: `Api` (`@earendil-works/pi-ai`) · `CacheRetention` (`@earendil-works/pi-ai`) · `Model` (`@earendil-works/pi-ai`) · `ModelThinkingLevel` (`@earendil-works/pi-ai`) · `OpenAICompletionsCompat` (`@earendil-works/pi-ai`) · [`RetryPolicyConfig`](../packages/llm/llm/src/index.ts) · `ThinkingBudgets` (`@earendil-works/pi-ai`) · `Transport` (`@earendil-works/pi-ai`) · `Volatile` (`@deepseek-ai/cordis`)
+ 
+-来源： [`packages/llm/llm-pi-ai/src/config.ts:222`](../packages/llm/llm-pi-ai/src/config.ts)
++来源： [`packages/llm/llm-pi-ai/src/config.ts:225`](../packages/llm/llm-pi-ai/src/config.ts)
+ 
+ <a id="deepseek-aidsh-llm-replay"></a>
+ 
+diff --git a/docs/event-producer-consumer.i18n.yaml b/docs/event-producer-consumer.i18n.yaml
+index a6e1582653..a297fd2fac 100644
+--- a/docs/event-producer-consumer.i18n.yaml
++++ b/docs/event-producer-consumer.i18n.yaml
+@@ -2,5 +2,5 @@
+ # side as of the last confirmed-consistent state. Both languages carry equal authority;
+ # after editing either side, bring the other along and re-record with:
+ #   pnpm run verify-translation-pairing --write docs/event-producer-consumer.md
+-event-producer-consumer.md: 1d844013f1230d6dbe535c3942279683f03738ce
+-event-producer-consumer.zh.md: 73438c3f19ef6850674a27bf8f490fe4cf52b420
++event-producer-consumer.md: 86e81e7e7911cd6a4053d4e8664cac23aa92ae62
++event-producer-consumer.zh.md: e651ed21585fff3d0c5e441cad72c1a3e9cbc985
+diff --git a/docs/event-producer-consumer.md b/docs/event-producer-consumer.md
+index 1d844013f1..86e81e7e79 100644
+--- a/docs/event-producer-consumer.md
++++ b/docs/event-producer-consumer.md
+@@ -49,6 +49,7 @@ This matrix shows which packages dispatch each harness-owned event and which pac
+ | `goal/changed` | `emit` | [`packages/goal/goal/src/domain.ts:114`](../packages/goal/goal/src/domain.ts) | [`goal`](../packages/goal/goal) (`emit`) | [`goal-round-driver`](../packages/goal/goal-round-driver) |
+ | `hmr/change` | `emit` | [`packages/boot/hmr/src/index.ts:30`](../packages/boot/hmr/src/index.ts) | [`hmr`](../packages/boot/hmr) (`emit`) | - |
+ | `hmr/reload` | `emit` | [`packages/boot/hmr/src/index.ts:35`](../packages/boot/hmr/src/index.ts) | [`hmr`](../packages/boot/hmr) (`emit`) | - |
++| `llm-pi-ai/prepare-payload` | `bail` | [`packages/llm/llm-pi-ai/src/index.ts:89`](../packages/llm/llm-pi-ai/src/index.ts) | [`llm-pi-ai`](../packages/llm/llm-pi-ai) (`bail`) | - |
+ | `llm/adapters-updated` | `emit` | [`packages/llm/llm/src/types.ts:23`](../packages/llm/llm/src/types.ts) | [`llm`](../packages/llm/llm) (`events.dispatch`) | [`acp`](../packages/acp/acp), [`llm`](../packages/llm/llm), `remotes` |
+ | `llm/stream` | `waterfall` | [`packages/llm/llm/src/index.ts:73`](../packages/llm/llm/src/index.ts) | [`llm`](../packages/llm/llm) (`waterfall`) | [`agent-loop`](../packages/core/agent-loop), [`llm`](../packages/llm/llm), [`llm-replay`](../packages/test-support/llm-replay), [`session-checkpoint-policy`](../packages/session/session-checkpoint-policy), [`session-title`](../packages/session/session-title) |
+ | `permission-presets/catalog-changed` | `emit` | [`packages/interaction/permission-presets/src/types.ts:48`](../packages/interaction/permission-presets/src/types.ts) | [`permission-presets`](../packages/interaction/permission-presets) (`events.dispatch`) | `remotes` |
+diff --git a/docs/event-producer-consumer.zh.md b/docs/event-producer-consumer.zh.md
+index 73438c3f19..e651ed2158 100644
+--- a/docs/event-producer-consumer.zh.md
++++ b/docs/event-producer-consumer.zh.md
+@@ -51,6 +51,7 @@
+ | `goal/changed` | `emit` | [`packages/goal/goal/src/domain.ts:114`](../packages/goal/goal/src/domain.ts) | [`goal`](../packages/goal/goal) (`emit`) | [`goal-round-driver`](../packages/goal/goal-round-driver) |
+ | `hmr/change` | `emit` | [`packages/boot/hmr/src/index.ts:30`](../packages/boot/hmr/src/index.ts) | [`hmr`](../packages/boot/hmr) (`emit`) | - |
+ | `hmr/reload` | `emit` | [`packages/boot/hmr/src/index.ts:35`](../packages/boot/hmr/src/index.ts) | [`hmr`](../packages/boot/hmr) (`emit`) | - |
++| `llm-pi-ai/prepare-payload` | `bail` | [`packages/llm/llm-pi-ai/src/index.ts:89`](../packages/llm/llm-pi-ai/src/index.ts) | [`llm-pi-ai`](../packages/llm/llm-pi-ai) (`bail`) | - |
+ | `llm/adapters-updated` | `emit` | [`packages/llm/llm/src/types.ts:23`](../packages/llm/llm/src/types.ts) | [`llm`](../packages/llm/llm) (`events.dispatch`) | [`acp`](../packages/acp/acp), [`llm`](../packages/llm/llm), `remotes` |
+ | `llm/stream` | `waterfall` | [`packages/llm/llm/src/index.ts:73`](../packages/llm/llm/src/index.ts) | [`llm`](../packages/llm/llm) (`waterfall`) | [`agent-loop`](../packages/core/agent-loop), [`llm`](../packages/llm/llm), [`llm-replay`](../packages/test-support/llm-replay), [`session-checkpoint-policy`](../packages/session/session-checkpoint-policy), [`session-title`](../packages/session/session-title) |
+ | `permission-presets/catalog-changed` | `emit` | [`packages/interaction/permission-presets/src/types.ts:48`](../packages/interaction/permission-presets/src/types.ts) | [`permission-presets`](../packages/interaction/permission-presets) (`events.dispatch`) | `remotes` |
+diff --git a/docs/subsystems/llm-streaming.i18n.yaml b/docs/subsystems/llm-streaming.i18n.yaml
+index c80bcfe3b2..e7ab8c719c 100644
+--- a/docs/subsystems/llm-streaming.i18n.yaml
++++ b/docs/subsystems/llm-streaming.i18n.yaml
+@@ -2,5 +2,5 @@
+ # side as of the last confirmed-consistent state. Both languages carry equal authority;
+ # after editing either side, bring the other along and re-record with:
+ #   pnpm run verify-translation-pairing --write docs/subsystems/llm-streaming.md
+-llm-streaming.md: 8fac27e7d93538ab5fc64228592da18096340e16
+-llm-streaming.zh.md: 0da0e5670270c241506126b5985de4ced13254f4
++llm-streaming.md: aed30c5fa766eb18efc9ac93c349c6272679c25d
++llm-streaming.zh.md: 189b7469fe6782b68a5ae560f63eb6b399d818b5
+diff --git a/docs/subsystems/llm-streaming.md b/docs/subsystems/llm-streaming.md
+index 8fac27e7d9..aed30c5fa7 100644
+--- a/docs/subsystems/llm-streaming.md
++++ b/docs/subsystems/llm-streaming.md
+@@ -1143,7 +1143,6 @@ Capture the deployment's optional final transport-payload transform. The listene
+  * The callback must preserve logged model content, tools and generation parameters.
+  * @param scope - routing facts without prompt content or credentials.
+  * @mode bail
+- * @dshScopeScan unsupported The event runs at the provider transport boundary.
+  */
+ 'llm-pi-ai/prepare-payload'(scope: PiAiPayloadScope): ReturnType<NonNullable<PiAiAdapterOptions['preparePayload']>>
+ ```
+diff --git a/docs/subsystems/llm-streaming.zh.md b/docs/subsystems/llm-streaming.zh.md
+index 0da0e56702..189b7469fe 100644
+--- a/docs/subsystems/llm-streaming.zh.md
++++ b/docs/subsystems/llm-streaming.zh.md
+@@ -1149,7 +1149,6 @@ Capture the deployment's optional final transport-payload transform. The listene
+  * The callback must preserve logged model content, tools and generation parameters.
+  * @param scope - routing facts without prompt content or credentials.
+  * @mode bail
+- * @dshScopeScan unsupported The event runs at the provider transport boundary.
+  */
+ 'llm-pi-ai/prepare-payload'(scope: PiAiPayloadScope): ReturnType<NonNullable<PiAiAdapterOptions['preparePayload']>>
+ ```
+diff --git a/packages/extensions/tool-cordis/src/api-catalog.ts b/packages/extensions/tool-cordis/src/api-catalog.ts
+index 88c5086c5f..905fe9debf 100644
+--- a/packages/extensions/tool-cordis/src/api-catalog.ts
++++ b/packages/extensions/tool-cordis/src/api-catalog.ts
+@@ -5671,7 +5671,7 @@ export const TYPE_API: readonly TypeApiEntry[] = [
+   },
+   {
+     name: 'PiAiProviderProfile',
+-    declaration: 'export interface PiAiProviderProfile {\n    apiKeyEnv?: string;\n    displayName?: string;\n    api?: string;\n    baseURL?: string;\n    models?: PiAiModelProfile[];\n    modelOverrides?: Record<string, PiAiModelOverride>;\n    compat?: PiAiCompatProfile;\n    defaultContextWindow?: number;\n    defaultMaxTokens?: number;\n    defaultInput?: PiAiModality[];\n    headers?: Record<string, string>;\n    reasoning?: ModelThinkingLevel;\n    thinkingBudgets?: ThinkingBudgets;\n    cacheRetention?: CacheRetention;\n    transport?: Transport;\n    timeoutMs?: number;\n    websocketConnectTimeoutMs?: number;\n    streamIdleTimeoutMs?: number;\n    maxRequestImageBytes?: number;\n    requestImagePixelBudget?: number;\n    requestImageMaxBytes?: number;\n    retryPolicy?: RetryPolicyConfig;\n}',
++    declaration: 'export interface PiAiProviderProfile {\n    catalogProvider?: string;\n    apiKeyEnv?: string;\n    displayName?: string;\n    api?: string;\n    baseURL?: string;\n    models?: PiAiModelProfile[];\n    modelOverrides?: Record<string, PiAiModelOverride>;\n    compat?: PiAiCompatProfile;\n    defaultContextWindow?: number;\n    defaultMaxTokens?: number;\n    defaultInput?: PiAiModality[];\n    headers?: Record<string, string>;\n    reasoning?: ModelThinkingLevel;\n    thinkingBudgets?: ThinkingBudgets;\n    cacheRetention?: CacheRetention;\n    transport?: Transport;\n    timeoutMs?: number;\n    websocketConnectTimeoutMs?: number;\n    streamIdleTimeoutMs?: number;\n    maxRequestImageBytes?: number;\n    requestImagePixelBudget?: number;\n    requestImageMaxBytes?: number;\n    retryPolicy?: RetryPolicyConfig;\n}',
+   },
+   {
+     name: 'PiAiReasoningEfforts',
+diff --git a/packages/llm/llm-pi-ai/README.i18n.yaml b/packages/llm/llm-pi-ai/README.i18n.yaml
+index e3de2d0bcf..a0b1d90d83 100644
+--- a/packages/llm/llm-pi-ai/README.i18n.yaml
++++ b/packages/llm/llm-pi-ai/README.i18n.yaml
+@@ -2,5 +2,5 @@
+ # side as of the last confirmed-consistent state. Both languages carry equal authority;
+ # after editing either side, bring the other along and re-record with:
+ #   pnpm run verify-translation-pairing --write packages/llm/llm-pi-ai/README.md
+-README.md: 48c025118bcf5767d4e352d929563805fd18bcdc
+-README.zh.md: e9fc76b3d69dafc66996e6946e73e0982cfd0403
++README.md: feebbe46d98eb01127893a0f3687afefc2a5b0e2
++README.zh.md: ea5eee50ad0c2905ca004f76372e913956358e36
+diff --git a/packages/llm/llm-pi-ai/README.md b/packages/llm/llm-pi-ai/README.md
+index 48c025118b..feebbe46d9 100644
+--- a/packages/llm/llm-pi-ai/README.md
++++ b/packages/llm/llm-pi-ai/README.md
+@@ -74,6 +74,7 @@ Each profile may set a `retryPolicy`; omission uses normal mode with five retrie
+ 
+ | Field | Default | Meaning |
+ |---|---|---|
++| `catalogProvider` | route key | Installed provider supplying model defaults and native dispatch; an explicit missing source is refused |
+ | `apiKeyEnv` | absent | Credential reference resolved per request; omission defers to pi-ai ambient discovery |
+ | `displayName` | provider name | Label shown by selector surfaces |
+ | `api` | catalog protocol | Wire protocol; only needed for routes the catalog does not supply |
+@@ -96,6 +97,8 @@ A provider pi-ai ships a login for can be signed into through the harness author
+ 
+ ### Resolve the model catalog
+ 
++`catalogProvider` lets independent routes inherit the same installed provider while keeping separate endpoints, credential references, model selections, and request identities. For example, two route keys can both name `catalogProvider: deepseek`. Omitting it keeps lookup by route key; hand-declared routes still supply their complete configuration. Explicit protocol and model overrides keep their normal precedence.
++
+ A profile's `models` list replaces the route's installed catalog rather than extending it; each entry defaults its unset fields from the installed model of the same id, so narrowing a route to two models, correcting one capacity, or adding a model newer than the installed catalog are one-line edits. `modelOverrides` reshapes individual installed-catalog models without that cost — correct one model, keep the other thirty-seven — and is refused when set beside a `models` list, on a hand-declared route, or naming a model the catalog does not describe, because a silently unchanged model would be a typo someone hunts for later.
+ 
+ ### Run with reasoning and wire compatibility
+diff --git a/packages/llm/llm-pi-ai/README.zh.md b/packages/llm/llm-pi-ai/README.zh.md
+index e9fc76b3d6..ea5eee50ad 100644
+--- a/packages/llm/llm-pi-ai/README.zh.md
++++ b/packages/llm/llm-pi-ai/README.zh.md
+@@ -74,6 +74,7 @@ kind: "package-reference"
+ 
+ | 字段 | 默认值 | 含义 |
+ |---|---|---|
++| `catalogProvider` | 路由键 | 提供模型默认值与原生分派的已安装提供方；显式指定的来源不存在时拒绝配置 |
+ | `apiKeyEnv` | 无 | 按请求解析的凭据引用；省略时交由 pi-ai 环境发现 |
+ | `displayName` | 提供方名 | 选择器界面显示的标签 |
+ | `api` | 目录协议 | 协议格式；仅目录不提供的路由需要 |
+@@ -96,6 +97,8 @@ pi-ai 提供登录的提供方可以通过 harness 授权 seam 登录：流程
+ 
+ ### 解析模型目录
+ 
++`catalogProvider` 让独立路由继承同一已安装提供方，同时保留各自的端点、凭据引用、模型选择和请求身份。例如，两个路由键都可以指定 `catalogProvider: deepseek`。省略时仍按路由键查找；手工声明的路由仍需提供完整配置。显式协议和模型覆盖保持原有优先级。
++
+ profile 的 `models` 列表会替换而非扩展路由的已安装目录；每个条目从同 id 已安装模型取未设置字段的默认值，因此把路由收窄到两个模型、修正一个容量或添加比已安装目录更新的模型都是一行编辑。`modelOverrides` 无需该代价即可重塑个别已安装目录模型——修正一个模型，保留其余三十七个——当它与 `models` 列表并存、位于手工声明路由上、或点名目录未描述的模型时会被拒绝，因为静默不变的模型会成为别人日后寻找的拼写错误。
+ 
+ ### 带推理（reasoning）与协议兼容运行
+diff --git a/packages/llm/llm-pi-ai/src/catalog.ts b/packages/llm/llm-pi-ai/src/catalog.ts
+index 191c77c0d2..987b502275 100644
+--- a/packages/llm/llm-pi-ai/src/catalog.ts
++++ b/packages/llm/llm-pi-ai/src/catalog.ts
+@@ -620,6 +620,8 @@ export type PiAiModelOverride = Omit<PiAiModelProfile, 'id'>
+ 
+ /** The route-level facts model materialization reads. */
+ export interface RouteCatalogRequest {
++  /** Installed catalog source; an explicit missing provider is rejected. Defaults to the route key. */
++  catalogProvider?: string
+   /** Provider route key, stamped onto every materialized model. */
+   provider: string
+   /** Wire protocol override; absent defers to each catalog model's own API. */
+@@ -830,8 +832,13 @@ export function resolveRouteModels(
+   validation: 'strict' | 'deferred' = 'strict',
+ ): RouteCatalog {
+   const { provider } = request
+-  const defaults = catalogModels(provider)
+-  const providerBaseUrl = catalogProvider(provider)?.baseUrl
++  const source = request.catalogProvider ?? provider
++  const installed = catalogProvider(source)
++  if (request.catalogProvider !== undefined && installed === undefined) {
++    invalid(provider, `names catalogProvider "${source}", which the installed catalog does not contain`)
++  }
++  const defaults = catalogModels(source)
++  const providerBaseUrl = installed?.baseUrl
+   // An absent `models` key and an empty one are the same request: the config
+   // schema materializes `[]` for the absent case, and an empty catalog could
+   // serve no request anyway, so both mean "serve the installed catalog".
+diff --git a/packages/llm/llm-pi-ai/src/config.ts b/packages/llm/llm-pi-ai/src/config.ts
+index b07cd57bfb..95d9c11912 100644
+--- a/packages/llm/llm-pi-ai/src/config.ts
++++ b/packages/llm/llm-pi-ai/src/config.ts
+@@ -3,7 +3,8 @@
+  * Profiles are a dict keyed by provider route, so the composition base and a
+  * user-settings layer merge per provider and the route set is structural.
+  *
+- * A route key is not required to name an installed pi-ai provider. When it does,
++ * A route key is not required to name an installed pi-ai provider. An explicit
++ * catalogProvider selects its installed source independently. When one exists,
+  * that provider's endpoint, protocol, display name, and model catalog are the
+  * profile's defaults and the profile overrides them field by field; when it does
+  * not, the profile is the whole provider declaration. Stored reads retain
+@@ -90,6 +91,8 @@ export type {
+ 
+ /** Configuration for one pi-ai provider route; the `providers` dict key IS the route. */
+ export interface PiAiProviderProfile {
++  /** Installed provider whose catalog and native dispatch this route inherits; defaults to the route key. */
++  catalogProvider?: string
+   /** Credential reference (environment-variable name) resolved per request through `ctx.credentials`. */
+   apiKeyEnv?: string
+   /** Name shown by configuration surfaces; defaults to the route key. */
+@@ -324,6 +327,7 @@ const modelProfile: z<PiAiModelProfile> = z.object({
+ const modelOverride: z<PiAiModelOverride> = z.object(modelFields)
+ 
+ const profile = z.object({
++  catalogProvider: z.string().min(1),
+   apiKeyEnv: z.string().role('credential-ref'),
+   displayName: z.string(),
+   api: z.union(supportedProtocols()),
+@@ -425,6 +429,9 @@ export function resolveProfiles(
+     if (source.displayName !== undefined && source.displayName.length === 0) {
+       throw new Error(`llm-pi-ai: provider "${provider}" has an empty displayName`)
+     }
++    if (source.catalogProvider !== undefined && source.catalogProvider.length === 0) {
++      throw new Error(`llm-pi-ai: provider "${provider}" has an empty catalogProvider`)
++    }
+     assertValidHeaders(provider, source.headers)
+     const streamIdleTimeoutMs = source.streamIdleTimeoutMs ?? DEFAULT_STREAM_IDLE_TIMEOUT_MS
+     if (!Number.isFinite(streamIdleTimeoutMs)
+@@ -465,6 +472,7 @@ export function resolveProfiles(
+     try {
+       catalog = resolveRouteModels({
+         provider,
++        ...source.catalogProvider === undefined ? {} : { catalogProvider: source.catalogProvider },
+         ...source.api === undefined ? {} : { api: source.api },
+         ...source.baseURL === undefined ? {} : { baseURL: source.baseURL },
+         ...source.models === undefined ? {} : { models: source.models },
+@@ -477,6 +485,7 @@ export function resolveProfiles(
+       catalogError = catalog.modelErrors.values().next().value
+       piProvider = buildProvider({
+         provider,
++        ...source.catalogProvider === undefined ? {} : { catalogProvider: source.catalogProvider },
+         displayName,
+         ...source.api === undefined ? {} : { api: source.api },
+         ...source.baseURL === undefined ? {} : { baseURL: source.baseURL },
+diff --git a/packages/llm/llm-pi-ai/src/index.ts b/packages/llm/llm-pi-ai/src/index.ts
+index d2a4145922..1f0e77706e 100644
+--- a/packages/llm/llm-pi-ai/src/index.ts
++++ b/packages/llm/llm-pi-ai/src/index.ts
+@@ -85,7 +85,6 @@ declare module '@deepseek-ai/cordis' {
+      * The callback must preserve logged model content, tools and generation parameters.
+      * @param scope - routing facts without prompt content or credentials.
+      * @mode bail
+-     * @dshScopeScan unsupported The event runs at the provider transport boundary.
+      */
+     'llm-pi-ai/prepare-payload'(scope: PiAiPayloadScope): ReturnType<NonNullable<PiAiAdapterOptions['preparePayload']>>
+   }
+diff --git a/packages/llm/llm-pi-ai/src/provider.ts b/packages/llm/llm-pi-ai/src/provider.ts
+index 9a851f6ef8..2540d4bf93 100644
+--- a/packages/llm/llm-pi-ai/src/provider.ts
++++ b/packages/llm/llm-pi-ai/src/provider.ts
+@@ -86,6 +86,8 @@ function harnessApiKeyAuth(name: string): ApiKeyAuth {
+ 
+ /** The resolved route facts provider construction reads. */
+ export interface ProviderSpec {
++  /** Installed provider supplying native dispatch and auth; defaults to the route key. */
++  catalogProvider?: string
+   /** Provider route key; also the `Models` collection key and each model's `provider`. */
+   provider: string
+   /** Display name for selectors and status labels. */
+@@ -165,7 +167,7 @@ function reuseCatalogProvider(base: Provider, spec: ProviderSpec): Provider {
+  * @throws Error when the route names a wire protocol this build cannot serve.
+  */
+ export function buildProvider(spec: ProviderSpec): Provider {
+-  const catalog = catalogProvider(spec.provider)
++  const catalog = catalogProvider(spec.catalogProvider ?? spec.provider)
+   // A catalog route keeping its catalog protocol reuses the catalog provider;
+   // an explicit protocol means the deployment is repointing the route at a
+   // different wire format, which only the protocol table can serve.
+diff --git a/packages/llm/llm-pi-ai/tests/catalog-alias.spec.ts b/packages/llm/llm-pi-ai/tests/catalog-alias.spec.ts
+new file mode 100644
+index 0000000000..7b6bf796b2
+--- /dev/null
++++ b/packages/llm/llm-pi-ai/tests/catalog-alias.spec.ts
+@@ -0,0 +1,84 @@
++/** Catalog inheritance preserves model capabilities without merging route identity. */
++import { afterEach, expect, it } from 'vitest'
++import { PiAiAdapter } from '@deepseek-ai/dsh-llm-pi-ai'
++import type { PiAiPayloadScope } from '@deepseek-ai/dsh-llm-pi-ai'
++import { Config, resolveProfiles } from '../src/config.ts'
++import { PiAiCatalogError } from '../src/catalog.ts'
++import { memoryAuth } from './auth-double.ts'
++import { closeMockServers, mockServer, textEvents } from './mock-server.ts'
++
++afterEach(closeMockServers)
++
++it.each(['zai-coding-cn', 'anthropic', 'deepseek'])('inherits every installed %s model field under an independent route', (provider) => {
++  const original = resolveProfiles({ [provider]: {} }).get(provider)!.piProvider!.getModels()
++  const alias = resolveProfiles({ independent: { catalogProvider: provider } }).get('independent')!.piProvider!
++  expect(alias.id).toBe('independent')
++  expect(alias.getModels()).toEqual(original.map(model => ({ ...model, provider: 'independent' })))
++  expect(alias.getModels().some(model => model.reasoning)).toBe(true)
++})
++
++it('keeps explicit endpoint, model and protocol overrides above inherited defaults', () => {
++  const profile = resolveProfiles({ alias: {
++    catalogProvider: 'deepseek', api: 'anthropic-messages', baseURL: 'http://127.0.0.1:9',
++    models: [{ id: 'deepseek-v4-flash', contextWindow: 8192, reasoningEfforts: false }],
++  } }).get('alias')!
++  expect(profile.piProvider!.getModels()).toEqual([expect.objectContaining({
++    id: 'deepseek-v4-flash', provider: 'alias', api: 'anthropic-messages',
++    baseUrl: 'http://127.0.0.1:9', contextWindow: 8192, reasoning: false,
++  })])
++  const customized = resolveProfiles({ alias: {
++    catalogProvider: 'deepseek', modelOverrides: { 'deepseek-v4-flash': { contextWindow: 8192 } },
++  } }).get('alias')!
++  expect(customized.piProvider!.getModels().find(model => model.id === 'deepseek-v4-flash')!.contextWindow).toBe(8192)
++})
++
++it('rejects empty or missing explicit catalog sources even with complete custom models', () => {
++  expect(() => Config({ providers: { alias: { catalogProvider: '' } } })).toThrow()
++  expect(() => resolveProfiles({ alias: { catalogProvider: '' } })).toThrow('empty catalogProvider')
++  const declaration = { api: 'openai-completions', baseURL: 'http://127.0.0.1:9', models: [{ id: 'custom' }] }
++  expect(() => resolveProfiles({ alias: { ...declaration, catalogProvider: 'missing-catalog' } })).toThrow(PiAiCatalogError)
++  const deferred = resolveProfiles({ alias: { ...declaration, catalogProvider: 'missing-catalog' } }, 'deferred').get('alias')!
++  expect(deferred.piProvider).toBeUndefined()
++  expect(deferred.catalogError).toContain('missing-catalog')
++  expect(resolveProfiles({ alias: declaration }).get('alias')!.piProvider!.getModels()[0]!.id).toBe('custom')
++})
++
++it('isolates credentials, endpoints and payload scope while a previous request waits for credentials', async () => {
++  const first = await mockServer([{ events: textEvents }])
++  const second = await mockServer([{ events: textEvents }, { events: textEvents }])
++  const resolve = (url: string, key: string) => resolveProfiles({
++    alpha: { catalogProvider: 'deepseek', baseURL: url, apiKeyEnv: key },
++    beta: { catalogProvider: 'deepseek', baseURL: second.url, apiKeyEnv: 'BETA' },
++  })
++  let profiles = resolve(first.url, 'ALPHA_OLD')
++  const entered = Promise.withResolvers<undefined>()
++  const release = Promise.withResolvers<undefined>()
++  const scopes: PiAiPayloadScope[] = []
++  const value = new PiAiAdapter({
++    profiles: () => profiles, auth: memoryAuth(),
++    resolveApiKey: async (_provider, profile) => {
++      if (profile.apiKeyEnv === 'ALPHA_OLD') { entered.resolve(undefined); await release.promise }
++      return `synthetic-${profile.apiKeyEnv}`
++    },
++    preparePayload: (scope) => { scopes.push(scope); return undefined },
++  })
++  const drain = async (provider: string) => {
++    const chunks = []
++    for await (const chunk of value.stream({ provider, model: 'deepseek-v4-flash', messages: [] })) chunks.push(chunk)
++    expect(chunks).toContainEqual(expect.objectContaining({ type: 'finish', reason: { kind: 'stop' } }))
++  }
++  const pending = drain('alpha')
++  try {
++    await entered.promise
++    profiles = resolve(second.url, 'ALPHA_NEW')
++    await drain('beta')
++  } finally { release.resolve(undefined) }
++  await pending
++  await drain('alpha')
++  expect(first.headers.map(header => header.authorization)).toEqual(['Bearer synthetic-ALPHA_OLD'])
++  expect(second.headers.map(header => header.authorization)).toEqual(['Bearer synthetic-BETA', 'Bearer synthetic-ALPHA_NEW'])
++  expect(scopes.map(scope => [scope.provider, scope.baseURL])).toEqual([
++    ['alpha', first.url], ['beta', second.url], ['alpha', second.url],
++  ])
++  expect(first.requests[0]).toMatchObject({ model: 'deepseek-v4-flash' })
++})
+diff --git a/packages/llm/llm-pi-ai/tests/loader-composition.spec.ts b/packages/llm/llm-pi-ai/tests/loader-composition.spec.ts
+index 845ad3fd9e..2732235dc8 100644
+--- a/packages/llm/llm-pi-ai/tests/loader-composition.spec.ts
++++ b/packages/llm/llm-pi-ai/tests/loader-composition.spec.ts
+@@ -83,6 +83,23 @@ async function loadComposition(): Promise<{ ctx: Context; settingsPath: string }
+ }
+ 
+ describe('llm-pi-ai real dormant composition', () => {
++  it('loads an independent catalog route from a profile patch and sends its own credential', async () => {
++    const server = await mockServer([{ events: textEvents }])
++    const { ctx, settingsPath } = await loadComposition()
++    await writeFile(settingsPath, [
++      '- id: llm-pi-ai', '  config:', '    providers:', '      catalog-alias:',
++      '        catalogProvider: deepseek', '        apiKeyEnv: PI_COMPOSITION_KEY',
++      '        baseURL: ' + server.url, '',
++    ].join('\n'))
++    await vi.waitFor(() => {
++      expect(ctx.llm.listProviders().map(provider => provider.id)).toEqual(['catalog-alias'])
++    }, { timeout: 5000 })
++    const result = await assemble(ctx, { provider: 'catalog-alias', model: 'deepseek-v4-flash', messages: [] })
++    expect(result.message.content).toEqual([{ type: 'text', text: 'hello' }])
++    expect(server.headers[0]?.authorization).toBe('Bearer key-from-store')
++    expect(server.requests[0]).toMatchObject({ model: 'deepseek-v4-flash' })
++  })
++
+   it('boots with zero routes and registers one the moment settings supply a profile', async () => {
+     vi.stubEnv('PI_COMPOSITION_KEY', '')
+     const server = await mockServer([{ events: textEvents }])
+diff --git a/scripts/gen-doc-graphs.spec.ts b/scripts/gen-doc-graphs.spec.ts
+index 057054734e..44467916a8 100644
+--- a/scripts/gen-doc-graphs.spec.ts
++++ b/scripts/gen-doc-graphs.spec.ts
+@@ -25,7 +25,7 @@ const FIXTURE: Record<string, string> = {
+     },
+     include: ['vendor/**/*.ts', 'packages/**/*.ts'],
+   }),
+-  'vendor/cordis/src/context.ts': 'export class Context { private brand!: void }\n',
++  'vendor/cordis/src/context.ts': 'export class Context { private brand!: void; bail(...args: unknown[]): unknown { return args[0] } }\n',
+   'vendor/cordis/src/events.ts': [
+     'export class EventsService {',
+     '  dispatch(type: string, args: unknown[]): unknown[] { return [type, args] }',
+@@ -41,6 +41,9 @@ const FIXTURE: Record<string, string> = {
+   'packages/fix/pkga/src/index.ts': [
+     "import { EventsService } from '../../../../vendor/cordis/src/events.ts'",
+     'declare const events: EventsService',
++    "import { Context } from '../../../../vendor/cordis/src/context.ts'",
++    'declare const ctx: Context',
++    "ctx.bail('pkga/bail-event')",
+     "function fireLocal(args: [string]): void { void events.dispatch('emit', args) }",
+     "fireLocal(['pkga/local-event'])",
+     "function fireAliased(args: [string]): void { void events.dispatch('emit', args) }",
+@@ -82,6 +85,10 @@ function dispatchersOf(pkgs: readonly string[], event: string): string[] {
+ }
+ 
+ describe('event relation call-site indexing', () => {
++  it('records a synchronous Context bail dispatcher', () => {
++    expect(dispatchersOf(['pkga'], 'pkga/bail-event')).toEqual(['pkga'])
++  })
++
+   it('recovers a proven-local helper through the single-file fast path', () => {
+     expect(dispatchersOf(['pkga', 'pkgb'], 'pkga/local-event')).toEqual(['pkga'])
+   })
+diff --git a/scripts/gen-doc-graphs.ts b/scripts/gen-doc-graphs.ts
+index bddc726f3c..8043cc5168 100644
+--- a/scripts/gen-doc-graphs.ts
++++ b/scripts/gen-doc-graphs.ts
+@@ -1004,7 +1004,7 @@ type CallSiteIndex = Map<ts.SignatureDeclaration | ts.JSDocSignature, ts.CallExp
+  * must appear here — the prefilter drops non-members before any branch runs,
+  * so a branch for an unlisted name is silently dead.
+  */
+-const EVENT_API_METHODS = new Set(['on', 'once', 'emit', 'parallel', 'serial', 'waterfall', 'dispatch'])
++const EVENT_API_METHODS = new Set(['on', 'once', 'emit', 'parallel', 'serial', 'waterfall', 'bail', 'dispatch'])
+ 
+ /**
+  * Collect event dispatch/listener relations from real cross-file receiver types.
+@@ -1162,7 +1162,7 @@ export class EventRelationCollector {
+             const eventNames = this.eventNamesFromCall(node, receiverKind)
+             if (method === 'on' || method === 'once') {
+               for (const event of eventNames) this.ensure(event).listeners.add(source.pkg)
+-            } else if (method === 'emit' || method === 'parallel' || method === 'serial' || method === 'waterfall') {
++            } else if (method === 'emit' || method === 'parallel' || method === 'serial' || method === 'waterfall' || method === 'bail') {
+               for (const event of eventNames) this.addDispatcher(event, source.pkg, method)
+             }
+           }
+-- 
+2.54.0.windows.1
+

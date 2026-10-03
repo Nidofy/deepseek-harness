@@ -1,0 +1,24 @@
+# Personal network access uses upstream providers and plugins, with local account-free entry.
+- id: webserver
+  config:
+    host: 127.0.0.1
+    port: 0
+    compression: gzip
+    compressionLevel: 1
+    compressionThresholdBytes: 1024
+- id: desktop-product-telemetry
+  disabled: true
+- id: product-analytics
+  disabled: true
+- id: session-telemetry-otel
+  disabled: true
+- id: session-log-deepseek
+  disabled: true
+- id: ui-settings-session-log
+  disabled: true
+- id: message-feedback
+  disabled: true
+- id: ui-message-feedback
+  disabled: true
+- id: command-feedback
+  disabled: true

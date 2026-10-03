@@ -1,0 +1,84 @@
+$ tsx scripts/prepare-dsh.ts
+Progress: resolved 0, reused 0, downloaded 1, added 0
+Progress: resolved 70, reused 0, downloaded 70, added 0
+
+   ╭─────────────────────────────────────────╮
+   │                                         │
+   │   Update available! 11.7.0 → 12.6.0.    │
+   │   Changelog: https://pnpm.io/v/12.6.0   │
+   │    To update, run: pnpm add -g pnpm     │
+   │                                         │
+   ╰─────────────────────────────────────────╯
+
+Progress: resolved 153, reused 0, downloaded 153, added 0
+Progress: resolved 185, reused 0, downloaded 185, added 0
+Progress: resolved 250, reused 0, downloaded 250, added 0
+Progress: resolved 288, reused 0, downloaded 287, added 0
+Progress: resolved 322, reused 0, downloaded 287, added 0
+Progress: resolved 371, reused 0, downloaded 287, added 0
+Progress: resolved 493, reused 0, downloaded 287, added 0
+Progress: resolved 582, reused 0, downloaded 287, added 0
+Progress: resolved 591, reused 0, downloaded 287, added 0
+[WARN] 1 deprecated subdependencies found: node-domexception@1.0.0
+Progress: resolved 607, reused 0, downloaded 287, added 0
+
+Done in 12.2s using pnpm v11.7.0
+Lockfile is up to date, resolution step is skipped
+Packages: +538
+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+Progress: resolved 0, reused 1, downloaded 0, added 0
+Progress: resolved 0, reused 287, downloaded 11, added 118
+Progress: resolved 0, reused 287, downloaded 38, added 129
+Progress: resolved 0, reused 287, downloaded 52, added 129
+Progress: resolved 0, reused 287, downloaded 76, added 132
+Progress: resolved 0, reused 287, downloaded 110, added 137
+Progress: resolved 0, reused 287, downloaded 113, added 137
+Progress: resolved 0, reused 287, downloaded 125, added 140
+Progress: resolved 0, reused 287, downloaded 154, added 141
+Progress: resolved 0, reused 287, downloaded 160, added 142
+Progress: resolved 0, reused 287, downloaded 178, added 145
+Progress: resolved 0, reused 287, downloaded 189, added 145
+Progress: resolved 0, reused 287, downloaded 201, added 145
+Progress: resolved 0, reused 287, downloaded 236, added 149
+Progress: resolved 0, reused 287, downloaded 241, added 155
+Progress: resolved 0, reused 287, downloaded 242, added 175
+Progress: resolved 0, reused 287, downloaded 243, added 191
+Progress: resolved 0, reused 287, downloaded 243, added 213
+Progress: resolved 0, reused 287, downloaded 244, added 230
+Progress: resolved 0, reused 287, downloaded 247, added 255
+Progress: resolved 0, reused 287, downloaded 247, added 278
+Progress: resolved 0, reused 287, downloaded 249, added 339
+Progress: resolved 0, reused 287, downloaded 249, added 366
+Progress: resolved 0, reused 287, downloaded 249, added 407
+Progress: resolved 0, reused 287, downloaded 249, added 477
+Progress: resolved 0, reused 287, downloaded 249, added 522
+Progress: resolved 0, reused 287, downloaded 249, added 524
+Progress: resolved 0, reused 287, downloaded 249, added 532
+Progress: resolved 0, reused 287, downloaded 250, added 535
+Progress: resolved 0, reused 287, downloaded 250, added 538
+Progress: resolved 0, reused 287, downloaded 250, added 538, done
+node_modules/koffi install$ node ./cnoke.cjs -P . -D src/koffi --prebuild --release
+node_modules/node-pty install$ node scripts/prebuild.js || node-gyp rebuild
+node_modules/node-pty install: [32m> Checking prebuilds...[0m
+node_modules/node-pty install: Done
+node_modules/node-pty postinstall$ node scripts/post-install.js
+node_modules/koffi install: Done
+node_modules/node-pty postinstall: [32m> Cleaning release folder...[0m
+node_modules/node-pty postinstall: [32m> Moving conpty.dll...[0m
+node_modules/node-pty postinstall:   Using os.arch(): x64
+node_modules/node-pty postinstall:   Found version 1.25.260303002
+node_modules/node-pty postinstall:   Copying C:\Users\enxi1\AppData\Local\Temp\dsh-desktop-runtime-trRgU8\node_modules\node-pty\third_party\conpty\1.25.260303002\win10-x64\conpty.dll -> C:\Users\enxi1\AppData\Local\Temp\dsh-desktop-runtime-trRgU8\node_modules\node-pty\build\Release\conpty\conpty.dll
+node_modules/node-pty postinstall:   Copying C:\Users\enxi1\AppData\Local\Temp\dsh-desktop-runtime-trRgU8\node_modules\node-pty\third_party\conpty\1.25.260303002\win10-x64\OpenConsole.exe -> C:\Users\enxi1\AppData\Local\Temp\dsh-desktop-runtime-trRgU8\node_modules\node-pty\build\Release\conpty\OpenConsole.exe
+node_modules/node-pty postinstall: Done
+.../@deepseek-ai/dsh-subprocess-local postinstall$ node scripts/ensure-spawn-helper.mjs
+.../@deepseek-ai/dsh-subprocess-local postinstall: Done
+
+devDependencies: skipped
+
+Done in 33.2s using pnpm v11.7.0
+Office runtime versions and document round trips passed.
+No broken requirements found.
+11.7.0
+{"node":"24.18.1","platform":"win32","arch":"x64","koffi":true,"sharp":true,"html":true,"pty":true,"pnpm":true,"grep":true,"glob":true}
+dsh web: http://127.0.0.1:54031/?token=[REDACTED]
+desktop runtime: DOCX, XLSX, PPTX to PDF and skill CLI discovery passed

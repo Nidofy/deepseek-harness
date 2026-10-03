@@ -1,0 +1,12 @@
+{
+  "upgradeChecksPassed": 6,
+  "status": "LOCAL_BASELINE",
+  "docSyncPassed": 43,
+  "installerSha256": "854a9c63d8110e27630caab7666a8c75d1a6a21cd17ae976d703b757d5df6c67",
+  "pending": [
+    "clean-machine-install-uninstall",
+    "actual-sleep",
+    "signed-release",
+    "enterprise-egress"
+  ]
+}

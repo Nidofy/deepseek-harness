@@ -1,0 +1,20 @@
+{
+  "status": "PASS",
+  "run": "D:\\Documents\\FeiyangChen\\devApps\\dshWinUi\\electron\\apps\\desktop\\.desktop-build\\qualification\\m5-upgrade-LgP77z",
+  "realCredentialsUsed": false,
+  "enterpriseAcceptance": "deferred",
+  "checks": {
+    "rc1ToRc2HistoryConnectionCredentialAndProtection": true,
+    "simulatedResumeThenTurn": true,
+    "hideShowRetainsHost": true,
+    "upgradedRestartContinuesSession": true,
+    "oldPackageAndPreUpgradeCopyRestore": true,
+    "preUpgradeBackupUnchanged": true
+  },
+  "oldVersion": "0.2.0-rc.1",
+  "newVersion": "0.2.0-rc.2",
+  "backupDigest": "0c6587fa871f227bf8b0b7ae63aacfdc5d6747739af33b292ca7a4044a3bae54",
+  "actualSleep": "NOT_TESTED",
+  "cleanMachine": "NOT_TESTED",
+  "signedInstaller": "NOT_TESTED"
+}

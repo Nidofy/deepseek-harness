@@ -25,7 +25,7 @@ const FIXTURE: Record<string, string> = {
     },
     include: ['vendor/**/*.ts', 'packages/**/*.ts'],
   }),
-  'vendor/cordis/src/context.ts': 'export class Context { private brand!: void }\n',
+  'vendor/cordis/src/context.ts': 'export class Context { private brand!: void; bail(name: string): string { return name } }\n',
   'vendor/cordis/src/events.ts': [
     'export class EventsService {',
     '  dispatch(type: string, args: unknown[]): unknown[] { return [type, args] }',
@@ -39,6 +39,11 @@ const FIXTURE: Record<string, string> = {
   // const is a value-position reference, so the proof fails and the global
   // fallback must find the cross-file call in pkgb.
   'packages/fix/pkga/src/index.ts': [
+    "import { Context } from '../../../../vendor/cordis/src/context.ts'",
+    'declare const ctx: Context',
+    "ctx.bail('pkga/bail-event')",
+    'const unrelated = { bail(name: string): string { return name } }',
+    "unrelated.bail('pkga/unrelated-event')",
     "import { EventsService } from '../../../../vendor/cordis/src/events.ts'",
     'declare const events: EventsService',
     "function fireLocal(args: [string]): void { void events.dispatch('emit', args) }",
@@ -82,6 +87,10 @@ function dispatchersOf(pkgs: readonly string[], event: string): string[] {
 }
 
 describe('event relation call-site indexing', () => {
+  it('recognizes Cordis bail dispatch without admitting unrelated methods with the same name', () => {
+    expect(dispatchersOf(['pkga'], 'pkga/bail-event')).toEqual(['pkga'])
+    expect(dispatchersOf(['pkga'], 'pkga/unrelated-event')).toEqual([])
+  })
   it('recovers a proven-local helper through the single-file fast path', () => {
     expect(dispatchersOf(['pkga', 'pkgb'], 'pkga/local-event')).toEqual(['pkga'])
   })

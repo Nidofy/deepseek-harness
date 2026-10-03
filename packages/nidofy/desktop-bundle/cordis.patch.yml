@@ -1,0 +1,15 @@
+- insert:
+    - id: nidofy-context-paths
+      name: '@nidofy/dsh-desktop-extras/paths'
+    - id: nidofy-working-notebook
+      name: '@nidofy/dsh-working-notebook'
+    - id: nidofy-extras
+      name: '@nidofy/dsh-desktop-extras'
+    - id: tool-session-query
+      name: '@deepseek-ai/dsh-tool-session-query'
+
+- id: session-query-sqlite
+  inject: [nidofyContextPaths]
+  config:
+    path: !!js ctx.nidofyContextPaths.index
+    openAt: first-search

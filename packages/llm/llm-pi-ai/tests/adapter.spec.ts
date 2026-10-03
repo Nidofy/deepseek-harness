@@ -432,9 +432,9 @@ describe('PiAiAdapter provider routing', () => {
 })
 
 describe('provider profile lifecycle', () => {
-  it('keeps adapter helpers off the package root', () => {
+  it('exposes profile and credential composition while keeping transcript helpers private', () => {
+    for (const helper of ['resolveProfiles', 'authContextFrom', 'credentialStoreFrom']) expect(LlmPiAi).toHaveProperty(helper)
     for (const helper of [
-      'resolveProfiles',
       'toPiContext',
       'toPiReplayState',
       'toPiAssistant',

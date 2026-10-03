@@ -1,0 +1,42 @@
+[
+  {
+    "path": "apps\\desktop\\.desktop-build\\targets\\win-x64\\personal-unsigned\\win-unpacked\\Nidofy DSH Desktop.exe",
+    "unchanged": true,
+    "sha256": "5f5e909858139ccba5744be508cea1eea4fe73433559586bf783199914383d4d"
+  },
+  {
+    "path": "apps\\desktop\\.desktop-build\\targets\\win-x64\\personal-unsigned\\win-unpacked\\resources\\app.asar",
+    "unchanged": true,
+    "sha256": "c0a3587e6ff74b7e8ccb61944f64c3b8fc2dd205a73f8e20b230ff10ed8cd172"
+  },
+  {
+    "path": "apps\\desktop\\.desktop-build\\targets\\win-x64\\personal-unsigned\\win-unpacked\\resources\\nidofy-protection.exe",
+    "unchanged": true,
+    "sha256": "4d4cb159654be6deb375a215d299d23e4937aedbf07210ed8974a7e6d4701159"
+  },
+  {
+    "path": "apps\\desktop\\.desktop-build\\targets\\win-x64\\unsigned-artifacts\\win-unpacked\\resources\\app.asar",
+    "unchanged": true,
+    "sha256": "a82918451312b96fd144da957179d6225c0db54c77fe4f378a585ef331425229"
+  },
+  {
+    "path": "D:\\Documents\\FeiyangChen\\devApps\\dshWinUi\\electron\\apps\\desktop\\.desktop-build\\targets\\win-x64\\unsigned-artifacts\\win-unpacked\\Nidofy DSH Intranet.exe",
+    "unchanged": true,
+    "sha256": "7a9271ca73a226e91d88a46eb6319369fddfe32f443cded607264590e1693549"
+  },
+  {
+    "path": "apps/desktop/.desktop-build/targets/win-x64/candidates/m3/personal-unsigned/win-unpacked/Nidofy DSH Desktop.exe",
+    "unchanged": true,
+    "sha256": "226e3b778d7ce916450b6d9cca548f6c9e50df939cd5781419093422c46355ab"
+  },
+  {
+    "path": "apps/desktop/.desktop-build/targets/win-x64/candidates/m3/personal-unsigned/win-unpacked/resources/app.asar",
+    "unchanged": true,
+    "sha256": "583d4500b8e8348c4c8c87505cf1446176f4bed7804c30ec2e2e6d96bb474edd"
+  },
+  {
+    "path": "apps/desktop/.desktop-build/targets/win-x64/candidates/m3/personal-unsigned/win-unpacked/resources/nidofy-protection.exe",
+    "unchanged": true,
+    "sha256": "cd66db1db6f302c60cb7b7e441e04abc2d34206edda387b2c742aeed786d5b27"
+  }
+]

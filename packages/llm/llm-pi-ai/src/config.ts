@@ -3,7 +3,8 @@
  * Profiles are a dict keyed by provider route, so the composition base and a
  * user-settings layer merge per provider and the route set is structural.
  *
- * A route key is not required to name an installed pi-ai provider. When it does,
+ * A route key is not required to name an installed pi-ai provider. An explicit
+ * catalogProvider selects its installed source independently. When one exists,
  * that provider's endpoint, protocol, display name, and model catalog are the
  * profile's defaults and the profile overrides them field by field; when it does
  * not, the profile is the whole provider declaration. Stored reads retain
@@ -90,6 +91,8 @@ export type {
 
 /** Configuration for one pi-ai provider route; the `providers` dict key IS the route. */
 export interface PiAiProviderProfile {
+  /** Installed provider whose catalog and native dispatch this route inherits; defaults to the route key. */
+  catalogProvider?: string
   /** Credential reference (environment-variable name) resolved per request through `ctx.credentials`. */
   apiKeyEnv?: string
   /** Name shown by configuration surfaces; defaults to the route key. */
@@ -324,6 +327,7 @@ const modelProfile: z<PiAiModelProfile> = z.object({
 const modelOverride: z<PiAiModelOverride> = z.object(modelFields)
 
 const profile = z.object({
+  catalogProvider: z.string().min(1),
   apiKeyEnv: z.string().role('credential-ref'),
   displayName: z.string(),
   api: z.union(supportedProtocols()),
@@ -425,6 +429,9 @@ export function resolveProfiles(
     if (source.displayName !== undefined && source.displayName.length === 0) {
       throw new Error(`llm-pi-ai: provider "${provider}" has an empty displayName`)
     }
+    if (source.catalogProvider !== undefined && source.catalogProvider.length === 0) {
+      throw new Error(`llm-pi-ai: provider "${provider}" has an empty catalogProvider`)
+    }
     assertValidHeaders(provider, source.headers)
     const streamIdleTimeoutMs = source.streamIdleTimeoutMs ?? DEFAULT_STREAM_IDLE_TIMEOUT_MS
     if (!Number.isFinite(streamIdleTimeoutMs)
@@ -465,6 +472,7 @@ export function resolveProfiles(
     try {
       catalog = resolveRouteModels({
         provider,
+        ...source.catalogProvider === undefined ? {} : { catalogProvider: source.catalogProvider },
         ...source.api === undefined ? {} : { api: source.api },
         ...source.baseURL === undefined ? {} : { baseURL: source.baseURL },
         ...source.models === undefined ? {} : { models: source.models },
@@ -477,6 +485,7 @@ export function resolveProfiles(
       catalogError = catalog.modelErrors.values().next().value
       piProvider = buildProvider({
         provider,
+        ...source.catalogProvider === undefined ? {} : { catalogProvider: source.catalogProvider },
         displayName,
         ...source.api === undefined ? {} : { api: source.api },
         ...source.baseURL === undefined ? {} : { baseURL: source.baseURL },

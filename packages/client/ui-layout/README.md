@@ -105,3 +105,5 @@ None.
 </details>
 
 **Runtime invariant:** No companion is published. The shell viewing-state store behind `ctx.layout` emits no Cordis events; clamp and track sequencing is asserted directly by this package's columns and service specs.
+
+`shell.accessory` is an optional root-scoped single slot beside the main panel in normal flex flow. The enclosing `shell-center` inline-size container excludes both official sidebars. Occupants own their responsive visibility; with no occupant the main panel uses the entire center.

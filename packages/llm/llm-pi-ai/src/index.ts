@@ -65,6 +65,7 @@ import type { AdapterRegistrationHandle, DirectoryRegistrationHandle, LlmConfigu
 import type {} from '@deepseek-ai/dsh-fs'
 import { deepEqualJson } from '@deepseek-ai/dsh-util-values'
 import { PiAiAdapter } from './adapter.ts'
+import type { PiAiAdapterOptions, PiAiPayloadScope } from './adapter.ts'
 import { authContextFrom, credentialStoreFrom } from './auth.ts'
 import { catalogProviderIds } from './catalog.ts'
 import { assertServiceable, Config, resolveProfiles } from './config.ts'
@@ -74,8 +75,23 @@ import type { StoredModelDiscoveryProfile } from './discovery.ts'
 import { registerPiAiFlows } from './login.ts'
 
 export { PiAiAdapter } from './adapter.ts'
-export type { PiAiAdapterOptions } from './adapter.ts'
+export type { PiAiAdapterOptions, PiAiPayloadScope } from './adapter.ts'
+
+declare module '@deepseek-ai/cordis' {
+  interface Events {
+    /**
+     * Capture the deployment's optional final transport-payload transform.
+     * The listener returns a callback with request-local policy already frozen.
+     * The callback must preserve logged model content, tools and generation parameters.
+     * @param scope - routing facts without prompt content or credentials.
+     * @mode bail
+     */
+    'llm-pi-ai/prepare-payload'(scope: PiAiPayloadScope): ReturnType<NonNullable<PiAiAdapterOptions['preparePayload']>>
+  }
+}
 export { Config } from './config.ts'
+export { resolveProfiles } from './config.ts'
+export { authContextFrom, credentialStoreFrom } from './auth.ts'
 export type {
   Options,
   PiAiCompatProfile,
@@ -210,6 +226,7 @@ export function apply(ctx: Context, config: Config): void {
   // a configuration change causes, and a sign-in survives one.
   const auth = { credentials: credentialStoreFrom(ctx), authContext: authContextFrom(ctx) }
   const adapter = new PiAiAdapter({
+    preparePayload: scope => ctx.bail('llm-pi-ai/prepare-payload', scope),
     profiles,
     resolveApiKey,
     auth,

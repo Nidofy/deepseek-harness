@@ -1,0 +1,149 @@
+{
+  "status": "PASS",
+  "milestone": "M4",
+  "baseline": "dsh-v0.2.0-rc.2",
+  "sourceLock": "../origin.json",
+  "completedAt": "2026-09-29T18:06:53.198Z",
+  "distribution": "personal",
+  "platform": "win32-x64",
+  "unsigned": true,
+  "qualification": "m4-JRc7uQ",
+  "artifacts": [
+    {
+      "path": "apps/desktop/.desktop-build/targets/win-x64/candidates/m4/personal-unsigned/win-unpacked/Nidofy DSH Desktop.exe",
+      "bytes": 244468224,
+      "sha256": "b280a094421dfc09562ec34765aa5fde75d3d70e8ba6f2790cce8a5144701d94"
+    },
+    {
+      "path": "apps/desktop/.desktop-build/targets/win-x64/candidates/m4/personal-unsigned/win-unpacked/resources/app.asar",
+      "bytes": 122138846,
+      "sha256": "14d35d0acc2c5bebec2b55e01734050080e31264a5592f7b7afcebd2b9969b06"
+    },
+    {
+      "path": "apps/desktop/.desktop-build/targets/win-x64/candidates/m4/personal-unsigned/win-unpacked/resources/nidofy-protection.exe",
+      "bytes": 769024,
+      "sha256": "a785913d211c9a41c865b19bfc36d8838b32e33ea69d7f3c7f4c2271238156d9"
+    }
+  ],
+  "checks": {
+    "casAndAck": true,
+    "activeRetryUsesAAndNewTurnUsesBWithoutRestart": true,
+    "sameModelIndependentConnections": true,
+    "nativeProtectionPackagedLifecycle": true,
+    "protectionFailurePreventsModelAndTools": true,
+    "desktopConnectionEditor": true,
+    "copyImportIdempotentSourceUnchanged": true,
+    "restartRetainsConnectionsAndHistory": true,
+    "gitOfficialShellPreviewCommitPush": true,
+    "realMenuReviewComposerAppendPreservesDraft": true,
+    "buildTrustOfficialShellCancelNativeRestore": true,
+    "nativeArtifactLeaseOpenRevealSaveAndRecheck": true,
+    "officialPresentEventArtifactProjection": true,
+    "modelToolUsesOfficialSessionShellAndProtection": true,
+    "officialSessionRecoveryNotificationsAutomaticBaseline": true,
+    "workbenchAllTabsRender": true,
+    "chineseWorkbenchAndSessionArtifacts": true,
+    "m4BoundedProbeOfficialPayloadHookRedactionAndArchives": true,
+    "m4IndependentVisionConsentAndImageProtocol": true,
+    "m4ProbeCancellationStopsRemainingBudget": true,
+    "m4PetRealCanvasWindowResourcesPinNavigateDispose": true,
+    "m4OfflineOfficialSchedulePausedImportExplicitFutureRestore": true,
+    "m4CancelledOfficialQuitPreservesPetController": true,
+    "m4BilingualDashboardAllTabsRender": true,
+    "m4OfficialThemeAndFontLiveAdoption": true,
+    "m4OptionalUnloadReloadLeavesCoreOwnersAvailable": true,
+    "importedCopyBootsWithHistoryAndNoCredentials": true
+  },
+  "tests": {
+    "regression": {
+      "files": 78,
+      "passed": 1698
+    },
+    "correctionSubset": {
+      "passed": 55,
+      "overlapsRegression": true
+    },
+    "releaseBoundary": {
+      "passed": 20
+    },
+    "petBehavior": {
+      "passed": 19
+    },
+    "legacyScripts": 3
+  },
+  "lint": "PASS: repository-wide",
+  "docs": {
+    "passed": 41,
+    "failed": 2,
+    "exceptions": [
+      "M0 README has no Chinese pair; historical record retained.",
+      "M0/M1/M4 provenance records contain immutable commit/stash identities, rejected by the generic repository-reference gate."
+    ]
+  },
+  "packaging": {
+    "source": "Official build:official; all dsh release packages; desktop-host and private plugins; prepare:packages; prepare:dsh; electron-builder --dir --unsigned",
+    "runtime": "Previously verified unchanged Electron/Node/vendor runtime reused after GitHub timeout; final packaged runtime smoke rerun",
+    "log": ".build/m4-build-final.log"
+  },
+  "boundaries": [
+    "No real model credentials used; synthetic protocols do not prove image quality or billed cache benefit.",
+    "Enterprise gateway acceptance deferred by user.",
+    "Signed installer, clean-machine installation, mixed-DPI field qualification and real-provider checks remain M5.",
+    "Arbitrary CLI profiles do not inherit Desktop Host protection and connection owners."
+  ],
+  "reports": {
+    "desktop": "desktop.json",
+    "sources": "source-inputs.json",
+    "previousPackages": "preserved-packages.json"
+  },
+  "validationLogs": {
+    "regression": {
+      "path": ".build/m4-regression-final.log",
+      "sha256": "7335a7935a0f31bc9e37a961eb039f7436fa4dc522e1b547969d8a6d25eb687f"
+    },
+    "corrections": {
+      "path": ".build/m4-corrections-tests.log",
+      "sha256": "277f78a7d03075679117af1f64603a6e8e14ca0d2b3f3a62eb2b120ae4810012"
+    },
+    "pet": {
+      "path": ".build/m4-pet-final.log",
+      "sha256": "1d8f91aeb7e90de862a7c57cafe2ebc45c4d79181b1de4fe24496211427b589c"
+    },
+    "petPackages": {
+      "path": ".build/m4-pet-package-final.log",
+      "sha256": "77aaaae9ef7a595cbbd6b8857cfceffd6c4f3e08d7c5e1ddd13fb769350cc742"
+    },
+    "observer": {
+      "path": ".build/m4-observability-final.log",
+      "sha256": "be599b162eb29717092a9c7519d5bacd995c5c6b466e464d77126151a08fb6e9"
+    },
+    "cachePolicy": {
+      "path": ".build/m4-cache-policy-final.log",
+      "sha256": "3e9373782de3ab6f6c609d6db377d85ba6849b7e42674cdc44dced40e4142a09"
+    },
+    "lint": {
+      "path": ".build/m4-lint-final-all.log",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    "docs": {
+      "path": ".build/m4-doc-sync-qualified.log",
+      "sha256": "635cceb94dd30c1922e9d6593744d27a578f2350fcfddce68df26b70765e98ba"
+    },
+    "build": {
+      "path": ".build/m4-build-final.log",
+      "sha256": "34ba87bb664aff53445d50c2372d897cec3a123827c1d8688d0f2b2a8b27164c"
+    },
+    "runtime": {
+      "path": ".build/m4-runtime-qualified.log",
+      "sha256": "402b139a2768411de6dcc1a824cfb6c0b69bfc8ecf015d81178d3ec828cbbf7d"
+    },
+    "releaseBoundary": {
+      "path": ".build/m4-release-boundary-tests.log",
+      "sha256": "8c18b0cfb084e8a64c7cab4139f98f88db8ceaaa1b807804a75efbe2015e7538"
+    },
+    "petLifecycleLint": {
+      "path": ".build/m4-pet-lint-last.log",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    }
+  }
+}

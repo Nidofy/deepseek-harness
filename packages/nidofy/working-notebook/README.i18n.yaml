@@ -1,0 +1,43 @@
+# Bilingual-pair consistency record for README.md (docs/i18n/README.md): per heading
+# section, a hash of its English and Chinese blocks outside code blocks and generated regions.
+# After editing either side, bring the other along and re-record with:
+#   pnpm run verify-translation-pairing --write packages/nidofy/working-notebook/README.md
+/:
+  en: 7c2efbf5e5040cf7
+  zh: 77a26ac1e7ca70aa
+/nidofy-dsh-working-notebook:
+  en: 71d0ea03343b2498
+  zh: 5371f256e1272a9e
+/nidofy-dsh-working-notebook/summary:
+  en: e70bd2031957918e
+  zh: a92c778f33101691
+/nidofy-dsh-working-notebook/table-of-contents:
+  en: 122f0d41696980b1
+  zh: 97818aeca5981163
+/nidofy-dsh-working-notebook/use-this-package:
+  en: 11ac8fa2ed15e358
+  zh: 88a83e6a62054adb
+/nidofy-dsh-working-notebook/understand-the-implementation:
+  en: fe84e80ff074cc33
+  zh: 749ef1103ed8dd97
+/nidofy-dsh-working-notebook/model-experience:
+  en: 215e7ba838619b7b
+  zh: a311da3843709f90
+/nidofy-dsh-working-notebook/model-experience/working-notes:
+  en: 26e899485832b9dc
+  zh: da9e981a59f11bdc
+/nidofy-dsh-working-notebook/model-experience/working-notes/what-the-model-sees:
+  en: f434a86bed6d99ee
+  zh: 4c3b557cfff55213
+/nidofy-dsh-working-notebook/model-experience/working-notes/token-effect:
+  en: b696227e343fc875
+  zh: f2b85d35eb00a810
+/nidofy-dsh-working-notebook/model-experience/working-notes/kv-cache-effect:
+  en: 03c35d7c1910792c
+  zh: ca58af8c49042c09
+/nidofy-dsh-working-notebook/known-limitations-and-deferred-work:
+  en: 182dc65d95ed9c3a
+  zh: 2e1840191bfee1a5
+/nidofy-dsh-working-notebook/known-limitations-and-deferred-work/dev-note:
+  en: 63b76c591c481bd6
+  zh: d5ff439e88b6a835

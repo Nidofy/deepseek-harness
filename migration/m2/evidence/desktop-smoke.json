@@ -1,0 +1,83 @@
+{
+  "status": "PASS",
+  "run": "D:\\Documents\\FeiyangChen\\devApps\\dshWinUi\\electron\\apps\\desktop\\.desktop-build\\qualification\\m2-d54XXy",
+  "realCredentialsUsed": false,
+  "enterpriseAcceptance": "deferred",
+  "checks": {
+    "casAndAck": true,
+    "activeRetryUsesAAndNewTurnUsesBWithoutRestart": true,
+    "sameModelIndependentConnections": true,
+    "nativeProtectionPackagedLifecycle": true,
+    "protectionFailurePreventsModelAndTools": true,
+    "desktopConnectionEditor": true,
+    "copyImportIdempotentSourceUnchanged": true,
+    "restartRetainsConnectionsAndHistory": true,
+    "importedCopyBootsWithHistoryAndNoCredentials": true
+  },
+  "requests": [
+    {
+      "protocol": "openai",
+      "path": "/openai/v1/chat/completions",
+      "model": "shared-model",
+      "credentialMatched": true,
+      "credentialSlot": "openai",
+      "marker": "QUALIFIED_OPENAI_1"
+    },
+    {
+      "protocol": "openai",
+      "path": "/openai/v1/chat/completions",
+      "model": "shared-model",
+      "credentialMatched": true,
+      "credentialSlot": "openai",
+      "marker": "QUALIFIED_OPENAI_2"
+    },
+    {
+      "protocol": "openai",
+      "path": "/openai/v1/chat/completions",
+      "model": "shared-model",
+      "credentialMatched": true,
+      "credentialSlot": "openai",
+      "marker": "QUALIFIED_OPENAI_3"
+    },
+    {
+      "protocol": "anthropic",
+      "path": "/anthropic/v1/messages?beta=true",
+      "model": "shared-model",
+      "credentialMatched": true,
+      "credentialSlot": "anthropic",
+      "marker": "QUALIFIED_ANTHROPIC_4"
+    },
+    {
+      "protocol": "anthropic",
+      "path": "/anthropic/v1/messages?beta=true",
+      "model": "shared-model",
+      "credentialMatched": true,
+      "credentialSlot": "beta",
+      "marker": "QUALIFIED_ANTHROPIC_5"
+    },
+    {
+      "protocol": "anthropic",
+      "path": "/anthropic/v1/messages?beta=true",
+      "model": "shared-model",
+      "credentialMatched": true,
+      "credentialSlot": "beta",
+      "marker": "QUALIFIED_ANTHROPIC_6"
+    },
+    {
+      "protocol": "anthropic",
+      "path": "/anthropic/v1/messages?beta=true",
+      "model": "shared-model",
+      "credentialMatched": true,
+      "credentialSlot": "anthropic",
+      "marker": "QUALIFIED_ANTHROPIC_7"
+    },
+    {
+      "protocol": "anthropic",
+      "path": "/anthropic/v1/messages?beta=true",
+      "model": "shared-model",
+      "credentialMatched": true,
+      "credentialSlot": "anthropic",
+      "marker": "QUALIFIED_ANTHROPIC_8"
+    }
+  ]
+}

@@ -1,0 +1,43 @@
+# Bilingual-pair consistency record for README.md (docs/i18n/README.md): per heading
+# section, a hash of its English and Chinese blocks outside code blocks and generated regions.
+# After editing either side, bring the other along and re-record with:
+#   pnpm run verify-translation-pairing --write packages/nidofy/desktop-extras/README.md
+/:
+  en: 5eab63f27bbaa457
+  zh: d9ce4960e85157e8
+/nidofy-dsh-desktop-extras:
+  en: 939f72d306c7cc0e
+  zh: 689a00ca65d3a38a
+/nidofy-dsh-desktop-extras/summary:
+  en: cc794d0bbee01d82
+  zh: 7a85baf6fc582d01
+/nidofy-dsh-desktop-extras/table-of-contents:
+  en: 813b9e6ace0ba331
+  zh: 652573d43ef457b4
+/nidofy-dsh-desktop-extras/use-this-package:
+  en: c1e47cd7629e1466
+  zh: f9ea49d2a240e7f9
+/nidofy-dsh-desktop-extras/ownership-and-persistence:
+  en: 7b9e1522d4f5bf65
+  zh: e61495f022a65fb0
+/nidofy-dsh-desktop-extras/model-experience:
+  en: 215e7ba838619b7b
+  zh: a311da3843709f90
+/nidofy-dsh-desktop-extras/model-experience/optional-image-tool-and-explicit-requests:
+  en: 386f3bf22def09b4
+  zh: 97a0ce1df2004a82
+/nidofy-dsh-desktop-extras/model-experience/optional-image-tool-and-explicit-requests/what-the-model-sees:
+  en: eb32f9bd1f8fc41f
+  zh: ab6b34f322eab76f
+/nidofy-dsh-desktop-extras/model-experience/optional-image-tool-and-explicit-requests/token-effect:
+  en: c3731c30601ab852
+  zh: 99dba11381a3117e
+/nidofy-dsh-desktop-extras/model-experience/optional-image-tool-and-explicit-requests/kv-cache-effect:
+  en: acebe18a7a4583dd
+  zh: 4d42f49274139ef3
+/nidofy-dsh-desktop-extras/known-limitations-and-deferred-work:
+  en: a0c84303f2d6d4be
+  zh: 7eee13b8b36fa3a2
+/nidofy-dsh-desktop-extras/known-limitations-and-deferred-work/dev-note:
+  en: 3f591b66fa879d8f
+  zh: edb1bdd08da6cc52

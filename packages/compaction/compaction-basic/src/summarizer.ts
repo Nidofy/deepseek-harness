@@ -77,6 +77,8 @@ const CHECKPOINT_PREAMBLE =
  * compaction instruction is then the only novel input.
  */
 export interface SummarizationInput {
+  /** Optional plugin instructions appended after the standard summary directive; the replay prefix stays unchanged. */
+  readonly instructionAppendix?: string
   /** The conversation's tool schemas, reused for prefix-cache alignment; absent when the request carried none. */
   readonly tools?: readonly ToolSchema[]
   /** The derived system head, when present, followed by the shadowed region in surface order. */
@@ -146,7 +148,7 @@ export async function summarizeWithLlm(
     ...input.messages,
     deepFreeze({
       role: 'user',
-      content: [{ type: 'text', text: COMPACTION_INSTRUCTION }],
+      content: [{ type: 'text', text: COMPACTION_INSTRUCTION + (input.instructionAppendix ? '\n\n' + input.instructionAppendix : '') }],
     }),
   ]
   const options: GenerateOptions = {

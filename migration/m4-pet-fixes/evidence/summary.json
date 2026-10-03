@@ -1,0 +1,164 @@
+{
+  "status": "PASS",
+  "baseline": "dsh-v0.2.0-rc.2",
+  "completedAt": "2026-09-30T05:02:18.186Z",
+  "unsigned": true,
+  "qualification": "apps\\desktop\\.desktop-build\\qualification\\m4-pet-fixes-0SEAs0",
+  "checks": {
+    "casAndAck": true,
+    "activeRetryUsesAAndNewTurnUsesBWithoutRestart": true,
+    "sameModelIndependentConnections": true,
+    "nativeProtectionPackagedLifecycle": true,
+    "protectionFailurePreventsModelAndTools": true,
+    "desktopConnectionEditor": true,
+    "copyImportIdempotentSourceUnchanged": true,
+    "restartRetainsConnectionsAndHistory": true,
+    "gitOfficialShellPreviewCommitPush": true,
+    "realMenuReviewComposerAppendPreservesDraft": true,
+    "buildTrustOfficialShellCancelNativeRestore": true,
+    "nativeArtifactLeaseOpenRevealSaveAndRecheck": true,
+    "officialPresentEventArtifactProjection": true,
+    "modelToolUsesOfficialSessionShellAndProtection": true,
+    "officialSessionRecoveryNotificationsAutomaticBaseline": true,
+    "workbenchAllTabsRender": true,
+    "chineseWorkbenchAndSessionArtifacts": true,
+    "optionalOfficialLoginEntry": true,
+    "showAndHidePetByVisibleControls": true,
+    "environmentCardAndRepeatedTabResize": true,
+    "petMenuBesideSpriteAtBothScreenEdges": true,
+    "petWaitingTaskPreemptsRunningAndCancellationReturns": true,
+    "petAutomaticTaskSelectionPinAndIdle": true,
+    "m4BoundedProbeOfficialPayloadHookRedactionAndArchives": true,
+    "m4IndependentVisionConsentAndImageProtocol": true,
+    "m4ProbeCancellationStopsRemainingBudget": true,
+    "m4PetRealCanvasWindowResourcesPinNavigateDispose": true,
+    "m4OfflineOfficialSchedulePausedImportExplicitFutureRestore": true,
+    "m4CancelledOfficialQuitPreservesPetController": true,
+    "m4BilingualDashboardAllTabsRender": true,
+    "m4OfficialThemeAndFontLiveAdoption": true,
+    "m4OptionalUnloadReloadLeavesCoreOwnersAvailable": true,
+    "importedCopyBootsWithHistoryAndNoCredentials": true
+  },
+  "artifacts": [
+    {
+      "path": "apps/desktop/.desktop-build/targets/win-x64/candidates/m4-pet-fixes/personal-unsigned/win-unpacked/Nidofy DSH Desktop.exe",
+      "bytes": 244468224,
+      "sha256": "cabdb7eae70807988fe937df1d2b3f19f4e90d218c4fd6c93b44788c66dfb1ec"
+    },
+    {
+      "path": "apps/desktop/.desktop-build/targets/win-x64/candidates/m4-pet-fixes/personal-unsigned/win-unpacked/resources/app.asar",
+      "bytes": 122153900,
+      "sha256": "44530ae4a2b3d9d8fd6d2a98eb3fdbe10de2b8dff10bb0b94fb28a327e12d4fc"
+    },
+    {
+      "path": "apps/desktop/.desktop-build/targets/win-x64/candidates/m4-pet-fixes/personal-unsigned/win-unpacked/resources/nidofy-protection.exe",
+      "bytes": 769024,
+      "sha256": "a785913d211c9a41c865b19bfc36d8838b32e33ea69d7f3c7f4c2271238156d9"
+    },
+    {
+      "path": "apps/desktop/.desktop-build/targets/win-x64/candidates/m4-pet-fixes/personal-unsigned/win-unpacked/resources/app.asar.unpacked/dsh/node_modules/@nidofy/dsh-desktop-extras/assets/pet/index.html",
+      "bytes": 423,
+      "sha256": "245a7fa98e48478de27b1ca0bc923abb9d42ed7006e41fbc4987db8273d4e67e"
+    },
+    {
+      "path": "apps/desktop/.desktop-build/targets/win-x64/candidates/m4-pet-fixes/personal-unsigned/win-unpacked/resources/app.asar.unpacked/dsh/node_modules/@nidofy/dsh-desktop-extras/assets/pet/pet.css",
+      "bytes": 1330,
+      "sha256": "89772ffff14b120458519addd3d5c8e0a45c07f5e1f13785c93f8ae7b2718d9e"
+    },
+    {
+      "path": "apps/desktop/.desktop-build/targets/win-x64/candidates/m4-pet-fixes/personal-unsigned/win-unpacked/resources/app.asar.unpacked/dsh/node_modules/@nidofy/dsh-desktop-extras/assets/pet/pet.js",
+      "bytes": 10305,
+      "sha256": "c8e763da747357c2c1f3004bcebe7fcd53e13992287284703df64d59afbab8e7"
+    },
+    {
+      "path": "apps/desktop/.desktop-build/targets/win-x64/candidates/m4-pet-fixes/personal-unsigned/win-unpacked/resources/app.asar.unpacked/dsh/node_modules/@nidofy/dsh-desktop-extras/assets/pet/state.js",
+      "bytes": 3247,
+      "sha256": "d6a384a1d6b5366e73a173ccb430dd9da74ed9fc513be4f4a4bb3f0fb3a3bacb"
+    }
+  ],
+  "preserved": [
+    {
+      "path": "apps/desktop/.desktop-build/targets/win-x64/candidates/m4/personal-unsigned/win-unpacked/Nidofy DSH Desktop.exe",
+      "bytes": 244468224,
+      "sha256": "b280a094421dfc09562ec34765aa5fde75d3d70e8ba6f2790cce8a5144701d94"
+    },
+    {
+      "path": "apps/desktop/.desktop-build/targets/win-x64/candidates/m4/personal-unsigned/win-unpacked/resources/app.asar",
+      "bytes": 122138846,
+      "sha256": "14d35d0acc2c5bebec2b55e01734050080e31264a5592f7b7afcebd2b9969b06"
+    },
+    {
+      "path": "apps/desktop/.desktop-build/targets/win-x64/candidates/m4/personal-unsigned/win-unpacked/resources/nidofy-protection.exe",
+      "bytes": 769024,
+      "sha256": "a785913d211c9a41c865b19bfc36d8838b32e33ea69d7f3c7f4c2271238156d9"
+    },
+    {
+      "path": "apps/desktop/.desktop-build/targets/win-x64/candidates/m4-fixes/personal-unsigned/win-unpacked/Nidofy DSH Desktop.exe",
+      "bytes": 244468224,
+      "sha256": "c1316ad20ce74791c928768dc782a37ab5769d54e46d7ddb7e96dfe37e5e792e"
+    },
+    {
+      "path": "apps/desktop/.desktop-build/targets/win-x64/candidates/m4-fixes/personal-unsigned/win-unpacked/resources/app.asar",
+      "bytes": 122151840,
+      "sha256": "ac79966b2e543d7e4d83705fbe5aaf0b9b266a68451f9e1270610cb1a6e85360"
+    },
+    {
+      "path": "apps/desktop/.desktop-build/targets/win-x64/candidates/m4-fixes/personal-unsigned/win-unpacked/resources/nidofy-protection.exe",
+      "bytes": 769024,
+      "sha256": "a785913d211c9a41c865b19bfc36d8838b32e33ea69d7f3c7f4c2271238156d9"
+    }
+  ],
+  "sources": [
+    {
+      "path": "apps/desktop/src/pet.ts",
+      "bytes": 8910,
+      "sha256": "2edff09f82b261d4bb3a9815ee4770dd08fc515ccb16c0609eab19e9123445d6"
+    },
+    {
+      "path": "packages/nidofy/desktop-extras/assets/pet/index.html",
+      "bytes": 423,
+      "sha256": "245a7fa98e48478de27b1ca0bc923abb9d42ed7006e41fbc4987db8273d4e67e"
+    },
+    {
+      "path": "packages/nidofy/desktop-extras/assets/pet/pet.css",
+      "bytes": 1330,
+      "sha256": "89772ffff14b120458519addd3d5c8e0a45c07f5e1f13785c93f8ae7b2718d9e"
+    },
+    {
+      "path": "packages/nidofy/desktop-extras/assets/pet/pet.js",
+      "bytes": 10305,
+      "sha256": "c8e763da747357c2c1f3004bcebe7fcd53e13992287284703df64d59afbab8e7"
+    },
+    {
+      "path": "packages/nidofy/desktop-extras/assets/pet/state.js",
+      "bytes": 3247,
+      "sha256": "d6a384a1d6b5366e73a173ccb430dd9da74ed9fc513be4f4a4bb3f0fb3a3bacb"
+    },
+    {
+      "path": "migration/m4/tests/pet-state.test.mjs",
+      "bytes": 5791,
+      "sha256": "89f2a6af0397c85280d436d48a40eab95fb34b6decf61d032438145da6037cdb"
+    },
+    {
+      "path": "migration/m4-pet-fixes/qualify-pet-fixes.mjs",
+      "bytes": 8484,
+      "sha256": "9a90cbd2f18d0337b58b47ee594cbfb2c9dec5f6b4bb3fdada675132345b6205"
+    },
+    {
+      "path": "migration/m4-pet-fixes/smoke-desktop.mjs",
+      "bytes": 21479,
+      "sha256": "0544914b01205073d267b0ff7089626acfe8738bb85188af084012d6d5cf251b"
+    },
+    {
+      "path": "migration/m4-pet-fixes/launch-trial.ps1",
+      "bytes": 726,
+      "sha256": "8ebbab579e99b0f56598981e8e59612df4d2385de1813ac7ed1f2e3b4f41568d"
+    }
+  ],
+  "petUnitTests": 21,
+  "desktopBuild": "PASS",
+  "changedNativeFileLint": "PASS",
+  "translationPair": "PASS",
+  "realModelCredentialsUsed": false,
+  "enterpriseAcceptance": "deferred"
+}

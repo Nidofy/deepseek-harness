@@ -1,0 +1,12 @@
+{
+  "status": "PASS",
+  "run": "D:\\Documents\\FeiyangChen\\devApps\\dshWinUi\\electron\\apps\\desktop\\.desktop-build\\qualification\\login-return-Tcsa1v",
+  "checks": {
+    "registration_preserves_trial_root_and_spaces": true,
+    "no_launcher_environment": true,
+    "conflicting_launcher_environment": true,
+    "actual_windows_protocol_reuses_owner": true,
+    "official_login_scheme_reuses_owner": true,
+    "cold_protocol_launch_retains_profile": true
+  }
+}

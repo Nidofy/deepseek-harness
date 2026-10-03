@@ -1,0 +1,37 @@
+{
+  "schemaVersion": 1,
+  "files": [
+    {
+      "path": "migration/m0/couplings.json",
+      "sha256": "57b7aba6261e872ba639f2b6893cbf6e0ae9f3dcf0fdcd2759bafae908c18ff7"
+    },
+    {
+      "path": "migration/m0/evidence/artifact.json",
+      "sha256": "ab860f0b444e33520a62baf80844f5240c6ee2db76603d15dc4dac2f207fe9dc"
+    },
+    {
+      "path": "migration/m0/evidence/patch-checks.json",
+      "sha256": "2356be07348a634151c46cf6a236322c48abf23425147f1c08b52ddbac7c98c3"
+    },
+    {
+      "path": "migration/m0/evidence/source-verification.json",
+      "sha256": "84a6c8b1835f146db420de61425b100d8e0b1665c93657b8e46ce4b448039e64"
+    },
+    {
+      "path": "migration/m0/evidence/summary.json",
+      "sha256": "5c6802df230783ff561dff5c1db6ae0be831e04fab85f039f6114659a6042636"
+    },
+    {
+      "path": "migration/m0/source-lock.json",
+      "sha256": "e0239bdc11779bf7bf47ff6b5646369444eca9799328bd5cf87c11cf49c3e6e0"
+    },
+    {
+      "path": "migration/m1/evidence/summary.json",
+      "sha256": "e07da9eb864e3f8e3409c1c04609948e6ea8df275e2282fe75bb99e660fb7452"
+    },
+    {
+      "path": "migration/m4/origin.json",
+      "sha256": "8555803a08d1b3f61a48e4ec41d3fdf46d4b975ad9c6328e58319906671687f5"
+    }
+  ]
+}

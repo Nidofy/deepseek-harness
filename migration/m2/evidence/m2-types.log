@@ -1,0 +1,1 @@
+PASS: tsc -b apps/desktop-host apps/desktop (exit 0); checked final M2 source.

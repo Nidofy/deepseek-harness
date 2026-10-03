@@ -1,0 +1,29 @@
+{
+  "schemaVersion": 1,
+  "fork": "https://github.com/Nidofy/deepseek-harness.git",
+  "upstream": "https://github.com/deepseek-ai/deepseek-harness.git",
+  "tag": "dsh-v0.2.0-rc.1",
+  "commit": "4878cdabd87d4041bdaff61d04c966883b9fd07a",
+  "lockfileBlob": "14a4b5454671dd5e0807f24fe79b2cbd94d063fc",
+  "nodeUsed": "24.16.0",
+  "packageManager": "pnpm@11.7.0",
+  "target": "win-x64",
+  "legacy": {
+    "baseTag": "dsh-v0.1.7-alpha.2",
+    "baseCommit": "00102833dfaee1da9f48a3a8eae9d34005a75218",
+    "tipCommit": "5e2879f0478ba9336128312e715dee7a9f56c3db",
+    "expectedTree": "a69cd11266a43b29e57eeea664855fa7b6f684ed",
+    "patches": [
+      {
+        "file": "0001-feat-llm-pi-ai-expose-request-local-payload-preparat.patch",
+        "commit": "dad014b7efd3e1d76a36e6bd9646487d28d9037e",
+        "sha256": "d90695ea7866180c57904935e6b34adeb20374d87cc59b765b9e5edac39b91da"
+      },
+      {
+        "file": "0002-feat-llm-pi-ai-inherit-installed-catalogs-on-indepen.patch",
+        "commit": "5e2879f0478ba9336128312e715dee7a9f56c3db",
+        "sha256": "37fe05cfb08aaee8734acb6bf8662982939eee82c93b62a2ed6a84944cf25f03"
+      }
+    ]
+  }
+}

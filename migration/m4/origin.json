@@ -1,0 +1,42 @@
+{
+  "upstream": "639ed015397290b3745d163aafe02ffee4aa3f84",
+  "recoveryStash": "c34166e1abf9533efd61f24e0d9ecbe51cb25b05",
+  "legacy": [
+    {
+      "source": "../runtime-src/diagnostic-capture.mjs",
+      "sha256": "028458dbe5402e6ad419d8eb5861942fa2af9a14bd710b9f369f275482c476fc"
+    },
+    {
+      "source": "../runtime-src/diagnostic-configuration.mjs",
+      "sha256": "eda1cf1ca3a640e67d2fd75e8558be33e1de9540b85e688872377d48d5e5303f"
+    },
+    {
+      "source": "../runtime-src/diagnostic-comparison.mjs",
+      "sha256": "4b30cb1ee0d94056e63047dc71e506bda979e612d13301f1b7f3fe8dc98311fd"
+    },
+    {
+      "source": "../runtime-src/diagnostic-tools.mjs",
+      "sha256": "df8f5131f1a143fc3347554579b293f38a0e629ed54f319185c90f7dc1dfa1f5"
+    },
+    {
+      "source": "../runtime-src/diagnostic-store.mjs",
+      "sha256": "446b11ea4d53b11d85587c6f8c5f8e06559b2c193dc462131566974f4fc6bc0c"
+    },
+    {
+      "source": "../runtime-src/cache-probe.mjs",
+      "sha256": "ff011b4d91d9956182e231ac914b153817e79d13faf0d3059d3f4a04346adb16"
+    },
+    {
+      "source": "../runtime-src/desktop-cache-key.mjs",
+      "sha256": "79117352445bbb647a0fe0fee05a43be4965b31e0a7a8d910a6c88d6d84f3191"
+    },
+    {
+      "source": "../runtime-src/diagnostic-state.mjs",
+      "sha256": "06ac49f7bb02e2e08987d8df4b749f2a1eeb9a619ec13cd004c4d2c192992f89"
+    },
+    {
+      "source": "../runtime-src/pet-packages.mjs",
+      "sha256": "d82ae8ec2bf6991425d6a8e5b3e16072fd56b1c69f9d22b5c51d4eb1f282bdcf"
+    }
+  ]
+}

@@ -1,0 +1,14 @@
+{
+  "baseline": "dsh-v0.2.0-rc.2",
+  "policy": "Official capability first; optional personal behavior in plugins; mandatory distribution and protection in narrow host adapters.",
+  "patches": [
+    { "owner": "distribution", "paths": ["apps/desktop/src/main.ts", "apps/desktop/src/distribution.ts", "apps/desktop/src/project-manager.ts", "apps/desktop/scripts/package-target.ts", "apps/desktop-host"], "verify": "Independent identity and data; account-free entry; no external update dependency; packaged offline dependencies", "retireWhen": "Official distribution configuration offers equivalent startup and release controls" },
+    { "owner": "connections", "paths": ["apps/desktop-host/src/connections", "packages/llm/llm-pi-ai"], "verify": "CAS/ACK, immutable route and credential leases, retries, revocation, request-local payload hook", "retireWhen": "Official APIs provide equivalent managed connection semantics and payload hooks" },
+    { "owner": "protection", "paths": ["apps/desktop-host/src/connections/protection.ts", "native/nidofy-protection"], "verify": "Native identity, pre-model admission, command admission, cancellation, restore, fail closed", "retireWhen": "An official mandatory protection owner meets the same acceptance suite" },
+    { "owner": "workbench", "paths": ["apps/desktop-host/src/workbench", "packages/client/ui-conversation"], "verify": "Official shell and composer, stale preview refusal, draft attachments, artifact identity, task projection", "retireWhen": "Official workbench offers behavior-equivalent features" },
+    { "owner": "optional-extras", "paths": ["packages/nidofy/desktop-extras", "packages/nidofy/desktop-bundle"], "verify": "Real Loader activation, default off, consent, bounded requests, redaction, independent feature disposal and full unload", "retireWhen": "Official capability meets the personal use case without extra model or data effects" },
+    { "owner": "native-pets", "paths": ["apps/desktop/src/pet.ts", "apps/desktop/src/preload.ts"], "verify": "Three isolated transparent windows, narrow IPC, sender identity, resource decode, position, pin/navigation, shutdown", "retireWhen": "Official native extension API can own equivalent transparent windows" },
+    { "owner": "cli-identity", "paths": ["apps/desktop-host/src/cli-distribution.ts", "apps/desktop/scripts/prepare-cli.ts"], "verify": "Derived app launch name and data home; no claim of arbitrary CLI profile protection parity", "retireWhen": "Official CLI distribution metadata controls app identity and data home" },
+    { "owner": "generated-contracts", "paths": ["scripts/gen-cordis-catalog.ts", "docs/subsystems", "docs/generated", "packages/extensions/tool-cordis/src/api-catalog.ts"], "verify": "Generate from source; doc-sync identifies event/config contract drift", "retireWhen": "Private package catalog discovery becomes automatic upstream" }
+  ]
+}

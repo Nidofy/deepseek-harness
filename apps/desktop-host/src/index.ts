@@ -14,6 +14,7 @@ import { installDesktopUpdateTaskControl } from './update-tasks.ts'
 import { installDesktopQuitInspection } from './quit-inspection.ts'
 import { installPlatformSessionPublisher } from './platform-session.ts'
 import { installOfficeEngineResolution } from './office-engine.ts'
+import { installConnectionApi } from './connections/api.ts'
 
 async function main(): Promise<void> {
   const runtimeDir = process.argv[2] as string
@@ -26,7 +27,7 @@ async function main(): Promise<void> {
     environment: loadLayeredEnv('dsh'),
     profile: 'desktop',
     resolvedProfile: { profile, installAnchor },
-    patchFiles: [],
+    patchFiles: process.env.DSH_DESKTOP_DISTRIBUTION_PATCH === undefined ? [] : [process.env.DSH_DESKTOP_DISTRIBUTION_PATCH],
     args: ['--no-open', '--port', '19387'],
     ...(process.argv[5] === undefined ? {} : {
       packageManager: {
@@ -90,6 +91,7 @@ async function main(): Promise<void> {
   })
   process.once('disconnect', () => { void stop() })
   const { ctx } = await application
+  if (process.env.DSH_DESKTOP_DISTRIBUTION_PATCH !== undefined) await installConnectionApi(ctx, resolveDshHome())
   control.updateTasks = installDesktopUpdateTaskControl(ctx)
   control.quitInspection = installDesktopQuitInspection(ctx)
   await ctx.plugin(desktopOffice, {

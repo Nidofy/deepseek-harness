@@ -302,6 +302,13 @@ Every package below exports a Cordis plugin that a bundle patch can name in a Lo
 | `@deepseek-ai/dsh-mcp-client` | yes | MCP client bridge: connects to MCP servers and registers their tools on ctx.tools |
 | `@deepseek-ai/dsh-mcp-resources` | no | Scoped MCP resource discovery and reading through shared model tools |
 
+## nidofy
+
+| Package | Config | Description |
+|---|---|---|
+| `@nidofy/dsh-desktop-extras` | yes | undefined |
+| `@nidofy/dsh-working-notebook` | yes | Independent working notes with optional compaction organization |
+
 ## plan
 
 | Package | Config | Description |

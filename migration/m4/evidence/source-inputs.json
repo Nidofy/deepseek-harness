@@ -1,0 +1,658 @@
+[
+  {
+    "path": "apps/cli/tests/profiles/headless/tests/session-format-guard.expected.e2e.ts",
+    "sha256": "deb54b84ecb1b4cc0c30c9b7f697a548c805750ea5cd7996d88582f98765767e"
+  },
+  {
+    "path": "apps/desktop-host/package.json",
+    "sha256": "4084e82add7c54e20d7c242172f97fef975064787c0f219d34a96287cf48e44b"
+  },
+  {
+    "path": "apps/desktop-host/src/cli-distribution.ts",
+    "sha256": "75b558c14e6fd506d01e54fa8ddc8249224fa243c926a18c4c9d90672de05409"
+  },
+  {
+    "path": "apps/desktop-host/src/cli.ts",
+    "sha256": "fa4853c41b9e8a8f12b8fe4e931f28297cbec04e724e9e939fb537c0741fb65b"
+  },
+  {
+    "path": "apps/desktop-host/src/connections/api.ts",
+    "sha256": "25496ae9b600fe3ca8d811d53adafc70c1168517081580105168e3f14b86d454"
+  },
+  {
+    "path": "apps/desktop-host/src/connections/import.ts",
+    "sha256": "53ca516732bdbb4b639bca3c9011224f830424dd4ac78dc4ed69af6c2b9073e4"
+  },
+  {
+    "path": "apps/desktop-host/src/connections/protection.ts",
+    "sha256": "55271f71fedd90be7faa7cd73e360365b5d1351dce01cd7b7f8e8f442a684625"
+  },
+  {
+    "path": "apps/desktop-host/src/connections/runtime.ts",
+    "sha256": "5efa9355488b9e54de3b0d2861b910b7737956cb17a753b09b4f7015854f18fc"
+  },
+  {
+    "path": "apps/desktop-host/src/connections/store.ts",
+    "sha256": "c0dab57f95d6fed0d932b13e2343e6d2f953880d804cf7b407ea595c1ec077da"
+  },
+  {
+    "path": "apps/desktop-host/src/connections/ui.ts",
+    "sha256": "5be488fce76253dd411d1ef613b0872e4a19e0e88942bbabda2e77d2d8ea138a"
+  },
+  {
+    "path": "apps/desktop-host/src/index.ts",
+    "sha256": "8d0005b993c1f89a101f8ce03eb6d96afa6772e3709a063df5729abe3393adb3"
+  },
+  {
+    "path": "apps/desktop-host/src/workbench/legacy/change-review.d.mts",
+    "sha256": "43c82837b2715d200a26247a780c5073480dbfb8d6163d643c7a470625c3cd5c"
+  },
+  {
+    "path": "apps/desktop-host/src/workbench/legacy/change-review.mjs",
+    "sha256": "3ac9a73c1cdf5fed8dd156d435a4403ee590f4c155c34f533d8d9bfe818ff5b3"
+  },
+  {
+    "path": "apps/desktop-host/src/workbench/legacy/desktop-artifacts.d.mts",
+    "sha256": "6e12b4b5e2c7aac1be49ec460110256585e796a34d4dc1e3154eb5e6958498f5"
+  },
+  {
+    "path": "apps/desktop-host/src/workbench/legacy/desktop-artifacts.mjs",
+    "sha256": "ec4c70dac6a2ec75349a10dfd5c395c13db70b264eb2b4fec3c189fd64dc4756"
+  },
+  {
+    "path": "apps/desktop-host/src/workbench/legacy/environment-repository.d.mts",
+    "sha256": "b107fcb4f9e46d72505ef7e4187d78586da661633a4e2f0790f6672933d43b45"
+  },
+  {
+    "path": "apps/desktop-host/src/workbench/legacy/environment-repository.mjs",
+    "sha256": "f229b46330271671129705312ef6d3b42d3d570bf5eb743729635b37abcc1bf3"
+  },
+  {
+    "path": "apps/desktop-host/src/workbench/legacy/project-actions.d.mts",
+    "sha256": "ea080f7694364d051e2a688025d919d71c73c5191b3b94b7829095b222a53e1d"
+  },
+  {
+    "path": "apps/desktop-host/src/workbench/legacy/project-actions.mjs",
+    "sha256": "583d60f4cc9ed5274d36e1f550af9ee1f078103b541fda3f2e530c14a9d7d34b"
+  },
+  {
+    "path": "apps/desktop-host/src/workbench/legacy/storage-admission.mjs",
+    "sha256": "e80c6669ea524c38be8d033da3feb7f81c1c3657eb15a6a16686b0daf7eafcbf"
+  },
+  {
+    "path": "apps/desktop-host/src/workbench/legacy/task-recovery.d.mts",
+    "sha256": "03f1b18fce871e280bcf8a1ab7633470e55dc092d3b9c68cd250bd97c26ce269"
+  },
+  {
+    "path": "apps/desktop-host/src/workbench/legacy/task-recovery.mjs",
+    "sha256": "cbe182b2b6303ef8018c80f960c75ea7c90421a7e9b7ee7c69bf7b49e0d9d0cf"
+  },
+  {
+    "path": "apps/desktop-host/src/workbench/owner.ts",
+    "sha256": "75f69453167e58b274a6dbb1a6a2bb331fd9c8dae828b9833ab3f052ee7595a5"
+  },
+  {
+    "path": "apps/desktop-host/src/workbench/ui.ts",
+    "sha256": "21512bb09a0c3f93c1e5ecb75e35bd685a9d6dafb63597d4abcf2053a7888dd3"
+  },
+  {
+    "path": "apps/desktop-host/tests/cli-distribution.spec.ts",
+    "sha256": "4ea9416070912e2ba6e0eca1a9d5148c2065b1e1d73b301215d181bb59a60a98"
+  },
+  {
+    "path": "apps/desktop-host/tests/connections.spec.ts",
+    "sha256": "81c9a8ba20c723f9326bee0373a238e905792cd9e20048f34c130ed66a1a17ff"
+  },
+  {
+    "path": "apps/desktop-host/tests/import.spec.ts",
+    "sha256": "ff13639b47f7c0626a2c52be8bf3e2eb9913a1b6e5aeab6294544f3dad197968"
+  },
+  {
+    "path": "apps/desktop-host/tests/protection.spec.ts",
+    "sha256": "e090c8241f66d22fc37a4d59aa11c49e4c45887e0bd8bda8b46ccfc09f7b68b8"
+  },
+  {
+    "path": "apps/desktop-host/tests/workbench-ui.spec.ts",
+    "sha256": "07c86c29a2c7b5da29c7c8c879efe9bb2ad8d3684485edbc25cce5844490ff70"
+  },
+  {
+    "path": "apps/desktop-host/tsconfig.json",
+    "sha256": "3f90495bee756fd52432a2316ecf061eb327dfdf9def0ce451c82a39f828eb0d"
+  },
+  {
+    "path": "apps/desktop-host/tsdown.config.ts",
+    "sha256": "dd4b694dfaf457b728899adc998b9b1996f7a9b32163bc9bd4fd888d009d8784"
+  },
+  {
+    "path": "apps/desktop/README.i18n.yaml",
+    "sha256": "8b9dc5d4fbf07f28b99b44fb9b2883315ab3992a84c1ee2b46ced3bd27a1047d"
+  },
+  {
+    "path": "apps/desktop/package.json",
+    "sha256": "a6b84d487a03c25667c6eff2b427a0b512e0ad81a5799fd94f11efeb7da9f596"
+  },
+  {
+    "path": "apps/desktop/resources/intranet.patch.yml",
+    "sha256": "94295d25a692292de4b5a45aea19e668abe8e71aae6d05a60516bfa0f28173f8"
+  },
+  {
+    "path": "apps/desktop/resources/personal.patch.yml",
+    "sha256": "75f2d90100de0b9b054d75acf5b7742fc3df8140da8b08a384f5d9b03c3f4812"
+  },
+  {
+    "path": "apps/desktop/scripts/desktop-build-paths.d.mts",
+    "sha256": "cfc0fe4e41df92ee0fa952ac04b38ad78b253d8f97f5993da4b6676521cca0c4"
+  },
+  {
+    "path": "apps/desktop/scripts/desktop-build-paths.mjs",
+    "sha256": "0f5df58a8821a4efa414cd573370b76b7c49d7066512c1418b8de0e94d5d8d2b"
+  },
+  {
+    "path": "apps/desktop/scripts/desktop-distribution.d.mts",
+    "sha256": "9bfc40e46b25f908783168f0373b5ef5d7dbf505d4dba89659e14b2f3126d131"
+  },
+  {
+    "path": "apps/desktop/scripts/desktop-distribution.mjs",
+    "sha256": "90ec569d0c61afea6a0c3744cb76fd23c7dcb8917edd4cbf4f3ae7be3b7e0cf0"
+  },
+  {
+    "path": "apps/desktop/scripts/desktop-package-environment.mjs",
+    "sha256": "e1bb910ab54cbbfa39f2db7ef5a7b00de5062f880aae3aaa9200944047e7d6df"
+  },
+  {
+    "path": "apps/desktop/scripts/desktop-policy-environment.d.mts",
+    "sha256": "8f8ccaaff07fb3cb419fe30117976aca4e7a70294e6c609c785c296fa99fdf25"
+  },
+  {
+    "path": "apps/desktop/scripts/desktop-policy-environment.mjs",
+    "sha256": "7ec176fe41589701bc4867490a09fd10891d513320b70b3909ae7fe0a0a06f17"
+  },
+  {
+    "path": "apps/desktop/scripts/electron-builder-config.mjs",
+    "sha256": "c92af2b50462e99b40891aaf5638dbd66d1496c99479bc00125da44d3885245f"
+  },
+  {
+    "path": "apps/desktop/scripts/package-target.ts",
+    "sha256": "5b26d4e742be3340e42abce62108b76aa8627a93b30b95ec64885ee6e0d5599c"
+  },
+  {
+    "path": "apps/desktop/scripts/prepare-cli.ts",
+    "sha256": "066636084df7004807e10e8281b9f6c42a49bbbc9f0f7d3d02058da5ec8fad6b"
+  },
+  {
+    "path": "apps/desktop/scripts/prepare-protection.mjs",
+    "sha256": "002d5d5bbff0dae97c5b4a0e98daf3be11d52ee20b9f464c07880396c73719ba"
+  },
+  {
+    "path": "apps/desktop/scripts/smoke-packaged-runtime.ts",
+    "sha256": "6eef771f84cf79c319e17f975b8991e3b554e7e7fa9d76c2ae382fa08a6248da"
+  },
+  {
+    "path": "apps/desktop/src/browser-guests.ts",
+    "sha256": "1d5becdd2db021b7525f9d43b39a271330a928e31e491e113c25e990c86735d4"
+  },
+  {
+    "path": "apps/desktop/src/distribution.ts",
+    "sha256": "f215c62a3f0e3b4ddaf41bb323560d57c5ab91f8ce194fb48f98b257f0c0b7bd"
+  },
+  {
+    "path": "apps/desktop/src/locale.ts",
+    "sha256": "dd74c2b6357e12c3b0356be718bc25a544055661d26607b553f00f797e0fc2ae"
+  },
+  {
+    "path": "apps/desktop/src/main.ts",
+    "sha256": "c7e605cbc1e425c1362469127e03d74110533f9f45349bb60eab69c6fff98576"
+  },
+  {
+    "path": "apps/desktop/src/pet.ts",
+    "sha256": "5a64983cd4fd2f5e55488d38a6a084b0f4f992eafab81aba0ca9fe3eb4cecec0"
+  },
+  {
+    "path": "apps/desktop/src/preload-app.ts",
+    "sha256": "8e977c4979be8a280e9a2c0bfc821f2f4507c809f397b8709a669561928707dc"
+  },
+  {
+    "path": "apps/desktop/src/project-manager.ts",
+    "sha256": "2b9b6b997945e41295fc8156b20ab02e8f43704a3dcac0db227143375f9c4166"
+  },
+  {
+    "path": "apps/desktop/src/workbench.ts",
+    "sha256": "47462a0411e13beb2559c686bbe75f2cf55afc37fbaed7164cc16bfca16f62ba"
+  },
+  {
+    "path": "apps/desktop/tests/candidate-paths.spec.ts",
+    "sha256": "ccf889f1bd800b586f0940cb0def3299666dcea7294cd99aefd5c4fd471e47cb"
+  },
+  {
+    "path": "apps/desktop/tests/desktop-policy-environment.spec.ts",
+    "sha256": "1279596f134723d06f5d8594d97401ad027bd323a46b45bd1647731335b031d1"
+  },
+  {
+    "path": "apps/desktop/tests/distribution.spec.ts",
+    "sha256": "3652adeefb6c65a0d5635191a3c8cba884c1c391d99c4ce00d8f4e808d632c94"
+  },
+  {
+    "path": "apps/desktop/tests/migration-m0-connection.spec.ts",
+    "sha256": "33f93671c9010d321e2fcc0b79e97b1c7b3d71d11cece60a59a516aff8ce666a"
+  },
+  {
+    "path": "apps/desktop/tests/project-manager.spec.ts",
+    "sha256": "d88bdc50c3816f75bdc0f43fd71e3a39d407d5152d5c70e6ce69656c91b35366"
+  },
+  {
+    "path": "native/nidofy-protection/Cargo.lock",
+    "sha256": "fec76c26da6d338396b4af8431fdb4b0484526cdafb27a82630f6e088cd3f987"
+  },
+  {
+    "path": "native/nidofy-protection/Cargo.toml",
+    "sha256": "29c14887781a49bedf29ce74c5f27b4fee2ffe9cba2fbac17e497e544e09e5b2"
+  },
+  {
+    "path": "native/nidofy-protection/origin.json",
+    "sha256": "080627c4dcf4c4a6ebd7432f41c92f7d23fa5b179d29c0de22caa078b563c9f0"
+  },
+  {
+    "path": "native/nidofy-protection/src/main.rs",
+    "sha256": "39fa8ee86633e8c2c4504875f1d9b26f852f7a1ce34a6856c226093f1ebf0181"
+  },
+  {
+    "path": "native/nidofy-protection/src/task_snapshots.rs",
+    "sha256": "aa182db6a030398e7db939c9eabfab1967da1d3a68bf6b8370cfa9190a1f3de4"
+  },
+  {
+    "path": "native/nidofy-protection/src/task_snapshots/archive.rs",
+    "sha256": "f21de80ca7d6eb60b0f7afdd3ad6d6a02b7d2b67701522643905a18c381d1cbb"
+  },
+  {
+    "path": "native/nidofy-protection/src/task_snapshots/details.rs",
+    "sha256": "81e65940c3fee8fa559210a9c3f2b6382f0783159cf01668b3b09d9ed251b53d"
+  },
+  {
+    "path": "packages/client/ui-conversation/src/client/input/hub.ts",
+    "sha256": "31deedd6adf0a37ce3b8a1f9b65e8cad35f627c4ea4e2634b24b9d6280524934"
+  },
+  {
+    "path": "packages/client/ui-conversation/src/client/input/workbench-bridge.ts",
+    "sha256": "451c59111ebe497476ec61a22de0ca91c1c3c5b7d81e590d3244d1063b4d50fe"
+  },
+  {
+    "path": "packages/client/ui-conversation/tests/workbench-bridge.client.spec.ts",
+    "sha256": "be746788748d05a06b8f83c120cdf87828815ac4545aed0effd843194b974da6"
+  },
+  {
+    "path": "packages/extensions/tool-cordis/src/api-catalog.ts",
+    "sha256": "6f6b9c6d696c46b8cc8849f1050866565466c8529b0a1706e09facb4de9f7467"
+  },
+  {
+    "path": "packages/llm/llm-pi-ai/README.i18n.yaml",
+    "sha256": "6827cebd23e7783a0fc776e17f7520f84400fdc5431d9ac88318edf69b187290"
+  },
+  {
+    "path": "packages/llm/llm-pi-ai/src/adapter.ts",
+    "sha256": "3d2f84e8cef4c0695c05ebb4d3b0d09b165aa0100fad5ea584cec3045b9dafe3"
+  },
+  {
+    "path": "packages/llm/llm-pi-ai/src/catalog.ts",
+    "sha256": "e75c2c9bbe6a6e4a04eb13ca60f14680f1eadfdbf8ceb6ed3dca75bb647eec39"
+  },
+  {
+    "path": "packages/llm/llm-pi-ai/src/config.ts",
+    "sha256": "f9324d8d91ed9657a7db09a0429dd87e18eba4f19a9c39e22bfa3e090ab71d0f"
+  },
+  {
+    "path": "packages/llm/llm-pi-ai/src/index.ts",
+    "sha256": "12a072026dbf124866647aa7dcd67e5689c8773d7b7dbec9b0f57df4fb309dab"
+  },
+  {
+    "path": "packages/llm/llm-pi-ai/src/provider.ts",
+    "sha256": "58b0f6f2574e1d9a01fe9188322c9e91532c291c7a9641ed88b5e2084a264132"
+  },
+  {
+    "path": "packages/llm/llm-pi-ai/tests/adapter.spec.ts",
+    "sha256": "303f785a60524a2d3ae5a1fbea91a553f7faf58a6a7a88ca35d2a77e2f4d4080"
+  },
+  {
+    "path": "packages/llm/llm-pi-ai/tests/catalog-alias.spec.ts",
+    "sha256": "50e07a3ff912d3e2d22fa9227b06bb00530e024381a3477ca5200184e50d2d23"
+  },
+  {
+    "path": "packages/llm/llm-pi-ai/tests/loader-composition.spec.ts",
+    "sha256": "665bff6fb3df7f86348fecf9a8f0759ce412d6404ce194daea83f4e9f53b0226"
+  },
+  {
+    "path": "packages/llm/llm-pi-ai/tests/payload-hook.spec.ts",
+    "sha256": "7632978d7816092b228edf0306543e9caf9f4eb4a165188929cae8b088a2a0f0"
+  },
+  {
+    "path": "packages/nidofy/README.i18n.yaml",
+    "sha256": "510a4e8eb97988b85f5e4733bf7ad6e6df97ec1d259b63804ed6b40af5f53639"
+  },
+  {
+    "path": "packages/nidofy/desktop-bundle/README.i18n.yaml",
+    "sha256": "91f901df351925b323354709d2d51106d9cee6e8723b88305682db533f1c68bb"
+  },
+  {
+    "path": "packages/nidofy/desktop-bundle/cordis.patch.yml",
+    "sha256": "6dc400e99d08a64b8c032f9f7c06cdab89b6aa9e770d485aa58dd7f0df5212b7"
+  },
+  {
+    "path": "packages/nidofy/desktop-bundle/package.json",
+    "sha256": "c8a7627505bb067d133b0e62d1d2ff62b5ab0213196755a6a878ddb0be8a3b04"
+  },
+  {
+    "path": "packages/nidofy/desktop-bundle/src/index.ts",
+    "sha256": "64e5243e4bc5298f11f2e28c30d145efa5622278fd26341ef5986545d3e7e5ea"
+  },
+  {
+    "path": "packages/nidofy/desktop-bundle/tsconfig.json",
+    "sha256": "ca46ca2e501c7d89e7ae16c58e5e7f67d51ed27be45de714f0e92f65bf8863fe"
+  },
+  {
+    "path": "packages/nidofy/desktop-extras/README.i18n.yaml",
+    "sha256": "6ae74084a2060f2063286f0ad6b94ee4fccf1e1cc93af123bc13f8313840eeb4"
+  },
+  {
+    "path": "packages/nidofy/desktop-extras/assets/pet/animation.js",
+    "sha256": "5c0d9944bcede33184640c3742aea5334bd2b366f2730474f5777599d99a9a4c"
+  },
+  {
+    "path": "packages/nidofy/desktop-extras/assets/pet/assets/xiaojing/asset-manifest.json",
+    "sha256": "5619d511ff55b6eb21c6fb249a19ed8cbdb0f54d2591fd3e246d483a79346dec"
+  },
+  {
+    "path": "packages/nidofy/desktop-extras/assets/pet/assets/xiaojing/atlas-layout.json",
+    "sha256": "ea22a67962bb6bdfde42455c20893ee8093c3be18e4a716178bf4977638908c8"
+  },
+  {
+    "path": "packages/nidofy/desktop-extras/assets/pet/assets/xiaojing/extensions/dragged.webp",
+    "sha256": "d8290a4b4ec6565f623a4f34c9500151d2d821fb870b894d07e167de520fc8e4"
+  },
+  {
+    "path": "packages/nidofy/desktop-extras/assets/pet/assets/xiaojing/extensions/happy.webp",
+    "sha256": "cabd1c4e89457ba2d3964580fbe9bebc3a53d4d3a64bfe3988117488a9a8b423"
+  },
+  {
+    "path": "packages/nidofy/desktop-extras/assets/pet/assets/xiaojing/extensions/interactions.json",
+    "sha256": "cbfc2c9abe03fe3593406772b547adc43834984b39712f849aaa9ebe64e711e9"
+  },
+  {
+    "path": "packages/nidofy/desktop-extras/assets/pet/assets/xiaojing/extensions/manifest.js",
+    "sha256": "96888ad95e0d1464c70c430a7c98d62da3c9faa9365decacbe593360fd7539b8"
+  },
+  {
+    "path": "packages/nidofy/desktop-extras/assets/pet/assets/xiaojing/extensions/pat.webp",
+    "sha256": "efd9984fc279ac2755443ba93709351d4e174216e53e63b68a11a398e00df6ea"
+  },
+  {
+    "path": "packages/nidofy/desktop-extras/assets/pet/assets/xiaojing/manifest.js",
+    "sha256": "b0f37156ad444d12478d4b2ad3515b6bab765aced90353432455c673d3a73c35"
+  },
+  {
+    "path": "packages/nidofy/desktop-extras/assets/pet/assets/xiaojing/pet.json",
+    "sha256": "c5e599227d0515c8b90fef36a5f7805f30acf89b18f5a62cc6f77e409df351a2"
+  },
+  {
+    "path": "packages/nidofy/desktop-extras/assets/pet/assets/xiaojing/spritesheet.webp",
+    "sha256": "be2917666223cb692fcf62fc9bc1df33aca3cb5a5d53165fb46aa98d364a65bd"
+  },
+  {
+    "path": "packages/nidofy/desktop-extras/assets/pet/assets/xiaojing/staging.json",
+    "sha256": "0bc0ef6748e2f2b3f594d392cd6b7e9028ccc77d9440cea15e5ab88544d70664"
+  },
+  {
+    "path": "packages/nidofy/desktop-extras/assets/pet/boot.js",
+    "sha256": "7815972f9d169f93fac3c9bd18959ec79d3338f34a41f8c0e4a6486e53d28184"
+  },
+  {
+    "path": "packages/nidofy/desktop-extras/assets/pet/drag.js",
+    "sha256": "802e371c79d1e7afb83c03b79af0703078dcec8be83b6f77ab34862c6518807d"
+  },
+  {
+    "path": "packages/nidofy/desktop-extras/assets/pet/gestures.js",
+    "sha256": "f5eb53f52ff0720aa37e448bbb9f33f410e0c905f9faad318a75b80cfc59ef49"
+  },
+  {
+    "path": "packages/nidofy/desktop-extras/assets/pet/idle.js",
+    "sha256": "3f7cb8ac8ae1ba66c60c934105364af9b83dfb8afb5c38be54cac5525d0f92ce"
+  },
+  {
+    "path": "packages/nidofy/desktop-extras/assets/pet/index.html",
+    "sha256": "998812134900df58f6bf3071537f37b9c3afc3fd575588921f657473d9126b86"
+  },
+  {
+    "path": "packages/nidofy/desktop-extras/assets/pet/interactions.js",
+    "sha256": "76f5ddbe9553fe245364af232967013fe5ff68e71ccfcd68628040a4ba1491a8"
+  },
+  {
+    "path": "packages/nidofy/desktop-extras/assets/pet/pet.css",
+    "sha256": "5206095dfe46966ee6ee86164f5f6f74f0a367776dfaf5bfd7ad1524568f9cc1"
+  },
+  {
+    "path": "packages/nidofy/desktop-extras/assets/pet/pet.js",
+    "sha256": "4ffd54d96587ea8273d0b049ed455192d373a018c2fa6759bbd48801993ecd74"
+  },
+  {
+    "path": "packages/nidofy/desktop-extras/assets/pet/state.js",
+    "sha256": "9e609547072425cf6039e1867dd12bd40ca240ebb69e2ca45dba9dcc098b995d"
+  },
+  {
+    "path": "packages/nidofy/desktop-extras/assets/pets/xiaojing/asset-manifest.json",
+    "sha256": "5619d511ff55b6eb21c6fb249a19ed8cbdb0f54d2591fd3e246d483a79346dec"
+  },
+  {
+    "path": "packages/nidofy/desktop-extras/assets/pets/xiaojing/atlas-layout.json",
+    "sha256": "ea22a67962bb6bdfde42455c20893ee8093c3be18e4a716178bf4977638908c8"
+  },
+  {
+    "path": "packages/nidofy/desktop-extras/assets/pets/xiaojing/checksums.json",
+    "sha256": "03826b12f10a9d2121c4927e56bacdf31f880c2303688e15e98d2082afb16810"
+  },
+  {
+    "path": "packages/nidofy/desktop-extras/assets/pets/xiaojing/extensions/dragged.webp",
+    "sha256": "d8290a4b4ec6565f623a4f34c9500151d2d821fb870b894d07e167de520fc8e4"
+  },
+  {
+    "path": "packages/nidofy/desktop-extras/assets/pets/xiaojing/extensions/happy.webp",
+    "sha256": "cabd1c4e89457ba2d3964580fbe9bebc3a53d4d3a64bfe3988117488a9a8b423"
+  },
+  {
+    "path": "packages/nidofy/desktop-extras/assets/pets/xiaojing/extensions/interactions.json",
+    "sha256": "cbfc2c9abe03fe3593406772b547adc43834984b39712f849aaa9ebe64e711e9"
+  },
+  {
+    "path": "packages/nidofy/desktop-extras/assets/pets/xiaojing/extensions/pat.webp",
+    "sha256": "efd9984fc279ac2755443ba93709351d4e174216e53e63b68a11a398e00df6ea"
+  },
+  {
+    "path": "packages/nidofy/desktop-extras/assets/pets/xiaojing/pet.json",
+    "sha256": "c5e599227d0515c8b90fef36a5f7805f30acf89b18f5a62cc6f77e409df351a2"
+  },
+  {
+    "path": "packages/nidofy/desktop-extras/assets/pets/xiaojing/portrait.png",
+    "sha256": "bbe2562f7cb74ded65b64a84cc14e4960043ff0a98f1f7251732e31b80ab6380"
+  },
+  {
+    "path": "packages/nidofy/desktop-extras/assets/pets/xiaojing/preview.html",
+    "sha256": "e642c17f2ead99b01a540dcec2d5ba5aef29d62eb5321dd055f2a9a4cef2053a"
+  },
+  {
+    "path": "packages/nidofy/desktop-extras/assets/pets/xiaojing/spritesheet.png",
+    "sha256": "a80974ed54560d8277ab5a98dd905790c03bc68eecd1ede0b439d8224d1e747c"
+  },
+  {
+    "path": "packages/nidofy/desktop-extras/assets/pets/xiaojing/spritesheet.webp",
+    "sha256": "be2917666223cb692fcf62fc9bc1df33aca3cb5a5d53165fb46aa98d364a65bd"
+  },
+  {
+    "path": "packages/nidofy/desktop-extras/cordis.patch.yml",
+    "sha256": "6dc400e99d08a64b8c032f9f7c06cdab89b6aa9e770d485aa58dd7f0df5212b7"
+  },
+  {
+    "path": "packages/nidofy/desktop-extras/package.json",
+    "sha256": "789314d7831bb328f3ce953461135077ca21ffd73dfe45ba81ffb420900feb78"
+  },
+  {
+    "path": "packages/nidofy/desktop-extras/src/client/index.ts",
+    "sha256": "f4633fd75a56ee10a6a29ba0c43d5f648f841bbccfce2dfa5a0e8964c83d731a"
+  },
+  {
+    "path": "packages/nidofy/desktop-extras/src/connection-contract.ts",
+    "sha256": "e6ea2d15a175d376770b27089c7a8260e1ac6b4203a000fe28b13fab938cf8df"
+  },
+  {
+    "path": "packages/nidofy/desktop-extras/src/index.ts",
+    "sha256": "2c68a99a8806744d64242234bb07eff64a3f1c5ef549084dd3058ec877340753"
+  },
+  {
+    "path": "packages/nidofy/desktop-extras/src/legacy/cache-probe.mjs",
+    "sha256": "ff011b4d91d9956182e231ac914b153817e79d13faf0d3059d3f4a04346adb16"
+  },
+  {
+    "path": "packages/nidofy/desktop-extras/src/legacy/desktop-cache-key.d.mts",
+    "sha256": "8666ad18d9ce25de98c3a7f841d83c0b8e626e191644a773e4ad1a6e4272780e"
+  },
+  {
+    "path": "packages/nidofy/desktop-extras/src/legacy/desktop-cache-key.mjs",
+    "sha256": "79117352445bbb647a0fe0fee05a43be4965b31e0a7a8d910a6c88d6d84f3191"
+  },
+  {
+    "path": "packages/nidofy/desktop-extras/src/legacy/diagnostic-capture.d.mts",
+    "sha256": "0eb3e0dce999446e77d36249d207dcb9416bfc6421b71156f2ae6ca0db808a59"
+  },
+  {
+    "path": "packages/nidofy/desktop-extras/src/legacy/diagnostic-capture.mjs",
+    "sha256": "f7c7e5008e73dbeecea392dc2b0eb166d30bee9d2553acfa2b20cc34110eea02"
+  },
+  {
+    "path": "packages/nidofy/desktop-extras/src/legacy/diagnostic-comparison.d.mts",
+    "sha256": "d6a1b42d444af6dd10d065f24b21a6efc0b24211dd53234a5913cbf61cf733e1"
+  },
+  {
+    "path": "packages/nidofy/desktop-extras/src/legacy/diagnostic-comparison.mjs",
+    "sha256": "4b30cb1ee0d94056e63047dc71e506bda979e612d13301f1b7f3fe8dc98311fd"
+  },
+  {
+    "path": "packages/nidofy/desktop-extras/src/legacy/diagnostic-configuration.mjs",
+    "sha256": "eda1cf1ca3a640e67d2fd75e8558be33e1de9540b85e688872377d48d5e5303f"
+  },
+  {
+    "path": "packages/nidofy/desktop-extras/src/legacy/diagnostic-state.mjs",
+    "sha256": "06ac49f7bb02e2e08987d8df4b749f2a1eeb9a619ec13cd004c4d2c192992f89"
+  },
+  {
+    "path": "packages/nidofy/desktop-extras/src/legacy/diagnostic-store.d.mts",
+    "sha256": "48c5e6bae36cfc9376ab1e8ce5a91a61bcd6401cfd7f30742f4d9b5aba99fd78"
+  },
+  {
+    "path": "packages/nidofy/desktop-extras/src/legacy/diagnostic-store.mjs",
+    "sha256": "5d87f25615327e9051c460900d6573f33b3a681140796c88af680399ec2f3550"
+  },
+  {
+    "path": "packages/nidofy/desktop-extras/src/legacy/diagnostic-tools.d.mts",
+    "sha256": "c3488ea00ad14749d506b958e89c1b305fcdfa2cbe2f40f3769785f9cc481dea"
+  },
+  {
+    "path": "packages/nidofy/desktop-extras/src/legacy/diagnostic-tools.mjs",
+    "sha256": "df8f5131f1a143fc3347554579b293f38a0e629ed54f319185c90f7dc1dfa1f5"
+  },
+  {
+    "path": "packages/nidofy/desktop-extras/src/legacy/pet-packages.d.mts",
+    "sha256": "712bf9885af8685535250600e0776338a6b26a412423be1f25be8ddba9a04bfa"
+  },
+  {
+    "path": "packages/nidofy/desktop-extras/src/legacy/pet-packages.mjs",
+    "sha256": "f54b298af3f0e8a5fd2d0627617f69ad5d4f60643883382e7b4d3c2e94494a74"
+  },
+  {
+    "path": "packages/nidofy/desktop-extras/src/legacy/pet-state.d.mts",
+    "sha256": "0d933411a6773a9563e63bf0e489b9899b358176db7f28075164e3e97a4c7d85"
+  },
+  {
+    "path": "packages/nidofy/desktop-extras/src/legacy/pet-state.mjs",
+    "sha256": "10a10b5bf50ec4d79ef64ee8e93a28c79d0821d799db77086ede28c9a4da2fb0"
+  },
+  {
+    "path": "packages/nidofy/desktop-extras/src/legacy/project-actions.mjs",
+    "sha256": "c1f5b5d7954272b7e4fb1a29b4d7862cf12d044d9dd0fa86d63fd87352f9049c"
+  },
+  {
+    "path": "packages/nidofy/desktop-extras/src/legacy/task-recovery.d.mts",
+    "sha256": "03f1b18fce871e280bcf8a1ab7633470e55dc092d3b9c68cd250bd97c26ce269"
+  },
+  {
+    "path": "packages/nidofy/desktop-extras/src/legacy/task-recovery.mjs",
+    "sha256": "cbe182b2b6303ef8018c80f960c75ea7c90421a7e9b7ee7c69bf7b49e0d9d0cf"
+  },
+  {
+    "path": "packages/nidofy/desktop-extras/src/pets.ts",
+    "sha256": "3eb1ed0883d9d7ff2c4c357d72b15442291a0b6e4b70ca431ad66b66fd64b905"
+  },
+  {
+    "path": "packages/nidofy/desktop-extras/src/probe.ts",
+    "sha256": "049038c86d1c0ddee65054e730c88e4d6bed6cd2631fc93d0295d63601a9babd"
+  },
+  {
+    "path": "packages/nidofy/desktop-extras/src/schedules.ts",
+    "sha256": "1c0c7330082cd5cff5b87039d9f54b406d628f26745653dea46fcba5a0053007"
+  },
+  {
+    "path": "packages/nidofy/desktop-extras/src/state.ts",
+    "sha256": "a100dbf6c679e6dfdab49b164c1e3f7134cb4a70f84489b73b661912123a38ea"
+  },
+  {
+    "path": "packages/nidofy/desktop-extras/src/ui.ts",
+    "sha256": "09f85d918f33636dd7fdcd840735dc27d9ef58df9301decd479baaee460fd179"
+  },
+  {
+    "path": "packages/nidofy/desktop-extras/tests/archive.spec.ts",
+    "sha256": "23ffdd39f0ea1d132347564d2622d63a73e64e29e1784822a230ac4210e48224"
+  },
+  {
+    "path": "packages/nidofy/desktop-extras/tests/probe.spec.ts",
+    "sha256": "8701eec667bb09bdddbca11fcd9dc98db749804f481ddd6d1dbee89e51583aba"
+  },
+  {
+    "path": "packages/nidofy/desktop-extras/tests/state.spec.ts",
+    "sha256": "5d798117c34e7d49c58470a5bf52cdacdcc7d8765c2214f518de9a3722c8d5c9"
+  },
+  {
+    "path": "packages/nidofy/desktop-extras/tsconfig.client.json",
+    "sha256": "912dd415f0f85f8dafb95a7398c31cad14bbfdc173338645eb84b55206df8064"
+  },
+  {
+    "path": "packages/nidofy/desktop-extras/tsconfig.host.json",
+    "sha256": "e5b1360cf6e6546c585ff9257960174501d70921e9ca3bd4b0484388cb17c346"
+  },
+  {
+    "path": "packages/nidofy/desktop-extras/tsconfig.json",
+    "sha256": "ad1b25d36ea100440140e543e2a2af188178934da74eadce1b27ef14e91b335e"
+  },
+  {
+    "path": "packages/nidofy/desktop-extras/tsdown.config.ts",
+    "sha256": "33ac6250eeda81157d5781c90162d12c5ae9646b6dfd0962b2e3c4dced3ff11c"
+  },
+  {
+    "path": "pnpm-lock.yaml",
+    "sha256": "622bf2c1273fc7671474fa9feba16b37ca4b1593edebb99d536ed6a00c0b2d15"
+  },
+  {
+    "path": "scripts/gen-cordis-catalog.ts",
+    "sha256": "96c829301aa9495771b7f499e0488cba37aedeb89a66c7618b085c8408dbd9e8"
+  },
+  {
+    "path": "scripts/gen-doc-graphs.spec.ts",
+    "sha256": "53eb47f806a8b816e89760f3a8fcaf9a975f8add09afb7c1a6fd9e716013f9cc"
+  },
+  {
+    "path": "scripts/gen-doc-graphs.ts",
+    "sha256": "6239d036ed9009bc7edeb91cd76ceea749566a580cf4e31497334c1f75207c78"
+  },
+  {
+    "path": "tsconfig.client.json",
+    "sha256": "b840283f16d46aec8e52d69e12da015a2f57345477738a9bde7d472918a9c36e"
+  },
+  {
+    "path": "tsconfig.host.json",
+    "sha256": "b26017ec0ca42dba702cf7a3ebda41f00a0a2cdc6091d98167eab35026973724"
+  }
+]

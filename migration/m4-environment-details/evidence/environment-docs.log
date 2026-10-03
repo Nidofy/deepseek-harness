@@ -1,0 +1,91 @@
+$ tsx scripts/run-gates.ts doc-quick
+run-gates: doc-quick running 21 gate(s) with 4 worker(s) from 16 available CPU(s), doc-quick cap 4.
+run-gates: start markdown links
+run-gates: start type equivalence
+run-gates: start translation pairing
+run-gates: start markdown wrap
+run-gates: PASS type equivalence (19.56s)
+run-gates: start npm dependency catalog
+
+== FAILED markdown wrap (19.99s) ==
+command: pnpm run verify-md-wrap
+outcome: exit 1
+$ tsx scripts/verify-md-wrap.ts
+verify-md-wrap: hard-wrapped prose paragraphs found (write one physical line per paragraph):
+  packages\client\ui-layout\README.md:107  **Runtime invariant:** No companion is published. The shell viewing-state store …
+  packages\client\ui-layout\README.zh.md:107  **运行时不变式：** 不发布伴生入口。外壳中 `ctx.layout` 背后的浏览状态存储不发出 Cordis 事件；clamp 与轨道的时序由本包各栏与服务…
+[ELIFECYCLE] Command failed with exit code 1.
+run-gates: start Session format references
+run-gates: PASS npm dependency catalog (4.62s)
+run-gates: start public repository links
+run-gates: PASS markdown links (39.79s)
+run-gates: start repository references
+run-gates: PASS Session format references (19.94s)
+run-gates: start concrete terms
+run-gates: PASS concrete terms (26.94s)
+run-gates: start doc refs
+run-gates: PASS public repository links (42.73s)
+run-gates: start package README Summaries
+run-gates: PASS package README Summaries (0.70s)
+run-gates: start package README model experience
+run-gates: PASS doc refs (1.52s)
+run-gates: start agent note classification
+run-gates: PASS agent note classification (0.72s)
+run-gates: start agent note format
+run-gates: PASS agent note format (0.79s)
+run-gates: start archived agent notes
+run-gates: PASS archived agent notes (0.99s)
+run-gates: start skill invocation metadata
+run-gates: PASS skill invocation metadata (0.66s)
+run-gates: start translation prompt
+run-gates: PASS translation prompt (0.67s)
+run-gates: start doc budgets
+run-gates: PASS doc budgets (0.64s)
+run-gates: start upgrade guides
+run-gates: PASS package README model experience (5.62s)
+run-gates: start documentation standard tests
+run-gates: PASS upgrade guides (0.74s)
+run-gates: start package README limitations
+run-gates: PASS documentation standard tests (2.62s)
+
+== FAILED translation pairing (75.95s) ==
+[ELIFECYCLE] Command failed with exit code 1.
+command: pnpm run verify-translation-pairing
+outcome: exit 1
+$ tsx scripts/verify-translation-pairing.ts
+verify-translation-pairing: bilingual pairing rules violated (see docs/i18n/README.md):
+  migration/m0/README.md: in-scope documentation must merge bilingual (docs/i18n/README.md); add the counterpart and record the pair
+
+== FAILED repository references (38.66s) ==
+[ELIFECYCLE] Command failed with exit code 1.
+command: pnpm run verify-repository-references
+outcome: exit 1
+$ tsx scripts/verify-repository-references.ts
+verify-repository-references: use release tags or maintained repository links:
+  migration/m0/couplings.json:3 commit-hash
+  migration/m0/evidence/artifact.json:5 commit-hash
+  migration/m0/evidence/patch-checks.json:5 commit-hash
+  migration/m0/evidence/source-verification.json:3 commit-hash
+  migration/m0/evidence/source-verification.json:5 commit-hash
+  migration/m0/evidence/summary.json:6 commit-hash
+  migration/m0/evidence/summary.json:7 commit-hash
+  migration/m0/source-lock.json:6 commit-hash
+  migration/m0/source-lock.json:13 commit-hash
+  migration/m1/evidence/summary.json:8 commit-hash
+  migration/m4-environment-details/build-candidate.ps1:12 commit-hash
+  migration/m4-fixes/build-candidate.ps1:12 commit-hash
+  migration/m4-layout-fixes/build-candidate.ps1:12 commit-hash
+  migration/m4-pet-fixes/build-candidate.ps1:12 commit-hash
+  migration/m4/origin.json:2 commit-hash
+  migration/m4/origin.json:3 commit-hash
+run-gates: PASS package README limitations (5.21s)
+
+run-gates: 18 passed, 3 failed, 0 skipped in 78.86s.
+run-gates: unsuccessful gates:
+  - FAILED translation pairing (75.95s, exit 1)
+    pnpm run verify-translation-pairing
+  - FAILED markdown wrap (19.99s, exit 1)
+    pnpm run verify-md-wrap
+  - FAILED repository references (38.66s, exit 1)
+    pnpm run verify-repository-references
+[ELIFECYCLE] Command failed with exit code 1.

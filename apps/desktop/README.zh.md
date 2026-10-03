@@ -2,6 +2,12 @@
 
 [English](README.md) | 中文
 
+`intranet` 发行模式采用 [Nidofy 离线策略](../../migration/m1/README.zh.md)。构建 Windows x64 包前，将 `.env.windows.intranet.example` 复制到 `.env.windows`。该模式使用独立应用数据目录，无需账号或 Key 即可进入本地工作区，禁用分析、反馈、API Session 日志附带和在线插件安装，通过完整离线包更新。下文账号、分析和在线更新行为适用于上游发行模式。内网浏览器策略不限制 Node 或工具进程；部署必须使用企业出口网关。
+
+`personal` 发行模式使用 `.env.windows.personal.example`，详见[个人版验证参考](../../migration/personal/README.zh.md)。它保留网络访问及上游模型、插件接口，使用 `Nidofy DSH Desktop` 身份和独立数据，无需账号即可进入工作区。侧边栏账号菜单保留可选的官方登录，退出账号后仍可使用本地工作区。分析与反馈上传保持关闭；更新采用完整包替换。个人产物使用较短的 `personal` 或 `personal-unsigned` 目标目录，避免覆盖内网包及触发 Windows 运行时路径限制。同一目标的依赖准备目录仍共享，各发行模式应顺序构建。
+
+Windows 私有版注册协议时通过 `--nidofy-desktop-data-root=<absolute path>` 携带已解析的数据目录。该参数在获取单实例锁前优先于 `NIDOFY_DESKTOP_DATA_ROOT` 生效，因此浏览器返回即使没有继承启动器的环境变量，也会使用发起登录的配置目录。启动时注册私有协议；个人版在打开登录浏览器前注册平台完成页使用的 `dsh` 协议。Windows 每个协议只保留一个处理程序，因此不支持不同安装同时发起登录。
+
 桌面埋点遵循[产品采集策略](../../packages/client/product-analytics/README.zh.md)及其动态应用配置，不包含 Web 使用情况。安装更新会等待该操作的本地埋点接收请求结束，再锁定 API 准入并停止 Host。接收请求的时限为一秒，失败不会阻止安装，也不等待收集端完成发送。
 
 桌面应用是完整 dsh Web 应用外的一层 Electron 壳。Electron RunAsNode 子进程启动共享 profile runner，Electron 立即从 `dsh-app://app/` 加载打包内的 Web 入口。共享加载页等待 Host 启动注入，然后在同一文档中启动客户端。Electron 将应用 HTTP 请求转发给已认证的 Web Host，转发时丢弃描述 Node fetch 连接而非资源本身的响应头（`transfer-encoding`、`connection`、`keep-alive`），并把插件 bundle 响应标记为 `no-store`，因为其每次启动都变化的 revision 只会在 Chromium 磁盘缓存中累积；WebSocket 流连接到该 Host，仅为归属的应用窗口附加凭据。Node IPC 承载启动注入、就绪与关闭。Desktop 默认使用端口 `19387`，与 Web 的 `3080` 分开；可通过 `webserver.config.port` patch 覆盖。

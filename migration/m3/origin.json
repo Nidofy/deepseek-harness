@@ -1,0 +1,30 @@
+{
+  "legacyDesktopVersion": "0.2.5-rc.1",
+  "sources": [
+    {
+      "source": "runtime-src/project-actions.mjs",
+      "sha256": "a70609782e7b8b0865ffa8996ea80dfe08897685d0c56619bbd275452c73bbb0"
+    },
+    {
+      "source": "runtime-src/change-review.mjs",
+      "sha256": "302ecfa1e93173b0b7d9917a8dbeecdb6e80863a9a881bea713ee5322cd5b8c5"
+    },
+    {
+      "source": "runtime-src/environment-repository.mjs",
+      "sha256": "6a1faad997bcac11345dd40f3ae6c338dfe99f7fd91732b6814463d1868f4514"
+    },
+    {
+      "source": "runtime-src/desktop-artifacts.mjs",
+      "sha256": "d0e8de7633ece2cb101383950332dd38f68dbe1d0a269c9cc8b798b06dc7109d"
+    },
+    {
+      "source": "runtime-src/task-recovery.mjs",
+      "sha256": "cbe182b2b6303ef8018c80f960c75ea7c90421a7e9b7ee7c69bf7b49e0d9d0cf"
+    },
+    {
+      "source": "runtime-src/storage-admission.mjs",
+      "sha256": "8ec6cbbbf49393f3c7e0169fd15fff1f48860c9e07a1e08f616477c7fd5941c7"
+    }
+  ],
+  "adaptations": "Typed composition, official Shell execution, workspace identity trust, platform commands, composer adapter and native protection coordination are owned by M3."
+}

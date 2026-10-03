@@ -105,3 +105,5 @@ Windows Electron 的 `data-windows-titlebar` 标记在所有列上方预留顶�
 </details>
 
 **运行时不变式：** 不发布伴生入口。外壳中 `ctx.layout` 背后的浏览状态存储不发出 Cordis 事件；clamp 与轨道的时序由本包各栏与服务规格直接断言。
+
+`shell.accessory` 是位于主面板旁、参与正常 flex 布局的可选 root 单插槽。外层 `shell-center` 行内尺寸容器已扣除两侧官方侧边栏；占用者负责响应式显示，无占用者时主面板使用整个中心区域。

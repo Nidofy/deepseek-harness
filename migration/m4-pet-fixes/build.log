@@ -1,0 +1,64 @@
+$ tsc -b && pnpm run bundle
+$ tsdown
+ℹ tsdown v0.22.2 powered by rolldown v1.1.1
+ℹ config file: D:\Documents\FeiyangChen\devApps\dshWinUi\electron\apps\desktop\tsdown.config.ts
+ℹ entry: lib/types/command-manager-entry.js
+ℹ target: es2024
+ℹ tsconfig: tsconfig.json
+ℹ entry: lib/types/main.js
+ℹ target: es2024
+ℹ tsconfig: tsconfig.json
+ℹ entry: lib/types/preload-mandatory.js
+ℹ target: es2024
+ℹ tsconfig: tsconfig.json
+ℹ entry: lib/types/preload-app.js
+ℹ target: es2024
+ℹ tsconfig: tsconfig.json
+ℹ entry: lib/types/preload-platform-account.js
+ℹ target: es2024
+ℹ tsconfig: tsconfig.json
+ℹ entry: lib/types/preload-update-dialog.js
+ℹ target: es2024
+ℹ tsconfig: tsconfig.json
+ℹ entry: lib/types/preload-welcome.js
+ℹ target: es2024
+ℹ tsconfig: tsconfig.json
+ℹ Build start
+ℹ [CJS] lib\preload-mandatory.cjs  1.03 kB │ gzip: 0.47 kB
+ℹ [CJS] 1 files, total: 1.03 kB
+ℹ [CJS] lib\preload-update-dialog.cjs  1.11 kB │ gzip: 0.52 kB
+ℹ [CJS] 1 files, total: 1.11 kB
+ℹ [CJS] lib\preload-welcome.cjs  21.90 kB │ gzip: 7.06 kB
+ℹ [CJS] 1 files, total: 21.90 kB
+ℹ [CJS] lib\preload-platform-account.cjs  2.08 kB │ gzip: 0.90 kB
+ℹ [CJS] 1 files, total: 2.08 kB
+ℹ [CJS] lib\preload-app.cjs  42.38 kB │ gzip: 13.15 kB
+ℹ [CJS] 1 files, total: 42.38 kB
+✔ Build complete in 39ms
+✔ Build complete in 39ms
+✔ Build complete in 40ms
+✔ Build complete in 40ms
+✔ Build complete in 40ms
+ℹ [ESM] lib\command-manager-entry.js  22.86 kB │ gzip: 6.82 kB
+ℹ [ESM] 1 files, total: 22.86 kB
+✔ Build complete in 45ms
+ℹ Hint: consider adding deps.onlyBundle option to avoid unintended bundling of dependencies, or set deps.onlyBundle: false to disable this hint.
+See more at https://tsdown.dev/options/dependencies#deps-onlybundle
+Detected dependencies in bundle:
+- js-yaml
+ℹ [ESM] lib\main.js  511.73 kB │ gzip: 135.28 kB
+ℹ [ESM] 1 files, total: 511.73 kB
+✔ Build complete in 82ms
+vite v6.4.3 building for production...
+transforming...
+✓ 34 modules transformed.
+rendering chunks...
+computing gzip size...
+lib/welcome/Montserrat-OFL.txt          4.40 kB │ gzip:  1.98 kB
+lib/welcome/montserrat-light.woff2     61.55 kB
+lib/welcome/montserrat-regular.woff2   62.01 kB
+lib/welcome/montserrat-medium.woff2    62.15 kB
+lib/welcome/brand-font.css              0.55 kB │ gzip:  0.20 kB
+lib/welcome/welcome.css                36.98 kB │ gzip:  5.16 kB
+lib/welcome/welcome.js                154.65 kB │ gzip: 49.90 kB
+✓ built in 469ms

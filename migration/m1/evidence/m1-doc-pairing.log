@@ -1,0 +1,4 @@
+$ tsx scripts/verify-translation-pairing.ts "--write" "apps/desktop/README.md" "migration/m1/README.md"
+verify-translation-pairing: recorded migration/m1/README.i18n.yaml
+verify-translation-pairing: 1 record(s) written; run the check to validate the pairs.
+verify-translation-pairing: 2 named pair(s) consistent; the corpus-wide check still runs in doc-sync.

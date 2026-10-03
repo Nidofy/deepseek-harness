@@ -1,0 +1,28 @@
+[
+  {
+    "name": "list_project_actions",
+    "description": "List the reviewed project build/test actions. Trust is granted only by the local user in the desktop workbench.",
+    "eager_input_streaming": true,
+    "input_schema": {
+      "type": "object",
+      "properties": {},
+      "required": []
+    }
+  },
+  {
+    "name": "run_project_action",
+    "description": "Run a locally trusted action ID under current session permissions. Never automatically repeat interrupted actions with unknown side effects.",
+    "eager_input_streaming": true,
+    "input_schema": {
+      "type": "object",
+      "properties": {
+        "id": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "id"
+      ]
+    }
+  }
+]

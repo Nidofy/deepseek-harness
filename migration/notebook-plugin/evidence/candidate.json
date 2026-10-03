@@ -1,0 +1,23 @@
+{
+  "candidate": "apps/desktop/.desktop-build/targets/win-x64/candidates/n-notes/personal-unsigned/win-unpacked",
+  "appAsarSha256": "43b9d14359ae5ddee8dfc2cd813033ae9b992d171dd27f99507d9a68069b5eab",
+  "officialBaseline": "0.2.0-rc.2",
+  "officialPresetsUnchanged": [
+    "standard",
+    "ptc",
+    "cordis"
+  ],
+  "plugin": "@nidofy/dsh-working-notebook",
+  "enhancement": {
+    "default": false,
+    "scope": "profile",
+    "persistent": true
+  },
+  "unitTests": 167,
+  "packagedChecks": 13,
+  "syntheticModel": true,
+  "launcher": "migration/n-context/launch-trial.ps1",
+  "existingDataDirectory": "apps/desktop/.desktop-build/n-context-trial-data",
+  "installed": false,
+  "published": false
+}

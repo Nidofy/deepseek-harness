@@ -1,6 +1,7 @@
 /** Reject maintained references to repository commits and the disallowed organization URL. */
 
 import { execFileSync } from 'node:child_process'
+import { createHash } from 'node:crypto'
 import { lstatSync, readFileSync, readlinkSync } from 'node:fs'
 import { resolve } from 'node:path'
 import { pathToFileURL } from 'node:url'
@@ -14,6 +15,28 @@ const kitRepositoryUrl = new RegExp(`\\bgithub\\.com/${organization}/libreoffice
 const commitCandidate = /(?<![a-z0-9])[\da-f]{7,40}(?![a-z0-9])/gi
 const excludedPrefixes = ['vendor/', '.agents/notes/archived/']
 const gitOutputLimit = 64 * 1024 * 1024
+
+/** Frozen qualification JSON keeps exact commit identities only while its recorded bytes match. */
+function frozenEvidence(repoRoot: string): Set<string> {
+  const manifest = resolve(repoRoot, 'migration/frozen-evidence.json')
+  if (!lstatSync(manifest, { throwIfNoEntry: false })) return new Set()
+  const value: unknown = JSON.parse(readFileSync(manifest, 'utf8'))
+  if (value === null || typeof value !== 'object' || !('schemaVersion' in value) || value.schemaVersion !== 1
+    || !('files' in value) || !Array.isArray(value.files)) throw Error('Invalid frozen evidence manifest')
+  const files = new Set<string>()
+  const rows: readonly unknown[] = value.files
+  for (const row of rows) {
+    if (row === null || typeof row !== 'object' || !('path' in row) || !('sha256' in row)
+      || typeof row.path !== 'string' || typeof row.sha256 !== 'string'
+      || !/^migration\/m\d+(?:-[a-z-]+)?\/(?:evidence\/[a-z0-9-]+|source-lock|couplings|origin)\.json$/.test(row.path)
+      || !/^[a-f0-9]{64}$/.test(row.sha256) || files.has(row.path)) throw Error('Invalid frozen evidence entry')
+    const path = resolve(repoRoot, row.path)
+    if (!lstatSync(path).isFile() || createHash('sha256').update(readFileSync(path)).digest('hex') !== row.sha256)
+      throw Error(`Frozen evidence changed: ${row.path}`)
+    files.add(row.path)
+  }
+  return files
+}
 
 /** One prohibited reference in a maintained source file. */
 export interface RepositoryReference {
@@ -96,9 +119,10 @@ function repositoryCommits(repoRoot: string, sources: Iterable<string>): Set<str
  * @returns Prohibited references outside vendor and frozen Agent Notes; absent shallow-history objects cannot match.
  */
 export function scanRepositoryReferences(repoRoot: string): RepositoryReference[] {
+  const frozen = frozenEvidence(repoRoot)
   const sources = readMaintainedFiles(repoRoot)
   const commits = repositoryCommits(repoRoot, sources.values())
-  return [...sources].flatMap(([file, source]) => findRepositoryReferences(file, source, commits))
+  return [...sources].flatMap(([file, source]) => findRepositoryReferences(file, source, frozen.has(file) ? new Set() : commits))
 }
 
 const invokedPath = process.argv[1]

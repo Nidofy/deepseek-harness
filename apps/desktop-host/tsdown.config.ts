@@ -1,3 +1,4 @@
+import { fileURLToPath } from 'node:url'
 import { defineConfig } from 'tsdown'
 
 export default defineConfig(['index', 'cli'].map(name => ({
@@ -10,4 +11,13 @@ export default defineConfig(['index', 'cli'].map(name => ({
   fixedExtension: false,
   dts: false,
   clean: false,
+  plugins: [{
+    name: 'nidofy-workbench-adapters',
+    resolveId(source, importer) {
+      if (importer?.replaceAll('\\', '/').endsWith('/lib/types/workbench/owner.js')
+        && /^\.\/legacy\/[a-z-]+\.mjs$/.test(source)) {
+        return fileURLToPath(new URL(`./src/workbench/${source}`, import.meta.url))
+      }
+    },
+  }],
 })))

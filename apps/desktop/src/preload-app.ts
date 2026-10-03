@@ -59,6 +59,22 @@ function createProductApi(): DshDesktopProductApi {
 }
 
 if (location.protocol === `${SCHEME}:` && location.hostname === 'app') {
+  contextBridge.exposeInMainWorld('nidofyPet', {
+    invoke: (method: string, data?: object) => ipcRenderer.invoke('nidofy:pet', method, data),
+    listen: (name: string, listener: (event: { payload: unknown }) => void) => {
+      const handler = (_event: Electron.IpcRendererEvent, key: string, payload: unknown): void => {
+        if (name === key) listener({ payload })
+      }
+      ipcRenderer.on('nidofy:pet-event', handler)
+      return Promise.resolve(() => ipcRenderer.removeListener('nidofy:pet-event', handler))
+    },
+  })
+  contextBridge.exposeInMainWorld('nidofyWorkbench', {
+    openPanel: (panel: string, workspace?: string) => ipcRenderer.invoke('nidofy:open-panel', panel, workspace),
+    artifact: (id: string, action: string) => ipcRenderer.invoke('nidofy:artifact', id, action),
+    notify: (title: string, body: string) => ipcRenderer.invoke('nidofy:notify', title, body),
+    notifications: (enabled: boolean) => ipcRenderer.invoke('nidofy:notifications', enabled),
+  })
   contextBridge.exposeInMainWorld('dshOnboarding', {
     hasApiKey: () => ipcRenderer.invoke(DESKTOP_IPC.onboardingApiKey) as Promise<boolean>,
     setActive: (active: boolean) => { ipcRenderer.send(DESKTOP_IPC.onboardingActive, active) },

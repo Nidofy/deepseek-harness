@@ -1,0 +1,8 @@
+error: patch failed: docs/subsystems/llm-streaming.i18n.yaml:2
+error: docs/subsystems/llm-streaming.i18n.yaml: patch does not apply
+error: patch failed: packages/extensions/tool-cordis/src/api-catalog.ts:5553
+error: packages/extensions/tool-cordis/src/api-catalog.ts: patch does not apply
+error: patch failed: packages/llm/llm-pi-ai/README.i18n.yaml:2
+error: packages/llm/llm-pi-ai/README.i18n.yaml: patch does not apply
+error: patch failed: scripts/gen-cordis-catalog.ts:228
+error: scripts/gen-cordis-catalog.ts: patch does not apply

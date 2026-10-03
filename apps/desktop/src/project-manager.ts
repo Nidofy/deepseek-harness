@@ -23,8 +23,9 @@ import type { DesktopPaths } from './paths.ts'
 import type { DesktopRelease } from './release.ts'
 import { readDesktopRuntime } from './runtime-tree.ts'
 import {
-  initProfile, PROFILE_TEMPLATES, removeLinkProjections, sanitizeProfile, type ProfileTemplate,
+  initProfile, PROFILE_TEMPLATES, readProfileManifest, removeLinkProjections, sanitizeProfile, type ProfileTemplate,
 } from '@deepseek-ai/dsh-app-boot'
+import { writeFileAtomic } from '@deepseek-ai/dsh-atomic-write'
 
 const PROJECT_NAME = '@deepseek-ai/dsh-desktop-runtime'
 const DSH_PACKAGE = '@deepseek-ai/dsh'
@@ -66,6 +67,7 @@ export class DesktopProjectManager {
   constructor(
     readonly paths: DesktopPaths,
     readonly runtime: { readonly dsh: string },
+    readonly initialBundles: readonly string[] = [],
   ) {}
 
   /**
@@ -81,11 +83,23 @@ export class DesktopProjectManager {
    * Load application metadata and prepare the external plugin profile without installing packages.
    */
   async applyRelease(): Promise<void> {
-    await this.withLock(() => {
+    await this.withLock(async () => {
       // Validation only: an unreadable or mismatched runtime descriptor stops preparation before the Host starts.
       readDesktopRuntime(this.runtime.dsh)
       migrateProfileSettings(this.paths.profile)
       createPluginProfile(this.paths.profile)
+      if (this.initialBundles.length > 0) {
+        const manifest = readProfileManifest('dsh', this.paths.profile)
+        if (!('nidofyBundleEnrollment' in manifest)) {
+          const bundles = [...new Set([...(manifest.dsh?.profile?.bundles ?? []), ...this.initialBundles])]
+          // One atomic document records both enrollment and its marker. Recovery and user removal
+          // preserve the marker, so subsequent application upgrades never re-enable these bundles.
+          await writeFileAtomic(join(this.paths.profile, 'package.json'), JSON.stringify({
+            ...manifest, nidofyBundleEnrollment: 1,
+            dsh: { ...manifest.dsh, profile: { ...manifest.dsh?.profile, bundles } },
+          }, undefined, 2) + '\n', { mode: 0o600 })
+        }
+      }
       removeLinkProjections(this.paths.profile)
     })
   }

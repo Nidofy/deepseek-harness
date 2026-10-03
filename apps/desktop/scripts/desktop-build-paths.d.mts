@@ -32,9 +32,11 @@ export function resolveDesktopBuildTarget(
 /**
  * Return the mutable preparation and artifact directories owned by one release target.
  * @param target - Supported Desktop target name.
+ * @param distribution - Distribution whose artifacts must remain isolated.
+ * @param candidate - Optional isolated local candidate directory name.
  * @returns Target paths plus the shared immutable download cache.
  */
-export function desktopTargetBuildPaths(target: DesktopAutoUpdateTarget): DesktopTargetBuildPaths
+export function desktopTargetBuildPaths(target: DesktopAutoUpdateTarget, distribution?: string, candidate?: string): DesktopTargetBuildPaths
 
 /**
  * Return the platform and architecture of the payload one release target prepares.

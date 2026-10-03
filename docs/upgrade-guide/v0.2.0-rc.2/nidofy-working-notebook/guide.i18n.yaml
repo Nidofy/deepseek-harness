@@ -1,0 +1,16 @@
+# Bilingual-pair consistency record for guide.md (docs/i18n/README.md): per heading
+# section, a hash of its English and Chinese blocks outside code blocks and generated regions.
+# After editing either side, bring the other along and re-record with:
+#   pnpm run verify-translation-pairing --write docs/upgrade-guide/v0.2.0-rc.2/nidofy-working-notebook/guide.md
+/:
+  en: 55fb576beed25831
+  zh: 6de4816ee051c874
+/independent-nidofy-working-notes:
+  en: cdf767f27b9b1a94
+  zh: 6772b6a3ccb2e312
+/independent-nidofy-working-notes/change:
+  en: cf6d6effc12fbc64
+  zh: a61d6f197b28e21b
+/independent-nidofy-working-notes/migration:
+  en: f634ff39a08fde53
+  zh: 5ce8357c49703996

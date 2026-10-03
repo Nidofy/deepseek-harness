@@ -1,3 +1,4 @@
+import { resolveProfiles as resolveCatalogProfiles } from '../src/config.ts'
 /** Profile patch edits and credential updates reach the next real adapter request. */
 
 import { mkdtemp, rm, writeFile } from 'node:fs/promises'
@@ -82,7 +83,26 @@ async function loadComposition(): Promise<{ ctx: Context; settingsPath: string }
   return { ctx, settingsPath: patchPath }
 }
 
+const catalogModel = resolveCatalogProfiles({ deepseek: {} }).get('deepseek')!.piProvider!.getModels()[0]!.id
+
 describe('llm-pi-ai real dormant composition', () => {
+  it('loads an independent catalog route from a profile patch and sends its own credential', async () => {
+    const server = await mockServer([{ events: textEvents }])
+    const { ctx, settingsPath } = await loadComposition()
+    await writeFile(settingsPath, [
+      '- id: llm-pi-ai', '  config:', '    providers:', '      catalog-alias:',
+      '        catalogProvider: deepseek', '        apiKeyEnv: PI_COMPOSITION_KEY',
+      '        baseURL: ' + server.url, '',
+    ].join('\n'))
+    await vi.waitFor(() => {
+      expect(ctx.llm.listProviders().map(provider => provider.id)).toEqual(['catalog-alias'])
+    }, { timeout: 5000 })
+    const result = await assemble(ctx, { provider: 'catalog-alias', model: catalogModel, messages: [] })
+    expect(result.message.content).toEqual([{ type: 'text', text: 'hello' }])
+    expect(server.headers[0]?.authorization).toBe('Bearer key-from-store')
+    expect(server.requests[0]).toMatchObject({ model: catalogModel })
+  })
+
   it('boots with zero routes and registers one the moment settings supply a profile', async () => {
     vi.stubEnv('PI_COMPOSITION_KEY', '')
     const server = await mockServer([{ events: textEvents }])
@@ -266,5 +286,37 @@ describe('llm-pi-ai real dormant composition', () => {
         { role: 'user', content: 'continue' },
       ],
     })
+  })
+})
+
+describe('deployment payload policy through the Loader composition', () => {
+  it('changes only a routing field and disposes its effect without changing native requests', async () => {
+    vi.stubEnv('PI_COMPOSITION_KEY', '')
+    const server = await mockServer([{ events: textEvents }, { events: textEvents }, { events: textEvents }])
+    const { ctx, settingsPath } = await loadComposition()
+    await writeFile(settingsPath, [
+      '- id: llm-pi-ai', '  config:', '    providers:', '      deepseek:',
+      '        apiKeyEnv: PI_COMPOSITION_KEY', `        baseURL: ${server.url}`, '',
+    ].join('\n'))
+    await vi.waitFor(() => { expect(ctx.llm.listProviders().map(provider => provider.id)).toEqual(['deepseek']) }, { timeout: 5000 })
+    const request = { provider: 'deepseek', model: catalogModel, messages: [] }
+    const native = await assemble(ctx, request)
+    const policy = ctx.plugin({
+      name: 'test-payload-policy',
+      apply(scope: Context) {
+        scope.on('llm-pi-ai/prepare-payload', () => (payload) => {
+          if (payload === null || typeof payload !== 'object' || Array.isArray(payload)) throw Error('Expected payload object')
+          return { ...payload, prompt_cache_key: 'synthetic-route' }
+        })
+      },
+    })
+    await policy
+    const changed = await assemble(ctx, request)
+    expect(server.requests[1]).toEqual({ ...server.requests[0] as object, prompt_cache_key: 'synthetic-route' })
+    expect(changed.message.content).toEqual(native.message.content)
+    expect(changed.usage).toEqual(native.usage)
+    await policy.dispose()
+    await assemble(ctx, request)
+    expect(server.requests[2]).toEqual(server.requests[0])
   })
 })

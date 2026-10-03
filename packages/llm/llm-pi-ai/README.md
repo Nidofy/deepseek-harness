@@ -74,6 +74,7 @@ Each profile may set a `retryPolicy`; omission uses normal mode with five retrie
 
 | Field | Default | Meaning |
 |---|---|---|
+| `catalogProvider` | route key | Installed provider supplying model defaults and native dispatch; an explicit missing source is refused |
 | `apiKeyEnv` | absent | Credential reference resolved per request; omission defers to pi-ai ambient discovery |
 | `displayName` | provider name | Label shown by selector surfaces |
 | `api` | catalog protocol | Wire protocol; only needed for routes the catalog does not supply |
@@ -96,6 +97,8 @@ A provider pi-ai ships a login for can be signed into through the harness author
 
 ### Resolve the model catalog
 
+`catalogProvider` lets independent routes inherit the same installed provider while keeping separate endpoints, credential references, model selections, and request identities. For example, two route keys can both name `catalogProvider: deepseek`. Omitting it keeps lookup by route key; hand-declared routes still supply their complete configuration. Explicit protocol and model overrides keep their normal precedence.
+
 A profile's `models` list replaces the route's installed catalog rather than extending it; each entry defaults its unset fields from the installed model of the same id, so narrowing a route to two models, correcting one capacity, or adding a model newer than the installed catalog are one-line edits. `modelOverrides` reshapes individual installed-catalog models without that cost — correct one model, keep the other thirty-seven — and is refused when set beside a `models` list, on a hand-declared route, or naming a model the catalog does not describe, because a silently unchanged model would be a typo someone hunts for later.
 
 ### Run with reasoning and wire compatibility
@@ -103,6 +106,16 @@ A profile's `models` list replaces the route's installed catalog rather than ext
 `reasoningEfforts` declares a model's selectable thinking levels: each key is a level selectors offer, its value the spelling dispatch sends on the wire, so `max: ultra` renames a level for a gateway with its own vocabulary. Omitting the field keeps the installed catalog entry's capability; `false` declares a non-reasoning model. `compat` switches reshape the request for endpoints pi-ai cannot recognize — which role carries the system prompt, which field caps output, how a thinking level travels — configurable per route and per model. A model neither the entry nor the installed catalog sizes takes the route's `defaultContextWindow` and `defaultMaxTokens` fallbacks.
 
 For self-hosted Chat Completions endpoints, `thinkingTokenBudgetField` selects the reasoning-budget parameter, and `vllmPriority` sets an integer scheduler priority when the server enables priority scheduling. Template arguments accept `$var: thinking.budget`. `openai-responses` gateways can set `supportsMaxOutputTokens: false` to omit `max_output_tokens`; Azure and Codex transports ignore this shared compatibility field. These controls are opt-in; catalog-owned Anthropic effort and fallback capabilities are not configurable switches.
+
+<a id="control-transport-routing-metadata"></a>
+
+### Control transport routing metadata
+
+A deployment plugin can listen for `llm-pi-ai/prepare-payload` and return a pi-ai `onPayload` callback. The first listener returning a callback owns the transform. The adapter provides frozen provider, model, protocol, endpoint and optional session facts before awaiting the credential; listeners must capture policy in the returned callback so changes affect the next request. Without a callback, native payload behavior is unchanged. Preparation or callback failure prevents sending that request. Disposing the listener removes the transform for subsequent requests.
+
+Programmatic adapters can compose `PiAiAdapter` with the exported `resolveProfiles`, `authContextFrom` and `credentialStoreFrom` helpers to reuse official profile validation and credential services. A wrapper that promises immutable credentials must own its credential lease; these helpers do not create one. Transcript conversion helpers remain private.
+
+Callbacks may adjust transport routing metadata such as `prompt_cache_key`; they must preserve logged messages, system content, tools and generation parameters. This trusted deployment extension receives final payload content and must not log it or credentials. It does not add prompts, tools or a second request loop, and it does not imply that a gateway supports or benefits from the routing hint.
 
 ### Change configuration at runtime
 

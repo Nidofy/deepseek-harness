@@ -1,0 +1,14 @@
+
+  • electron-builder  version=26.15.3 os=10.0.26200
+  • loaded configuration  file=D:\Documents\FeiyangChen\devApps\dshWinUi\electron\apps\desktop\electron-builder.config.mjs
+  • author is missed in the package.json  appPackageFile=D:\Documents\FeiyangChen\devApps\dshWinUi\electron\apps\desktop\package.json
+  • packageManager not detected by file, falling back to environment detection  resolvedPackageManager=npm detected=D:\Documents\FeiyangChen\devApps\dshWinUi\electron\apps\desktop
+  • detected workspace root for project using packageManager field  pm=pnpm config=pnpm@11.7.0 resolved=D:\Documents\FeiyangChen\devApps\dshWinUi\electron projectDir=D:\Documents\FeiyangChen\devApps\dshWinUi\electron\apps\desktop
+  • building        target=nsis file=.desktop-build\targets\win-x64\candidates\m5-local\installer\nidofy-dsh-personal-0.2.0-rc.2-win-x64-unsigned.exe archs=x64 oneClick=false perMachine=false
+  • skipped archiving  reason=Archive file is up to date outFile=D:\Documents\FeiyangChen\devApps\dshWinUi\electron\apps\desktop\.desktop-build\targets\win-x64\candidates\m5-local\installer\@deepseek-aidsh-desktop-0.2.0-rc.2-x64.nsis.7z
+  • downloaded      label=nsis-resources-3.4.1.7z progress=100%
+  • file signing skipped via signExecutable configuration  file=.desktop-build\targets\win-x64\candidates\m5-local\installer\.nsis-directory-installer\7za.exe
+  • file signing skipped via signExecutable configuration  file=.desktop-build\targets\win-x64\candidates\m5-local\installer\nidofy-dsh-personal-0.2.0-rc.2-win-x64-unsigned.__uninstaller.exe
+  • file signing skipped via signExecutable configuration  file=.desktop-build\targets\win-x64\candidates\m5-local\installer\.nsis-directory-installer\7za.exe
+  • file signing skipped via signExecutable configuration  file=.desktop-build\targets\win-x64\candidates\m5-local\installer\nidofy-dsh-personal-0.2.0-rc.2-win-x64-unsigned.exe
+  • building block map  blockMapFile=.desktop-build\targets\win-x64\candidates\m5-local\installer\nidofy-dsh-personal-0.2.0-rc.2-win-x64-unsigned.exe.blockmap

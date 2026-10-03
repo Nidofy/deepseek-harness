@@ -74,6 +74,7 @@ kind: "package-reference"
 
 | 字段 | 默认值 | 含义 |
 |---|---|---|
+| `catalogProvider` | 路由键 | 提供模型默认值与原生分派的已安装提供方；显式指定的来源不存在时拒绝配置 |
 | `apiKeyEnv` | 无 | 按请求解析的凭据引用；省略时交由 pi-ai 环境发现 |
 | `displayName` | 提供方名 | 选择器界面显示的标签 |
 | `api` | 目录协议 | 协议格式；仅目录不提供的路由需要 |
@@ -96,6 +97,8 @@ pi-ai 提供登录的提供方可以通过 harness 授权 seam 登录：流程�
 
 ### 解析模型目录
 
+`catalogProvider` 让独立路由继承同一已安装提供方，同时保留各自的端点、凭据引用、模型选择和请求身份。例如，两个路由键都可以指定 `catalogProvider: deepseek`。省略时仍按路由键查找；手工声明的路由仍需提供完整配置。显式协议和模型覆盖保持原有优先级。
+
 profile 的 `models` 列表会替换而非扩展路由的已安装目录；每个条目从同 id 已安装模型取未设置字段的默认值，因此把路由收窄到两个模型、修正一个容量或添加比已安装目录更新的模型都是一行编辑。`modelOverrides` 无需该代价即可重塑个别已安装目录模型——修正一个模型，保留其余三十七个——当它与 `models` 列表并存、位于手工声明路由上、或点名目录未描述的模型时会被拒绝，因为静默不变的模型会成为别人日后寻找的拼写错误。
 
 ### 带推理（reasoning）与协议兼容运行
@@ -103,6 +106,16 @@ profile 的 `models` 列表会替换而非扩展路由的已安装目录；每�
 `reasoningEfforts` 声明模型可选择的 thinking 等级：每个键都是选择器提供的等级，其值是分派时在协议中发送的拼写，因此 `max: ultra` 可以为拥有自有词汇的网关重命名等级。省略该字段时保留已安装目录条目的能力；`false` 声明非推理模型。对于 pi-ai 无法识别的端点，`compat` 开关重塑请求——哪个角色携带系统提示词、哪个字段限制输出、thinking 等级如何传递——可逐路由、逐模型配置。条目与已安装目录都没有尺寸的模型，会采用路由的 `defaultContextWindow` 与 `defaultMaxTokens` 回退值。
 
 对于自托管 Chat Completions 端点，`thinkingTokenBudgetField` 选择推理预算参数，`vllmPriority` 在服务端启用优先级调度时设置整数调度优先级。模板参数接受 `$var: thinking.budget`。`openai-responses` 网关可设置 `supportsMaxOutputTokens: false` 来省略 `max_output_tokens`；Azure 与 Codex 传输会忽略这个共享兼容字段。这些控制均需显式启用；目录拥有的 Anthropic effort 和回退能力不是可配置开关。
+
+<a id="control-transport-routing-metadata"></a>
+
+### 控制传输路由元数据
+
+部署插件可以监听 `llm-pi-ai/prepare-payload` 并返回 pi-ai 的 `onPayload` 回调。第一个返回回调的监听器负责变换。适配器在等待凭据之前提供冻结的提供方、模型、协议、端点及可选会话信息；监听器必须在返回的回调中捕获策略，使更改从下一次请求生效。没有回调时原生 payload 行为保持不变。准备或回调失败会阻止发送该请求。释放监听器会移除后续请求的变换。
+
+程序化适配器可以将 `PiAiAdapter` 与导出的 `resolveProfiles`、`authContextFrom`、`credentialStoreFrom` 辅助函数组合，复用官方配置校验和凭据服务。承诺凭据不可变的包装层必须自行持有凭据租约；这些辅助函数不会创建租约。对话转换辅助函数仍为私有。
+
+回调可以调整 `prompt_cache_key` 等传输路由元数据，必须保留已记录的消息、系统内容、工具和生成参数。这是受信部署扩展，会收到最终 payload 内容，不得记录正文或凭据。它不增加提示、工具或第二个请求循环，也不表示网关支持该路由提示或会因此获益。
 
 ### 运行时更改配置
 

@@ -1,0 +1,25 @@
+{
+  "schemaVersion": 1,
+  "files": [
+    {
+      "file": "asset-manifest.json",
+      "bytes": 3047,
+      "sha256": "5619d511ff55b6eb21c6fb249a19ed8cbdb0f54d2591fd3e246d483a79346dec"
+    },
+    {
+      "file": "atlas-layout.json",
+      "bytes": 1679,
+      "sha256": "ea22a67962bb6bdfde42455c20893ee8093c3be18e4a716178bf4977638908c8"
+    },
+    {
+      "file": "pet.json",
+      "bytes": 224,
+      "sha256": "c5e599227d0515c8b90fef36a5f7805f30acf89b18f5a62cc6f77e409df351a2"
+    },
+    {
+      "file": "spritesheet.webp",
+      "bytes": 2991256,
+      "sha256": "be2917666223cb692fcf62fc9bc1df33aca3cb5a5d53165fb46aa98d364a65bd"
+    }
+  ]
+}

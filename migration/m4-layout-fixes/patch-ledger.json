@@ -1,0 +1,20 @@
+{
+  "baseline": "dsh-v0.2.0-rc.2",
+  "parent": "../m4/patch-ledger.json",
+  "patches": [
+    {
+      "owner": "layout-accessory",
+      "paths": ["packages/client/ui-layout/src/client/index.ts", "packages/client/ui-layout/src/client/AppFrame.tsx", "packages/client/ui-layout/src/client/AppFrame.module.css"],
+      "purpose": "Optional normal-flow slot beside the main panel; named container measures remaining center space.",
+      "verify": "Registration/disposal, empty seat leaves full main width, both sidebars and repeated resizing never overlap the conversation.",
+      "retireWhen": "Upstream exposes an equivalent additive dock slot with remaining-width sizing."
+    },
+    {
+      "owner": "personal-presentation",
+      "paths": ["packages/nidofy/desktop-extras/src/client", "packages/nidofy/desktop-extras/assets/theme", "apps/desktop/resources/nidofy-icon.png", "apps/desktop/resources/nidofy-icon.ico"],
+      "purpose": "Environment card, local wallpaper, independent companion renderer seat and tools; Windows derived branding.",
+      "verify": "Packaged artwork hashes equal Tauri sources; plugin unloading removes decoration and rail. Live2D renderer must consume active and dispose resources.",
+      "retireWhen": "Official theme and companion plugins supply the same personal presentation."
+    }
+  ]
+}

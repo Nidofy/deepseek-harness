@@ -1,0 +1,155 @@
+{
+  "status": "PASS",
+  "baseline": "dsh-v0.2.0-rc.2",
+  "completedAt": "2026-09-30T03:51:15.614Z",
+  "distribution": "personal",
+  "unsigned": true,
+  "qualification": "apps\\desktop\\.desktop-build\\qualification\\m4-fixes-CDPq9N",
+  "checks": {
+    "casAndAck": true,
+    "activeRetryUsesAAndNewTurnUsesBWithoutRestart": true,
+    "sameModelIndependentConnections": true,
+    "nativeProtectionPackagedLifecycle": true,
+    "protectionFailurePreventsModelAndTools": true,
+    "desktopConnectionEditor": true,
+    "copyImportIdempotentSourceUnchanged": true,
+    "restartRetainsConnectionsAndHistory": true,
+    "gitOfficialShellPreviewCommitPush": true,
+    "realMenuReviewComposerAppendPreservesDraft": true,
+    "buildTrustOfficialShellCancelNativeRestore": true,
+    "nativeArtifactLeaseOpenRevealSaveAndRecheck": true,
+    "officialPresentEventArtifactProjection": true,
+    "modelToolUsesOfficialSessionShellAndProtection": true,
+    "officialSessionRecoveryNotificationsAutomaticBaseline": true,
+    "workbenchAllTabsRender": true,
+    "chineseWorkbenchAndSessionArtifacts": true,
+    "optionalOfficialLoginEntry": true,
+    "showAndHidePetByVisibleControls": true,
+    "environmentCardAndRepeatedTabResize": true,
+    "m4BoundedProbeOfficialPayloadHookRedactionAndArchives": true,
+    "m4IndependentVisionConsentAndImageProtocol": true,
+    "m4ProbeCancellationStopsRemainingBudget": true,
+    "m4PetRealCanvasWindowResourcesPinNavigateDispose": true,
+    "m4OfflineOfficialSchedulePausedImportExplicitFutureRestore": true,
+    "m4CancelledOfficialQuitPreservesPetController": true,
+    "m4BilingualDashboardAllTabsRender": true,
+    "m4OfficialThemeAndFontLiveAdoption": true,
+    "m4OptionalUnloadReloadLeavesCoreOwnersAvailable": true,
+    "importedCopyBootsWithHistoryAndNoCredentials": true
+  },
+  "artifacts": [
+    {
+      "path": "apps/desktop/.desktop-build/targets/win-x64/candidates/m4-fixes/personal-unsigned/win-unpacked/Nidofy DSH Desktop.exe",
+      "bytes": 244468224,
+      "sha256": "c1316ad20ce74791c928768dc782a37ab5769d54e46d7ddb7e96dfe37e5e792e"
+    },
+    {
+      "path": "apps/desktop/.desktop-build/targets/win-x64/candidates/m4-fixes/personal-unsigned/win-unpacked/resources/app.asar",
+      "bytes": 122151840,
+      "sha256": "ac79966b2e543d7e4d83705fbe5aaf0b9b266a68451f9e1270610cb1a6e85360"
+    },
+    {
+      "path": "apps/desktop/.desktop-build/targets/win-x64/candidates/m4-fixes/personal-unsigned/win-unpacked/resources/nidofy-protection.exe",
+      "bytes": 769024,
+      "sha256": "a785913d211c9a41c865b19bfc36d8838b32e33ea69d7f3c7f4c2271238156d9"
+    }
+  ],
+  "preservedM4": [
+    {
+      "path": "apps/desktop/.desktop-build/targets/win-x64/candidates/m4/personal-unsigned/win-unpacked/Nidofy DSH Desktop.exe",
+      "bytes": 244468224,
+      "sha256": "b280a094421dfc09562ec34765aa5fde75d3d70e8ba6f2790cce8a5144701d94"
+    },
+    {
+      "path": "apps/desktop/.desktop-build/targets/win-x64/candidates/m4/personal-unsigned/win-unpacked/resources/app.asar",
+      "bytes": 122138846,
+      "sha256": "14d35d0acc2c5bebec2b55e01734050080e31264a5592f7b7afcebd2b9969b06"
+    },
+    {
+      "path": "apps/desktop/.desktop-build/targets/win-x64/candidates/m4/personal-unsigned/win-unpacked/resources/nidofy-protection.exe",
+      "bytes": 769024,
+      "sha256": "a785913d211c9a41c865b19bfc36d8838b32e33ea69d7f3c7f4c2271238156d9"
+    }
+  ],
+  "sources": [
+    {
+      "path": "apps/desktop/src/main.ts",
+      "bytes": 72873,
+      "sha256": "aaab760883d0d23620a12ec0bfd325da743302f5e9a58cf4912251f1929e6576"
+    },
+    {
+      "path": "apps/desktop/src/preload-app.ts",
+      "bytes": 6843,
+      "sha256": "e52d88d264d93040801edc3287b2f2a454c41887b375146e6f7186115001326b"
+    },
+    {
+      "path": "apps/desktop/resources/personal.patch.yml",
+      "bytes": 584,
+      "sha256": "27a6f681fae291ff71a274a317ff094ef85baada829a6054e3170bf1f60460b8"
+    },
+    {
+      "path": "apps/desktop-host/src/workbench/owner.ts",
+      "bytes": 20046,
+      "sha256": "1bfd8fa228f66b7883cf455cc198931b2c227aeb50bccb999a2f600e6a97afa0"
+    },
+    {
+      "path": "apps/desktop-host/src/workbench/ui.ts",
+      "bytes": 18904,
+      "sha256": "0dea5a9f82c6fb154ffdc1dd0549edb78b18197302adedd3737ed3db03c272d4"
+    },
+    {
+      "path": "packages/nidofy/desktop-extras/src/ui.ts",
+      "bytes": 24432,
+      "sha256": "011d7851b8727c663d4d53b32aa8f903da1aa6142e44999cf71087750bfc02d3"
+    },
+    {
+      "path": "packages/nidofy/desktop-extras/src/client/index.ts",
+      "bytes": 1427,
+      "sha256": "6884a8876ea21c78d221c45b4f8b28e17ded28be2fbd5771db0d589e489b6591"
+    },
+    {
+      "path": "packages/nidofy/desktop-extras/src/client/Environment.tsx",
+      "bytes": 5427,
+      "sha256": "b0d1ddfd11f09ebeb0d9793eceec606318d7963db8c6f8b318729b84aed625c1"
+    },
+    {
+      "path": "packages/nidofy/desktop-extras/package.json",
+      "bytes": 2150,
+      "sha256": "a8358a87e47cfcb0ca48d02afb80fdd53af8ee07eaf547bb8be90b0f286cf5ad"
+    },
+    {
+      "path": "packages/nidofy/desktop-extras/tsconfig.client.json",
+      "bytes": 728,
+      "sha256": "c5662a58e32017dff4f868fdea3e078b590ed6f80299f0f3d6976e116e324ae3"
+    },
+    {
+      "path": "pnpm-lock.yaml",
+      "bytes": 1026003,
+      "sha256": "7192f1f2eea250dacd04801335c88e956486ca9c76c09e679a3008d3901373a9"
+    },
+    {
+      "path": "migration/m4-fixes/smoke-desktop.mjs",
+      "bytes": 19630,
+      "sha256": "739a357e2533f08f185633e33f7002d1be8da8968310660b6a8ca77c0d0781af"
+    },
+    {
+      "path": "migration/m4-fixes/qualify-user-fixes.mjs",
+      "bytes": 5918,
+      "sha256": "1168614529134705bb6e6fbe5f5af9b249c3b497c1264593036189be37048e8a"
+    },
+    {
+      "path": "migration/m4-fixes/launch-trial.ps1",
+      "bytes": 722,
+      "sha256": "16f8b72a993ae6a1d80773ac4dc25fd9577a0b489e277de64b8f7fa81d016390"
+    }
+  ],
+  "focusedTests": {
+    "behavior": 30,
+    "accountAndPreload": 66
+  },
+  "lint": "PASS",
+  "officialBuild": "PASS",
+  "realAccountAuthentication": "NOT_RUN",
+  "realModelCredentialsUsed": false,
+  "enterpriseAcceptance": "deferred"
+}

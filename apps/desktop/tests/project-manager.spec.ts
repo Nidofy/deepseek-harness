@@ -43,6 +43,28 @@ afterEach(() => {
 })
 
 describe('desktop external plugin profile', () => {
+  it('enrolls distribution bundles once and preserves removal and native recovery across upgrades', async () => {
+    const { manager: base } = setup()
+    const manager = new DesktopProjectManager(base.paths, base.runtime, ['@nidofy/dsh-desktop-bundle'])
+    const path = join(manager.paths.profile, 'package.json')
+    await manager.applyRelease()
+    const read = () => JSON.parse(readFileSync(path, 'utf8')) as {
+      dsh: { profile: { bundles: string[] } }
+      nidofyBundleEnrollment?: number
+    }
+    const manifest = read()
+    expect(manifest.dsh.profile.bundles).toContain('@nidofy/dsh-desktop-bundle')
+    expect(manifest.nidofyBundleEnrollment).toBe(1)
+    manifest.dsh.profile.bundles = manifest.dsh.profile.bundles.filter((name: string) => name !== '@nidofy/dsh-desktop-bundle')
+    writeFileSync(path, JSON.stringify(manifest))
+    await manager.applyRelease()
+    expect(read().dsh.profile.bundles).not.toContain('@nidofy/dsh-desktop-bundle')
+    manifest.dsh.profile.bundles.push('@nidofy/dsh-desktop-bundle')
+    writeFileSync(path, JSON.stringify(manifest))
+    await manager.disableAllPlugins()
+    await manager.applyRelease()
+    expect(read().dsh.profile.bundles).not.toContain('@nidofy/dsh-desktop-bundle')
+  })
   it('preserves installed packages, profile state, and the lockfile when preparing a launch', async () => {
     const { manager } = setup()
     await manager.applyRelease()

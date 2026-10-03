@@ -1517,6 +1517,36 @@ export const SERVICE_API: readonly ServiceApiEntry[] = [
     ],
   },
   {
+    key: 'nidofyContextPaths',
+    summary: 'Provides paths before the official query provider activates.',
+    description: 'Provides paths before the official query provider activates.',
+    methods: [
+      {
+        signature: 'readonly index: string = join(resolveDshHome(), \'cache\', \'nidofy-session-query.sqlite\')',
+        description: 'Absolute path of the disposable official SQLite search index.',
+        parameters: [],
+      },
+    ],
+  },
+  {
+    key: 'nidofyNotebook',
+    summary: 'Plugin-scoped facade for the versioned note store used by compaction.',
+    description: 'Plugin-scoped facade for the versioned note store used by compaction.',
+    methods: [
+      {
+        signature: 'readonly limits: NotebookLimits',
+        description: 'Validated maximum entries and serialized bytes per revision.',
+        parameters: [],
+      },
+      {
+        signature: 'read(sessionId: string): Promise<Notebook>',
+        description: 'Read a validated immutable snapshot.',
+        parameters: [{ name: 'sessionId', description: 'Session owning the notes.' }],
+        returns: 'the latest committed notebook revision.',
+      },
+    ],
+  },
+  {
     key: 'officeToPdf',
     summary: 'A provider lifetime owns all converters, queued calls, and temporary files.',
     description: 'A provider lifetime owns all converters, queued calls, and temporary files.',
@@ -3942,6 +3972,14 @@ export const EVENT_API: readonly EventApiEntry[] = [
     parameters: [],
   },
   {
+    name: 'compaction/basic-summary',
+    mode: 'waterfall',
+    signature: '\'compaction/basic-summary\'(request: BasicSummaryRequest, next: () => Promise<SummaryResult>): Promise<SummaryResult>',
+    summary: 'Extend one basic summary without replacing its preset or transaction owner.',
+    description: 'Extend one basic summary without replacing its preset or transaction owner. Call next() to delegate; restore temporary input changes before returning.',
+    parameters: [{ name: 'request', description: 'operation-local input, owning agent and cancellation.' }],
+  },
+  {
     name: 'compaction/summary-error',
     mode: 'waterfall',
     signature: '\'compaction/summary-error\'(payload: { session: Session; sourceEventSeqs: readonly SessionSeq[]; error: unknown; signal?: AbortSignal }, next: () => boolean): boolean',
@@ -4118,6 +4156,14 @@ export const EVENT_API: readonly EventApiEntry[] = [
     parameters: [{ name: 'reloads', description: 'Replaced plugins and their module locations.' }],
   },
   {
+    name: 'llm-pi-ai/prepare-payload',
+    mode: 'bail',
+    signature: '\'llm-pi-ai/prepare-payload\'(scope: PiAiPayloadScope): ReturnType<NonNullable<PiAiAdapterOptions[\'preparePayload\']>>',
+    summary: 'Capture the deployment\'s optional final transport-payload transform.',
+    description: 'Capture the deployment\'s optional final transport-payload transform. The listener returns a callback with request-local policy already frozen. The callback must preserve logged model content, tools and generation parameters.',
+    parameters: [{ name: 'scope', description: 'routing facts without prompt content or credentials.' }],
+  },
+  {
     name: 'llm/adapters-updated',
     mode: 'emit',
     signature: '\'llm/adapters-updated\'(): void',
@@ -4132,6 +4178,14 @@ export const EVENT_API: readonly EventApiEntry[] = [
     summary: 'Waterfall around every streaming model call (retry, replay, routing).',
     description: 'Waterfall around every streaming model call (retry, replay, routing). Bound to the LlmRuntime; call `next()` to reach the resolved adapter\'s stream, or yield your own chunks to short-circuit.',
     parameters: [{ name: 'options', description: 'the full request. A LOOP-built request carries the process-local {@link markAgentLoopRequest} identity and arrives deep-frozen (mutation throws): its content is a pure function of the session log (the reconstructability Agent Note), so listeners read it, never rewrite it. Hand-built calls do not carry that marker; callers own their request inputs and must keep them unchanged until the stream settles.' }],
+  },
+  {
+    name: 'nidofy/connection-route',
+    mode: 'bail',
+    signature: '\'nidofy/connection-route\'(provider: string): string | undefined',
+    summary: 'Return an immutable managed provider route, or undefined for an unowned provider.',
+    description: 'Return an immutable managed provider route, or undefined for an unowned provider.',
+    parameters: [{ name: 'provider', description: 'Public provider alias whose current revision the caller freezes.' }],
   },
   {
     name: 'permission-presets/catalog-changed',
@@ -4518,6 +4572,10 @@ export const TYPE_API: readonly TypeApiEntry[] = [
     declaration: 'export type AgentStatus = \'idle\' | \'running\';',
   },
   {
+    name: 'AlwaysRetryPolicyConfig',
+    declaration: 'export interface AlwaysRetryPolicyConfig {\n    mode: \'always\';\n    backoff?: BackoffConfig;\n}',
+  },
+  {
     name: 'ApiKeyRecord',
     declaration: 'export interface ApiKeyRecord {\n    readonly kind: \'api-key\';\n    readonly key?: string;\n    readonly env?: Readonly<Record<string, string>>;\n}',
   },
@@ -4630,6 +4688,10 @@ export const TYPE_API: readonly TypeApiEntry[] = [
     declaration: 'export type AttachmentId = Branded<\'AttachmentId\'>;',
   },
   {
+    name: 'AttachmentStore',
+    declaration: 'export abstract class AttachmentStore extends Service {\n    constructor(ctx: Context);\n    abstract readonly imageLimits: ImageAttachmentLimits;\n    abstract validateImage(input: SaveImageAttachment): Promise<void>;\n    async saveImages(inputs: readonly SaveImageAttachment[]): Promise<readonly ImageAttachmentRef[]>;\n    async admitPromptContent(content: readonly AttachmentAdmissionPart[]): Promise<AdmittedPromptContentPart[]>;\n    admitEncodedFile(input: EncodedFileAttachment): Promise<FileAttachmentRef>;\n    isAttachmentError(error: unknown): error is AttachmentError;\n    abstract saveImage(input: SaveImageAttachment): Promise<ImageAttachmentRef>;\n    abstract readImage(ref: ImageAttachmentRef, signal?: AbortSignal): Promise<StoredImageAttachment>;\n    imageHostPath(ref: ImageAttachmentRef): string | undefined;\n    saveFile(input: SaveFileAttachment): Promise<FileAttachmentRef>;\n    saveFileStream(input: SaveFileStreamAttachment): Promise<FileAttachmentRef>;\n    async *readFileStream(ref: FileAttachmentRef, signal?: AbortSignal): AsyncIterable<Uint8Array>;\n    fileHostPath(ref: FileAttachmentRef): string | undefined;\n    readImageRequest(ref: ImageAttachmentRef, target: ImageRequestTarget, signal?: AbortSignal): Promise<RequestImageAttachment>;\n}',
+  },
+  {
     name: 'AuthorizationEntry',
     declaration: 'export interface AuthorizationEntry {\n    key: CredentialKey;\n    label: string;\n    methods: readonly AuthorizationMethod[];\n    inFlight: boolean;\n}',
   },
@@ -4682,6 +4744,10 @@ export const TYPE_API: readonly TypeApiEntry[] = [
     declaration: 'export class BackendRegistry {\n    register(name: string, backend: StorageBackend): () => void;\n    get(name: string): StorageBackend;\n    names(): string[];\n}',
   },
   {
+    name: 'BackoffConfig',
+    declaration: 'export interface BackoffConfig {\n    initialDelayMs?: number;\n    maxDelayMs?: number;\n    jitterRatio?: number;\n}',
+  },
+  {
     name: 'BashEnvContributor',
     declaration: 'export interface BashEnvContributor {\n    name: string;\n    variables: Readonly<Record<DshEnvironmentKey, BashEnvVariable>>;\n    resolve(execution: ToolExecution): Readonly<Partial<Record<DshEnvironmentKey, string>>>;\n}',
   },
@@ -4692,6 +4758,10 @@ export const TYPE_API: readonly TypeApiEntry[] = [
   {
     name: 'BashEnvVariableInfo',
     declaration: 'export interface BashEnvVariableInfo extends BashEnvVariable {\n    contributor: string;\n    key: DshEnvironmentKey;\n}',
+  },
+  {
+    name: 'BasicSummaryRequest',
+    declaration: 'export interface BasicSummaryRequest {\n    input: SummarizationInput;\n    readonly agent: Agent;\n    signal: AbortSignal | undefined;\n}',
   },
   {
     name: 'Branded',
@@ -5326,6 +5396,10 @@ export const TYPE_API: readonly TypeApiEntry[] = [
     declaration: 'export interface HostConnectionRpc {\n    handle(channel: string, handler: ConnectionRpcHandler): () => Promise<void>;\n    intercept(channel: \'/api\', matches: ConnectionRpcEndpointMatcher, handler: ConnectionRpcHandler): () => Promise<void>;\n}',
   },
   {
+    name: 'ImageAttachmentAccess',
+    declaration: 'export interface ImageAttachmentAccess {\n    readonlyPath: string;\n}',
+  },
+  {
     name: 'ImageAttachmentLimits',
     declaration: 'export interface ImageAttachmentLimits {\n    maxImageBytes: number;\n    maxImagesPerMessage: number;\n    maxMessageImageBytes: number;\n    maxImagePixels: number;\n    maxImageDimension: number;\n    mediaTypes: readonly ImageMediaType[];\n}',
   },
@@ -5838,6 +5912,22 @@ export const TYPE_API: readonly TypeApiEntry[] = [
     declaration: 'export interface NativeFileApplication {\n    readonly id: string;\n    readonly name: string;\n    readonly default: boolean;\n    readonly icon: string | null;\n}',
   },
   {
+    name: 'NormalRetryPolicyConfig',
+    declaration: 'export interface NormalRetryPolicyConfig {\n    mode: \'normal\';\n    maxRetries?: number;\n    retryableCodes?: string[];\n    backoff?: BackoffConfig;\n}',
+  },
+  {
+    name: 'Note',
+    declaration: 'export interface Note {\n    id: string;\n    kind: \'objective\' | \'constraint\' | \'decision\' | \'file\' | \'verification\' | \'failure\' | \'issue\' | \'next\';\n    text: string;\n    seq: number;\n    quote: string;\n    pinned: boolean;\n    active: boolean;\n    revision: number;\n}',
+  },
+  {
+    name: 'Notebook',
+    declaration: 'export interface Notebook {\n    schemaVersion: 1;\n    sessionId: string;\n    revision: number;\n    sourceThrough: number;\n    entries: Note[];\n}',
+  },
+  {
+    name: 'NotebookLimits',
+    declaration: 'export interface NotebookLimits {\n    maxEntries: number;\n    maxBytes: number;\n}',
+  },
+  {
     name: 'NotFutureError',
     declaration: 'export interface NotFutureError {\n    readonly code: \'not_future\';\n    readonly message: string;\n}',
   },
@@ -5916,6 +6006,50 @@ export const TYPE_API: readonly TypeApiEntry[] = [
   {
     name: 'PermissionCatalog',
     declaration: 'export interface PermissionCatalog {\n    options: PresetOption[];\n    defaultOptions: PresetOption[];\n    defaultPreset: string;\n}',
+  },
+  {
+    name: 'PiAiAdapterOptions',
+    declaration: 'export interface PiAiAdapterOptions {\n    preparePayload?: (scope: PiAiPayloadScope) => SimpleStreamOptions[\'onPayload\'];\n    profiles: () => ReadonlyMap<string, ResolvedPiAiProviderProfile>;\n    resolveApiKey: (provider: string, profile: ResolvedPiAiProviderProfile) => Promise<string | undefined>;\n    auth: PiAiAuthInjection;\n    resolveAttachments?: () => AttachmentStore | undefined;\n    resolveImageAccess?: (attachments: AttachmentStore, ref: ImageAttachmentRef) => ImageAttachmentAccess | undefined;\n    onReplayDegrade?: (detail: {\n        provider: string;\n        model: string;\n        reason: string;\n    }) => void;\n}',
+  },
+  {
+    name: 'PiAiAuthInjection',
+    declaration: 'export interface PiAiAuthInjection {\n    credentials: CredentialStore;\n    authContext: AuthContext;\n}',
+  },
+  {
+    name: 'PiAiCompatProfile',
+    declaration: 'export interface PiAiCompatProfile {\n    supportsStore?: boolean;\n    supportsDeveloperRole?: boolean;\n    supportsReasoningEffort?: boolean;\n    supportsUsageInStreaming?: boolean;\n    supportsFinishReason?: boolean;\n    maxTokensField?: NonNullable<OpenAICompletionsCompat[\'maxTokensField\']>;\n    requiresToolResultName?: boolean;\n    requiresAssistantAfterToolResult?: boolean;\n    requiresThinkingAsText?: boolean;\n    requiresReasoningContentOnAssistantMessages?: boolean;\n    thinkingFormat?: PiAiThinkingFormat;\n    chatTemplateKwargs?: NonNullable<OpenAICompletionsCompat[\'chatTemplateKwargs\']>;\n    chatTemplateArgs?: NonNullable<OpenAICompletionsCompat[\'chatTemplateArgs\']>;\n    supportsThinkingTokenBudget?: boolean;\n    thinkingTokenBudgetField?: PiAiThinkingTokenBudgetField;\n    vllmPriority?: number;\n    supportsMaxOutputTokens?: boolean;\n    supportsStrictMode?: boolean;\n    cacheControlFormat?: NonNullable<OpenAICompletionsCompat[\'cacheControlFormat\']>;\n    supportsLongCacheRetention?: boolean;\n    supportsEagerToolInputStreaming?: boolean;\n    supportsCacheControlOnTools?: boolean;\n    supportsTemperature?: boolean;\n    forceAdaptiveThinking?: boolean;\n    allowEmptySignature?: boolean;\n    supportsStrictTools?: boolean;\n}',
+  },
+  {
+    name: 'PiAiModality',
+    declaration: 'export type PiAiModality = Model<Api>[\'input\'][number];',
+  },
+  {
+    name: 'PiAiModelOverride',
+    declaration: 'export type PiAiModelOverride = Omit<PiAiModelProfile, \'id\'>;',
+  },
+  {
+    name: 'PiAiModelProfile',
+    declaration: 'export interface PiAiModelProfile {\n    id: string;\n    name?: string;\n    contextWindow?: number;\n    maxTokens?: number;\n    input?: PiAiModality[];\n    reasoningEfforts?: false | PiAiReasoningEfforts;\n    compat?: PiAiCompatProfile;\n}',
+  },
+  {
+    name: 'PiAiPayloadScope',
+    declaration: 'export interface PiAiPayloadScope {\n    readonly provider: string;\n    readonly model: string;\n    readonly api: string;\n    readonly baseURL: string;\n    readonly sessionId: string | undefined;\n}',
+  },
+  {
+    name: 'PiAiProviderProfile',
+    declaration: 'export interface PiAiProviderProfile {\n    catalogProvider?: string;\n    apiKeyEnv?: string;\n    displayName?: string;\n    api?: string;\n    baseURL?: string;\n    models?: PiAiModelProfile[];\n    modelOverrides?: Record<string, PiAiModelOverride>;\n    compat?: PiAiCompatProfile;\n    defaultContextWindow?: number;\n    defaultMaxTokens?: number;\n    defaultInput?: PiAiModality[];\n    headers?: Record<string, string>;\n    reasoning?: ModelThinkingLevel;\n    thinkingBudgets?: ThinkingBudgets;\n    cacheRetention?: CacheRetention;\n    transport?: Transport;\n    timeoutMs?: number;\n    websocketConnectTimeoutMs?: number;\n    streamIdleTimeoutMs?: number;\n    maxRequestImageBytes?: number;\n    requestImagePixelBudget?: number;\n    requestImageMaxBytes?: number;\n    retryPolicy?: RetryPolicyConfig;\n}',
+  },
+  {
+    name: 'PiAiReasoningEfforts',
+    declaration: 'export type PiAiReasoningEfforts = Partial<Record<ModelThinkingLevel, string | null>>;',
+  },
+  {
+    name: 'PiAiThinkingFormat',
+    declaration: 'export type PiAiThinkingFormat = NonNullable<OpenAICompletionsCompat[\'thinkingFormat\']>;',
+  },
+  {
+    name: 'PiAiThinkingTokenBudgetField',
+    declaration: 'export type PiAiThinkingTokenBudgetField = NonNullable<OpenAICompletionsCompat[\'thinkingTokenBudgetField\']>;',
   },
   {
     name: 'PlatformSession',
@@ -6242,6 +6376,10 @@ export const TYPE_API: readonly TypeApiEntry[] = [
     declaration: 'export interface ResolvedNormalRetryPolicy extends ResolvedRetryBackoff {\n    readonly mode: \'normal\';\n    readonly maxRetries: number;\n    readonly retryableCodes: readonly string[];\n}',
   },
   {
+    name: 'ResolvedPiAiProviderProfile',
+    declaration: 'export interface ResolvedPiAiProviderProfile extends Omit<PiAiProviderProfile, \'apiKeyEnv\' | \'retryPolicy\' | \'models\' | \'displayName\'> {\n    provider: string;\n    displayName: string;\n    apiKeyEnv?: CredentialRef;\n    streamIdleTimeoutMs: number;\n    maxRequestImageBytes: number;\n    requestImagePixelBudget: number;\n    requestImageMaxBytes: number;\n    retryPolicy: ResolvedRetryPolicy;\n    piProvider?: Provider;\n    catalogError?: string;\n    modelErrors: ReadonlyMap<string, string>;\n    configuredMaxTokens: ReadonlyMap<string, number>;\n}',
+  },
+  {
     name: 'ResolvedRetryBackoff',
     declaration: 'export interface ResolvedRetryBackoff {\n    readonly initialDelayMs: number;\n    readonly maxDelayMs: number;\n    readonly jitterRatio: number;\n}',
   },
@@ -6260,6 +6398,10 @@ export const TYPE_API: readonly TypeApiEntry[] = [
   {
     name: 'ResumeAgentOptions',
     declaration: 'export interface ResumeAgentOptions {\n    readonly resumeSessionId: SessionId;\n    readonly parentAgent?: Agent;\n    readonly agentOptions?: AgentOptions;\n    readonly signal?: AbortSignal;\n    readonly setup?: AgentSetup;\n}',
+  },
+  {
+    name: 'RetryPolicyConfig',
+    declaration: 'export type RetryPolicyConfig = NormalRetryPolicyConfig | AlwaysRetryPolicyConfig;',
   },
   {
     name: 'RpcId',
@@ -7372,6 +7514,14 @@ export const TYPE_API: readonly TypeApiEntry[] = [
   {
     name: 'SubprocessTerminalSpawnSpec',
     declaration: 'export interface SubprocessTerminalSpawnSpec {\n    argv: readonly string[];\n    cwd: string;\n    env?: Record<string, string> | undefined;\n    rows: number;\n    cols: number;\n    terminalType: string;\n    shellActivity?: boolean | undefined;\n    graceMs: number;\n    signal?: AbortSignal | undefined;\n}',
+  },
+  {
+    name: 'SummarizationInput',
+    declaration: 'export interface SummarizationInput {\n    readonly instructionAppendix?: string;\n    readonly tools?: readonly ToolSchema[];\n    readonly messages: readonly Message[];\n}',
+  },
+  {
+    name: 'SummaryResult',
+    declaration: 'export type SummaryResult = {\n    summary: ContentBlock[];\n    provider: string;\n    model: string;\n    maxTokens?: number;\n    usage?: TokenUsage;\n} & ({\n    rawOutput: ContentBlock[];\n    llmStreamCall: true;\n} | {\n    rawOutput?: ContentBlock[];\n    llmStreamCall?: never;\n});',
   },
   {
     name: 'SurfaceEvent',

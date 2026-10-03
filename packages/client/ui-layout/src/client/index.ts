@@ -96,6 +96,8 @@ declare module '@deepseek-ai/dsh-client-ui-slots' {
      * `id` is added beside the shipped entries instead of replacing them.
      */
     'shell.overlay': { kind: 'list'; scope: 'root' }
+    /** Optional normal-flow content beside the main panel; occupants yield to available center width. */
+    'shell.accessory': { kind: 'single'; scope: 'root' }
     /**
      * Window-chrome seat at the frame's top-left, over every main panel.
      * Mounted only while the sidebar column is fully hidden (macOS desktop
@@ -176,6 +178,7 @@ export function apply(ctx: ClientContext): void {
         'main': { kind: 'keyed', scope: 'root' },
         'rightbar': { kind: 'single', scope: 'root' },
         'shell.overlay': { kind: 'list', scope: 'root' },
+        'shell.accessory': { kind: 'single', scope: 'root' },
         'shell.leading': { kind: 'single', scope: 'root' },
       },
       store,

@@ -1,0 +1,17 @@
+/** Scoped note form layout also works without the desktop appearance plugin. */
+export const notebookCss = `
+.nidofy-notebook-surface,.nidofy-notebook-surface *{box-sizing:border-box}.nidofy-notebook-surface button{border:1px solid var(--dsw-alias-border-l2);padding:6px 8px}.nidofy-notebook-surface .nidofy-row{border:0}
+.nidofy-notebook-surface{min-width:0;max-width:100%;color:inherit}.nidofy-notebook-surface button{font:inherit;cursor:pointer;border-radius:6px;background:transparent;color:inherit}.nidofy-notebook-surface .nidofy-row{display:flex;width:100%;padding:10px 0}.nidofy-notebook-surface .nidofy-note-pin{display:flex;flex-direction:row;align-items:center;gap:8px}.nidofy-notebook-surface .nidofy-note-pin input{width:auto;flex:none}.nidofy-notebook-surface .nidofy-note-enhancement{padding:8px 0}
+.nidofy-notebook-surface .nidofy-detail{margin-top:10px;border-top:1px solid var(--dsw-alias-border-l2);padding:10px 4px;overflow-wrap:anywhere;min-width:0}
+.nidofy-notebook-surface .nidofy-detail>header{display:flex;align-items:center;justify-content:space-between;gap:8px}.nidofy-notebook-surface .nidofy-detail>header button{padding:6px 10px}
+.nidofy-notebook-surface .nidofy-detail p{font-size:12px;line-height:1.5}.nidofy-notebook-surface .nidofy-detail dl{font-size:12px;line-height:1.5}.nidofy-notebook-surface .nidofy-detail dt{opacity:.65;margin-top:10px}.nidofy-notebook-surface .nidofy-detail dd{margin:2px 0}
+.nidofy-notebook-surface .nidofy-detail form,.nidofy-notebook-surface .nidofy-detail label{display:flex;flex-direction:column;gap:8px}.nidofy-notebook-surface .nidofy-detail label{margin:10px 0}
+.nidofy-notebook-surface .nidofy-detail :is(input,select,textarea){width:100%;min-width:0;font:inherit;color:inherit;background:var(--dsw-alias-bg-layer-2);border:1px solid var(--dsw-alias-border-l2);border-radius:6px;padding:8px}.nidofy-notebook-surface .nidofy-detail textarea{resize:vertical;min-height:72px}
+.nidofy-notebook-surface .nidofy-detail small{opacity:.7;font-size:11px;line-height:1.5}.nidofy-notebook-surface .nidofy-detail form button,.nidofy-notebook-surface .nidofy-inline-actions button{padding:8px;border:1px solid var(--dsw-alias-border-l2)}
+.nidofy-notebook-surface .nidofy-inline-actions{display:flex;flex-wrap:wrap;gap:6px}
+.nidofy-notebook-surface .nidofy-change-list{max-height:220px;overflow:auto;margin:8px 0}.nidofy-notebook-surface .nidofy-change-list button{display:flex;gap:8px;width:100%;padding:7px 4px;text-align:start}.nidofy-notebook-surface .nidofy-change-list code{flex:none}.nidofy-notebook-surface .nidofy-change-list span{overflow-wrap:anywhere;min-width:0}
+.nidofy-notebook-surface .nidofy-row[aria-expanded="true"]{background:var(--dsw-alias-bg-layer-1)}
+.nidofy-notebook-surface .nidofy-detail pre{max-width:100%;max-height:260px;overflow:auto;font-size:11px;padding:8px;background:var(--dsw-alias-bg-layer-1);border-radius:8px;white-space:pre}
+.nidofy-notebook-surface .nidofy-detail .nidofy-note-pin{flex-direction:row;align-items:center}.nidofy-notebook-surface .nidofy-detail .nidofy-note-pin input{width:auto;flex:none}.nidofy-notebook-surface .nidofy-notebook{max-height:65vh;overflow:auto;padding-right:8px}
+
+`

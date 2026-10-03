@@ -29,6 +29,24 @@ import {
 } from './region.ts'
 import { summarizeWithLlm } from './summarizer.ts'
 import type { SummarizationInput, SummaryResult } from './summarizer.ts'
+export type { SummarizationInput, SummaryResult } from './summarizer.ts'
+/** One basic-summary operation; listeners may replace input before delegating. */
+export interface BasicSummaryRequest {
+  input: SummarizationInput
+  readonly agent: Agent
+  signal: AbortSignal | undefined
+}
+declare module '@deepseek-ai/cordis' {
+  interface Events {
+    /**
+     * Extend one basic summary without replacing its preset or transaction owner.
+     * Call next() to delegate; restore temporary input changes before returning.
+     * @param request - operation-local input, owning agent and cancellation.
+     * @mode waterfall
+     */
+    'compaction/basic-summary'(request: BasicSummaryRequest, next: () => Promise<SummaryResult>): Promise<SummaryResult>
+  }
+}
 import type {
   BasicCompactionConfig,
   ModelCompactPolicyConfig,
@@ -253,7 +271,9 @@ export class BasicCompactionEngine extends CompactionEngine {
     const config = target === undefined
       ? this.config
       : resolveTargetPolicy(this.config, target)
-    return summarizeWithLlm(this.ctx, config, input, agent, signal)
+    const request: BasicSummaryRequest = { input, agent, signal }
+    return this.ctx.waterfall('compaction/basic-summary', request,
+      () => summarizeWithLlm(this.ctx, config, request.input, agent, request.signal))
   }
 
   /**

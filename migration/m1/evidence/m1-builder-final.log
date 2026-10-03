@@ -1,0 +1,37 @@
+  • electron-builder  version=26.15.3 os=10.0.26200
+  • loaded configuration  file=D:\Documents\FeiyangChen\devApps\dshWinUi\electron\apps\desktop\electron-builder.config.mjs
+  • author is missed in the package.json  appPackageFile=D:\Documents\FeiyangChen\devApps\dshWinUi\electron\apps\desktop\package.json
+  • packageManager not detected by file, falling back to environment detection  resolvedPackageManager=pnpm detected=D:\Documents\FeiyangChen\devApps\dshWinUi\electron
+  • detected workspace root for project using packageManager field  pm=pnpm config=pnpm@11.7.0 resolved=D:\Documents\FeiyangChen\devApps\dshWinUi\electron projectDir=D:\Documents\FeiyangChen\devApps\dshWinUi\electron\apps\desktop
+  • executing @electron/rebuild  electronVersion=44.0.0 arch=x64 buildFromSource=false workspaceRoot=D:\Documents\FeiyangChen\devApps\dshWinUi\electron projectDir=./ appDir=./
+  • installing native dependencies  arch=x64
+  • completed installing native dependencies
+  • packaging       platform=win32 arch=x64 electron=44.0.0 appOutDir=.desktop-build\targets\win-x64\unsigned-artifacts\win-unpacked
+  • using custom unpacked Electron distribution  electronDist=.desktop-build\targets\win-x64\electron
+  • copying unpacked Electron  source=D:\Documents\FeiyangChen\devApps\dshWinUi\electron\apps\desktop\.desktop-build\targets\win-x64\electron destination=D:\Documents\FeiyangChen\devApps\dshWinUi\electron\apps\desktop\.desktop-build\targets\win-x64\unsigned-artifacts\win-unpacked
+  • searching for node modules  pm=pnpm searchDir=D:\Documents\FeiyangChen\devApps\dshWinUi\electron\apps\desktop
+  • duplicate dependency references  dependencies=["@deepseek-ai/cordis@link:../../vendor/cordis","@deepseek-ai/dsh-api-gateway@link:../../packages/api/gateway","js-yaml@4.3.1","debug@4.4.3","@deepseek-ai/schemastery@link:../../vendor/schemastery"]
+  • updating asar integrity executable resource  executablePath=.desktop-build\targets\win-x64\unsigned-artifacts\win-unpacked\Nidofy DSH Intranet.exe
+  • signing with signtool.exe  path=.desktop-build\targets\win-x64\unsigned-artifacts\win-unpacked\resources\runtime\primary-runtime\dependencies\python\python.exe
+  • signing with signtool.exe  path=.desktop-build\targets\win-x64\unsigned-artifacts\win-unpacked\resources\runtime\primary-runtime\dependencies\python\pythonw.exe
+  • signing with signtool.exe  path=.desktop-build\targets\win-x64\unsigned-artifacts\win-unpacked\resources\runtime\primary-runtime\dependencies\python\Lib\venv\scripts\nt\python.exe
+  • signing with signtool.exe  path=.desktop-build\targets\win-x64\unsigned-artifacts\win-unpacked\resources\runtime\primary-runtime\dependencies\python\Lib\venv\scripts\nt\pythonw.exe
+  • signing with signtool.exe  path=.desktop-build\targets\win-x64\unsigned-artifacts\win-unpacked\resources\runtime\primary-runtime\dependencies\python\Lib\site-packages\pip\_vendor\distlib\t64-arm.exe
+  • signing with signtool.exe  path=.desktop-build\targets\win-x64\unsigned-artifacts\win-unpacked\resources\runtime\primary-runtime\dependencies\python\Lib\site-packages\pip\_vendor\distlib\t32.exe
+  • signing with signtool.exe  path=.desktop-build\targets\win-x64\unsigned-artifacts\win-unpacked\resources\runtime\primary-runtime\dependencies\python\Lib\site-packages\pip\_vendor\distlib\t64.exe
+  • signing with signtool.exe  path=.desktop-build\targets\win-x64\unsigned-artifacts\win-unpacked\resources\runtime\primary-runtime\dependencies\python\Lib\site-packages\pip\_vendor\distlib\w32.exe
+  • signing with signtool.exe  path=.desktop-build\targets\win-x64\unsigned-artifacts\win-unpacked\resources\runtime\primary-runtime\dependencies\python\Lib\site-packages\pip\_vendor\distlib\w64.exe
+  • signing with signtool.exe  path=.desktop-build\targets\win-x64\unsigned-artifacts\win-unpacked\resources\runtime\primary-runtime\dependencies\python\Lib\site-packages\pip\_vendor\distlib\w64-arm.exe
+  • signing with signtool.exe  path=.desktop-build\targets\win-x64\unsigned-artifacts\win-unpacked\resources\runtime\primary-runtime\dependencies\pnpm\dist\vendor\fastlist-0.3.0-x64.exe
+  • signing with signtool.exe  path=.desktop-build\targets\win-x64\unsigned-artifacts\win-unpacked\resources\runtime\primary-runtime\dependencies\pnpm\dist\vendor\fastlist-0.3.0-x86.exe
+  • signing with signtool.exe  path=.desktop-build\targets\win-x64\unsigned-artifacts\win-unpacked\resources\runtime\primary-runtime\dependencies\node\bin\node.exe
+  • signing with signtool.exe  path=.desktop-build\targets\win-x64\unsigned-artifacts\win-unpacked\resources\runtime\pnpm\dist\vendor\fastlist-0.3.0-x64.exe
+  • signing with signtool.exe  path=.desktop-build\targets\win-x64\unsigned-artifacts\win-unpacked\resources\runtime\pnpm\dist\vendor\fastlist-0.3.0-x86.exe
+  • executing @electron/fuses  electronPath=.desktop-build\targets\win-x64\unsigned-artifacts\win-unpacked\Nidofy DSH Intranet.exe
+  • signing with signtool.exe  path=.desktop-build\targets\win-x64\unsigned-artifacts\win-unpacked\Nidofy DSH Intranet.exe
+  • signing with signtool.exe  path=.desktop-build\targets\win-x64\unsigned-artifacts\win-unpacked\resources\app.asar.unpacked\dsh\node_modules\node-pty\third_party\conpty\1.25.260303002\win10-x64\OpenConsole.exe
+  • signing with signtool.exe  path=.desktop-build\targets\win-x64\unsigned-artifacts\win-unpacked\resources\app.asar.unpacked\dsh\node_modules\node-pty\third_party\conpty\1.25.260303002\win10-arm64\OpenConsole.exe
+  • signing with signtool.exe  path=.desktop-build\targets\win-x64\unsigned-artifacts\win-unpacked\resources\app.asar.unpacked\dsh\node_modules\node-pty\prebuilds\win32-x64\conpty\OpenConsole.exe
+  • signing with signtool.exe  path=.desktop-build\targets\win-x64\unsigned-artifacts\win-unpacked\resources\app.asar.unpacked\dsh\node_modules\node-pty\build\Release\conpty\OpenConsole.exe
+  • signing with signtool.exe  path=.desktop-build\targets\win-x64\unsigned-artifacts\win-unpacked\resources\app.asar.unpacked\dsh\node_modules\@vscode\ripgrep-win32-x64\bin\rg.exe
+  • signing with signtool.exe  path=.desktop-build\targets\win-x64\unsigned-artifacts\win-unpacked\resources\app.asar.unpacked\dsh\node_modules\@deepseek-ai\libreoffice-kit-win32-x64\bin\libreoffice-kit.exe

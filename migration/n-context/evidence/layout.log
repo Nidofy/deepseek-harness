@@ -1,0 +1,82 @@
+warning: in the working copy of 'note.txt', LF will be replaced by CRLF the next time Git touches it
+warning: in the working copy of 'note.txt', LF will be replaced by CRLF the next time Git touches it
+{
+  "status": "PASS",
+  "run": "D:\\Documents\\FeiyangChen\\devApps\\dshWinUi\\electron\\apps\\desktop\\.desktop-build\\qualification\\layout-ui-9pyA7R",
+  "checks": {
+    "bilingualRailAndOfficialDarkTheme": true,
+    "railNoOverlapAndResponsiveSidebars": true,
+    "foldExpandsCompanionAndHiddenPauses": true,
+    "tauriArtworkDecodesAndForcedColors": true,
+    "railNativeShortcuts": true,
+    "environmentInlinePatch": true,
+    "environmentDirtySwitchRefused": true,
+    "environmentCommitRequiresConfirmation": true,
+    "environmentCreateBranchConfirmed": true,
+    "environmentStalePreviewRefused": true,
+    "environmentPushPreviewNoMutation": true,
+    "environmentMenuDismissal": true,
+    "environmentExplicitWorkbenchOnly": true,
+    "environmentSessionSwitchAndNoRepository": true,
+    "environmentLocalizedDetails": true
+  },
+  "layout": {
+    "wide": {
+      "center": {
+        "x": 280,
+        "y": 40,
+        "width": 1319.4285888671875,
+        "height": 860.0000610351562,
+        "right": 1599.4285888671875,
+        "bottom": 900.0000610351562
+      },
+      "main": {
+        "x": 280,
+        "y": 40,
+        "width": 1019.4285888671875,
+        "height": 860.0000610351562,
+        "right": 1299.4285888671875,
+        "bottom": 900.0000610351562
+      },
+      "dock": {
+        "x": 1299.4285888671875,
+        "y": 40,
+        "width": 300,
+        "height": 860.0000610351562,
+        "right": 1599.4285888671875,
+        "bottom": 900.0000610351562
+      },
+      "character": {
+        "x": 1318,
+        "y": 408.4285888671875,
+        "width": 259.4285888671875,
+        "height": 315,
+        "right": 1577.4285888671875,
+        "bottom": 723.4285888671875
+      },
+      "active": "true",
+      "overflow": false
+    },
+    "assets": [
+      {
+        "part": "theme/wallpaper.png",
+        "width": 1080,
+        "height": 1080
+      },
+      {
+        "part": "theme/icon.png",
+        "width": 256,
+        "height": 256
+      },
+      {
+        "part": "pets/xiaojing/portrait.png",
+        "width": 1230,
+        "height": 1278
+      }
+    ],
+    "wallpaper": {
+      "opacity": "0.14",
+      "image": "url(\"dsh-app://app/api/nidofy-extras/assets/theme/wallpaper.png\")"
+    }
+  }
+}

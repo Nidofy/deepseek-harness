@@ -1,0 +1,201 @@
+{
+  "status": "PASS",
+  "scope": "Environment interaction + layout regression",
+  "baseline": "dsh-v0.2.0-rc.2",
+  "completedAt": "2026-10-03T01:29:34.176Z",
+  "qualification": "apps\\desktop\\.desktop-build\\qualification\\layout-ui-Sma3ov",
+  "checks": {
+    "bilingualRailAndOfficialDarkTheme": true,
+    "railNoOverlapAndResponsiveSidebars": true,
+    "foldExpandsCompanionAndHiddenPauses": true,
+    "tauriArtworkDecodesAndForcedColors": true,
+    "railNativeShortcuts": true,
+    "environmentInlinePatch": true,
+    "environmentDirtySwitchRefused": true,
+    "environmentCommitRequiresConfirmation": true,
+    "environmentCreateBranchConfirmed": true,
+    "environmentStalePreviewRefused": true,
+    "environmentPushPreviewNoMutation": true,
+    "environmentMenuDismissal": true,
+    "environmentExplicitWorkbenchOnly": true,
+    "environmentSessionSwitchAndNoRepository": true,
+    "environmentLocalizedDetails": true
+  },
+  "artifacts": [
+    {
+      "path": "apps/desktop/.desktop-build/targets/win-x64/candidates/m4-environment-details/personal-unsigned/win-unpacked/Nidofy DSH Desktop.exe",
+      "bytes": 244627456,
+      "sha256": "96680270cd44920a1eeee0a677da73f13a48f73be0efd50944cc7298dd540996"
+    },
+    {
+      "path": "apps/desktop/.desktop-build/targets/win-x64/candidates/m4-environment-details/personal-unsigned/win-unpacked/resources/app.asar",
+      "bytes": 118702411,
+      "sha256": "873ae1b64eeb7306503959d7d96e11a31b4a50f0beaaee3695ceeeb4a85bd16a"
+    },
+    {
+      "path": "apps/desktop/.desktop-build/targets/win-x64/candidates/m4-environment-details/personal-unsigned/win-unpacked/resources/nidofy-protection.exe",
+      "bytes": 769024,
+      "sha256": "a785913d211c9a41c865b19bfc36d8838b32e33ea69d7f3c7f4c2271238156d9"
+    },
+    {
+      "path": "apps/desktop/.desktop-build/targets/win-x64/candidates/m4-environment-details/personal-unsigned/win-unpacked/resources/icon.png",
+      "bytes": 155070,
+      "sha256": "d4cc671cf174b96ca902e5bdb651c8fcd1576662e7d533ae2dddd98062d1f0bb"
+    },
+    {
+      "path": "apps/desktop/.desktop-build/targets/win-x64/candidates/m4-environment-details/personal-unsigned/win-unpacked/resources/tray.ico",
+      "bytes": 223448,
+      "sha256": "5900055d48c6ace1dae3e49ab69052533e7a409a125b65b65fbea2bc25b7f7a3"
+    },
+    {
+      "path": "apps/desktop/.desktop-build/targets/win-x64/candidates/m4-environment-details/personal-unsigned/win-unpacked/resources/app.asar.unpacked/dsh/node_modules/@nidofy/dsh-desktop-extras/assets/theme/wallpaper.png",
+      "bytes": 1691729,
+      "sha256": "10ad90a7baacf70daefe7e6573cf9e9725bf25122320f8bcde615f1aa4c1802d"
+    }
+  ],
+  "preserved": [
+    {
+      "path": "apps/desktop/.desktop-build/targets/win-x64/candidates/m4/personal-unsigned/win-unpacked/Nidofy DSH Desktop.exe",
+      "bytes": 244468224,
+      "sha256": "b280a094421dfc09562ec34765aa5fde75d3d70e8ba6f2790cce8a5144701d94"
+    },
+    {
+      "path": "apps/desktop/.desktop-build/targets/win-x64/candidates/m4/personal-unsigned/win-unpacked/resources/app.asar",
+      "bytes": 122138846,
+      "sha256": "14d35d0acc2c5bebec2b55e01734050080e31264a5592f7b7afcebd2b9969b06"
+    },
+    {
+      "path": "apps/desktop/.desktop-build/targets/win-x64/candidates/m4/personal-unsigned/win-unpacked/resources/nidofy-protection.exe",
+      "bytes": 769024,
+      "sha256": "a785913d211c9a41c865b19bfc36d8838b32e33ea69d7f3c7f4c2271238156d9"
+    },
+    {
+      "path": "apps/desktop/.desktop-build/targets/win-x64/candidates/m4-fixes/personal-unsigned/win-unpacked/Nidofy DSH Desktop.exe",
+      "bytes": 244468224,
+      "sha256": "c1316ad20ce74791c928768dc782a37ab5769d54e46d7ddb7e96dfe37e5e792e"
+    },
+    {
+      "path": "apps/desktop/.desktop-build/targets/win-x64/candidates/m4-fixes/personal-unsigned/win-unpacked/resources/app.asar",
+      "bytes": 122151840,
+      "sha256": "ac79966b2e543d7e4d83705fbe5aaf0b9b266a68451f9e1270610cb1a6e85360"
+    },
+    {
+      "path": "apps/desktop/.desktop-build/targets/win-x64/candidates/m4-fixes/personal-unsigned/win-unpacked/resources/nidofy-protection.exe",
+      "bytes": 769024,
+      "sha256": "a785913d211c9a41c865b19bfc36d8838b32e33ea69d7f3c7f4c2271238156d9"
+    },
+    {
+      "path": "apps/desktop/.desktop-build/targets/win-x64/candidates/m4-pet-fixes/personal-unsigned/win-unpacked/Nidofy DSH Desktop.exe",
+      "bytes": 244468224,
+      "sha256": "cabdb7eae70807988fe937df1d2b3f19f4e90d218c4fd6c93b44788c66dfb1ec"
+    },
+    {
+      "path": "apps/desktop/.desktop-build/targets/win-x64/candidates/m4-pet-fixes/personal-unsigned/win-unpacked/resources/app.asar",
+      "bytes": 122153900,
+      "sha256": "44530ae4a2b3d9d8fd6d2a98eb3fdbe10de2b8dff10bb0b94fb28a327e12d4fc"
+    },
+    {
+      "path": "apps/desktop/.desktop-build/targets/win-x64/candidates/m4-pet-fixes/personal-unsigned/win-unpacked/resources/nidofy-protection.exe",
+      "bytes": 769024,
+      "sha256": "a785913d211c9a41c865b19bfc36d8838b32e33ea69d7f3c7f4c2271238156d9"
+    },
+    {
+      "path": "apps/desktop/.desktop-build/targets/win-x64/candidates/m4-pet-fixes/personal-unsigned/win-unpacked/resources/app.asar.unpacked/dsh/node_modules/@nidofy/dsh-desktop-extras/assets/pet/index.html",
+      "bytes": 423,
+      "sha256": "245a7fa98e48478de27b1ca0bc923abb9d42ed7006e41fbc4987db8273d4e67e"
+    },
+    {
+      "path": "apps/desktop/.desktop-build/targets/win-x64/candidates/m4-pet-fixes/personal-unsigned/win-unpacked/resources/app.asar.unpacked/dsh/node_modules/@nidofy/dsh-desktop-extras/assets/pet/pet.css",
+      "bytes": 1330,
+      "sha256": "89772ffff14b120458519addd3d5c8e0a45c07f5e1f13785c93f8ae7b2718d9e"
+    },
+    {
+      "path": "apps/desktop/.desktop-build/targets/win-x64/candidates/m4-pet-fixes/personal-unsigned/win-unpacked/resources/app.asar.unpacked/dsh/node_modules/@nidofy/dsh-desktop-extras/assets/pet/pet.js",
+      "bytes": 10305,
+      "sha256": "c8e763da747357c2c1f3004bcebe7fcd53e13992287284703df64d59afbab8e7"
+    },
+    {
+      "path": "apps/desktop/.desktop-build/targets/win-x64/candidates/m4-pet-fixes/personal-unsigned/win-unpacked/resources/app.asar.unpacked/dsh/node_modules/@nidofy/dsh-desktop-extras/assets/pet/state.js",
+      "bytes": 3247,
+      "sha256": "d6a384a1d6b5366e73a173ccb430dd9da74ed9fc513be4f4a4bb3f0fb3a3bacb"
+    },
+    {
+      "path": "apps/desktop/.desktop-build/targets/win-x64/candidates/m4-layout-fixes/personal-unsigned/win-unpacked/Nidofy DSH Desktop.exe",
+      "bytes": 244627456,
+      "sha256": "62d8ca58a380a92d68b7adc3fb153c206625730456dd31d4033d2424784c438f"
+    },
+    {
+      "path": "apps/desktop/.desktop-build/targets/win-x64/candidates/m4-layout-fixes/personal-unsigned/win-unpacked/resources/app.asar",
+      "bytes": 118682112,
+      "sha256": "725bc232373afb1a3861a94abdaae1bdd85cbd1c487fdb2cb6c3e1e73baf6404"
+    },
+    {
+      "path": "apps/desktop/.desktop-build/targets/win-x64/candidates/m4-layout-fixes/personal-unsigned/win-unpacked/resources/nidofy-protection.exe",
+      "bytes": 769024,
+      "sha256": "a785913d211c9a41c865b19bfc36d8838b32e33ea69d7f3c7f4c2271238156d9"
+    },
+    {
+      "path": "apps/desktop/.desktop-build/targets/win-x64/candidates/m4-layout-fixes/personal-unsigned/win-unpacked/resources/icon.png",
+      "bytes": 155070,
+      "sha256": "d4cc671cf174b96ca902e5bdb651c8fcd1576662e7d533ae2dddd98062d1f0bb"
+    },
+    {
+      "path": "apps/desktop/.desktop-build/targets/win-x64/candidates/m4-layout-fixes/personal-unsigned/win-unpacked/resources/tray.ico",
+      "bytes": 223448,
+      "sha256": "5900055d48c6ace1dae3e49ab69052533e7a409a125b65b65fbea2bc25b7f7a3"
+    },
+    {
+      "path": "apps/desktop/.desktop-build/targets/win-x64/candidates/m4-layout-fixes/personal-unsigned/win-unpacked/resources/app.asar.unpacked/dsh/node_modules/@nidofy/dsh-desktop-extras/assets/theme/wallpaper.png",
+      "bytes": 1691729,
+      "sha256": "10ad90a7baacf70daefe7e6573cf9e9725bf25122320f8bcde615f1aa4c1802d"
+    }
+  ],
+  "artwork": [
+    {
+      "original": {
+        "path": "../src-tauri/icons/icon.png",
+        "bytes": 155070,
+        "sha256": "d4cc671cf174b96ca902e5bdb651c8fcd1576662e7d533ae2dddd98062d1f0bb"
+      },
+      "packaged": {
+        "path": "apps/desktop/.desktop-build/targets/win-x64/candidates/m4-environment-details/personal-unsigned/win-unpacked/resources/icon.png",
+        "bytes": 155070,
+        "sha256": "d4cc671cf174b96ca902e5bdb651c8fcd1576662e7d533ae2dddd98062d1f0bb"
+      }
+    },
+    {
+      "original": {
+        "path": "../src-tauri/icons/icon.ico",
+        "bytes": 223448,
+        "sha256": "5900055d48c6ace1dae3e49ab69052533e7a409a125b65b65fbea2bc25b7f7a3"
+      },
+      "packaged": {
+        "path": "apps/desktop/.desktop-build/targets/win-x64/candidates/m4-environment-details/personal-unsigned/win-unpacked/resources/tray.ico",
+        "bytes": 223448,
+        "sha256": "5900055d48c6ace1dae3e49ab69052533e7a409a125b65b65fbea2bc25b7f7a3"
+      }
+    },
+    {
+      "original": {
+        "path": "../shell-ui/wallpaper.png",
+        "bytes": 1691729,
+        "sha256": "10ad90a7baacf70daefe7e6573cf9e9725bf25122320f8bcde615f1aa4c1802d"
+      },
+      "packaged": {
+        "path": "apps/desktop/.desktop-build/targets/win-x64/candidates/m4-environment-details/personal-unsigned/win-unpacked/resources/app.asar.unpacked/dsh/node_modules/@nidofy/dsh-desktop-extras/assets/theme/wallpaper.png",
+        "bytes": 1691729,
+        "sha256": "10ad90a7baacf70daefe7e6573cf9e9725bf25122320f8bcde615f1aa4c1802d"
+      }
+    }
+  ],
+  "relatedUnitTests": 47,
+  "officialBuild": "PASS",
+  "changedFileLint": "PASS",
+  "clientI18n": "PASS",
+  "translationPair": "PASS",
+  "unsigned": true,
+  "realCredentialsUsed": false,
+  "notebook": "Analysis only; not enabled",
+  "enterpriseAcceptance": "deferred",
+  "liveRemotePush": "Preview only; no remote push performed"
+}

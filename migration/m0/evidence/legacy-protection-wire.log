@@ -1,0 +1,34 @@
+   Compiling dsh-desktop v0.2.5-rc.1 (D:\Documents\FeiyangChen\devApps\dshWinUi\src-tauri)
+    Finished `test` profile [unoptimized + debuginfo] target(s) in 4.29s
+     Running unittests src\main.rs (src-tauri\target\debug\deps\DSHDesktop-29fbae4a8261cd2f.exe)
+
+running 1 test
+node:internal/fs/promises:640
+  return new FileHandle(await PromisePrototypeThen(
+                        ^
+
+Error: ENOENT: no such file or directory, open 'D:\Documents\FeiyangChen\devApps\dshWinUi\.build\config-protocol-fixtures\openai\desktop.patch.json'
+    at async open (node:internal/fs/promises:640:25)
+    at async readFile (node:internal/fs/promises:1287:14)
+    at async file:///D:/Documents/FeiyangChen/devApps/dshWinUi/tests/task-snapshot-wire.mjs:51:24 {
+  errno: -4058,
+  code: 'ENOENT',
+  syscall: 'open',
+  path: 'D:\\Documents\\FeiyangChen\\devApps\\dshWinUi\\.build\\config-protocol-fixtures\\openai\\desktop.patch.json'
+}
+
+Node.js v24.16.0
+
+thread 'task_snapshots::tests::automatic_snapshots_real_dsh_wire' (39528) panicked at src\task_snapshots.rs:1947:13:
+native DSH snapshot openai failed
+note: run with `RUST_BACKTRACE=1` environment variable to display a backtrace
+test task_snapshots::tests::automatic_snapshots_real_dsh_wire ... FAILED
+
+failures:
+
+failures:
+    task_snapshots::tests::automatic_snapshots_real_dsh_wire
+
+test result: FAILED. 0 passed; 1 failed; 0 ignored; 0 measured; 93 filtered out; finished in 0.43s
+
+error: test failed, to rerun pass `--bin DSHDesktop`

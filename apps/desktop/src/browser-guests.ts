@@ -18,7 +18,7 @@ export class DesktopBrowserGuests {
   private readonly leases = new Map<DesktopBrowserLeaseId, GuestLease>()
 
   /** @param hostUrl - current authenticated DSH Host, which guests cannot request. */
-  constructor(private readonly hostUrl: () => string | undefined) {}
+  constructor(private readonly hostUrl: () => string | undefined, private readonly networkEnabled = true) {}
 
   /**
    * Reserve one guest in a workspace's process-lifetime partition.
@@ -148,7 +148,7 @@ export class DesktopBrowserGuests {
       const url = new URL(details.url)
       const network = ['http:', 'https:', 'ws:', 'wss:'].includes(url.protocol)
       callback({ cancel: network
-        ? url.username !== '' || url.password !== '' || this.isApplicationHost(url)
+        ? !this.networkEnabled || url.username !== '' || url.password !== '' || this.isApplicationHost(url)
         : !['about:', 'data:', 'blob:'].includes(url.protocol) })
     })
   }
@@ -156,7 +156,7 @@ export class DesktopBrowserGuests {
   private allowedNavigation(value: string): boolean {
     if (!URL.canParse(value)) return false
     const url = new URL(value)
-    return ['http:', 'https:'].includes(url.protocol) && url.username === '' && url.password === ''
+    return this.networkEnabled && ['http:', 'https:'].includes(url.protocol) && url.username === '' && url.password === ''
       && !this.isApplicationHost(url)
   }
 

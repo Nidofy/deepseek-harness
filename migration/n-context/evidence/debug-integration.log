@@ -1,0 +1,142 @@
+The plugin "vite-tsconfig-paths" is detected. Vite now supports tsconfig paths resolution natively via the resolve.tsconfigPaths option. You can remove the plugin and set resolve.tsconfigPaths: true in your Vite config instead.
+The plugin "vite-tsconfig-paths" is detected. Vite now supports tsconfig paths resolution natively via the resolve.tsconfigPaths option. You can remove the plugin and set resolve.tsconfigPaths: true in your Vite config instead.
+The plugin "vite-tsconfig-paths" is detected. Vite now supports tsconfig paths resolution natively via the resolve.tsconfigPaths option. You can remove the plugin and set resolve.tsconfigPaths: true in your Vite config instead.
+
+ RUN  v4.1.8 D:/Documents/FeiyangChen/devApps/dshWinUi/electron
+
+stdout | packages/nidofy/desktop-extras/tests/context-integration.spec.ts > publishes notes only after real compaction, logs their next-turn snapshot and still searches the shadowed evidence
+[
+  {
+    "type": "user/message",
+    "seq": 13,
+    "time": 1791003398906,
+    "data": {
+      "content": [
+        {
+          "type": "text",
+          "text": "This is an automatically generated checkpoint condensing an earlier span of the conversation to free up context. Treat the captured context as established background and build on it without restating it. Continue the task directly from the messages that follow, without acknowledging this checkpoint.\n\n<compacted-summary>"
+        },
+        {
+          "type": "text",
+          "text": "Keep official engine; continue verification.<nidofy-notebook-delta>{\"baseRevision\":0,\"sourceThrough\":5,\"operations\":[{\"action\":\"ADD\",\"id\":\"constraint-0\",\"kind\":\"constraint\",\"text\":\"Keep official engine\",\"seq\":5,\"quote\":\"Keep official engine\"}]}</nidofy-notebook-delta>"
+        },
+        {
+          "type": "text",
+          "text": "</compacted-summary>"
+        }
+      ],
+      "source": {
+        "kind": "compact-checkpoint",
+        "compactionId": "f8b1fc53-80f1-4fa5-b2d2-778cba796909"
+      },
+      "role": "user",
+      "id": "4d9b5e62-eb02-4dc7-8d74-c3a62ce50127"
+    },
+    "sourceEventSeqs": [
+      11,
+      12,
+      5
+    ],
+    "surfaceOp": {
+      "op": "replace",
+      "startSeq": 5,
+      "endSeq": 5
+    }
+  },
+  {
+    "type": "compaction/end",
+    "seq": 14,
+    "time": 1791003398906,
+    "data": {
+      "compactionId": "f8b1fc53-80f1-4fa5-b2d2-778cba796909",
+      "turn": null
+    }
+  },
+  {
+    "type": "agent/inbox/spliced",
+    "seq": 15,
+    "time": 1791003398924,
+    "data": {
+      "target": "next-turn",
+      "start": 0,
+      "inserted": [
+        {
+          "content": [
+            {
+              "type": "text",
+              "text": "Continue using the saved constraint."
+            }
+          ],
+          "source": {
+            "kind": "user"
+          },
+          "role": "user",
+          "id": "d6146dcf-07f0-43a9-8284-b21cb4057914"
+        }
+      ]
+    }
+  },
+  {
+    "type": "turn/start",
+    "seq": 16,
+    "time": 1791003398924,
+    "data": {
+      "turn": 2
+    }
+  },
+  {
+    "type": "agent/inbox/spliced",
+    "seq": 17,
+    "time": 1791003398925,
+    "data": {
+      "target": "next-turn",
+      "start": 0,
+      "removedCount": 1,
+      "inserted": []
+    }
+  },
+  {
+    "type": "turn/end",
+    "seq": 18,
+    "time": 1791003398926,
+    "data": {
+      "turn": 2,
+      "reason": {
+        "kind": "error",
+        "error": {
+          "message": "malformed prompt variable reference \"{{nidofyNotebook}}\" in context \"nidofy-notebook\" (variable names match /^[a-z][a-z0-9_]*$/)",
+          "code": "UNKNOWN"
+        }
+      }
+    }
+  }
+]
+
+x----
+
+⎯⎯⎯⎯⎯⎯⎯ Failed Tests 1 ⎯⎯⎯⎯⎯⎯⎯
+
+ FAIL  |thread-safe| packages/nidofy/desktop-extras/tests/context-integration.spec.ts > publishes notes only after real compaction, logs their next-turn snapshot and still searches the shadowed evidence
+AssertionError: expected undefined to be 'user/message' // Object.is equality
+
+- Expected:
+"user/message"
+
++ Received:
+undefined
+
+ ❯ packages/nidofy/desktop-extras/tests/context-integration.spec.ts:68:28
+     66|     const snapshot = observation.events.find(event => event.type === '…
+     67|     if (!snapshot) console.log(JSON.stringify(observation.events.slice…
+     68|     expect(snapshot?.type).toBe('user/message')
+       |                            ^
+     69|     const replay = Session.create(agent.session.id, observation.events…
+     70|     expect(replay.deriveMessages()).toEqual(agent.session.deriveMessag…
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[1/1]⎯
+
+
+ Test Files  1 failed (1)
+      Tests  1 failed | 4 skipped (5)
+   Start at  12:56:37
+   Duration  1.95s (transform 754ms, setup 359ms, import 1.40s, tests 67ms, environment 0ms)

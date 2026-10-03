@@ -1,0 +1,155 @@
+{
+  "status": "PASS",
+  "run": "D:\\Documents\\FeiyangChen\\devApps\\dshWinUi\\electron\\apps\\desktop\\.desktop-build\\qualification\\m3-4v5CUk",
+  "realCredentialsUsed": false,
+  "enterpriseAcceptance": "deferred",
+  "checks": {
+    "casAndAck": true,
+    "activeRetryUsesAAndNewTurnUsesBWithoutRestart": true,
+    "sameModelIndependentConnections": true,
+    "nativeProtectionPackagedLifecycle": true,
+    "protectionFailurePreventsModelAndTools": true,
+    "desktopConnectionEditor": true,
+    "copyImportIdempotentSourceUnchanged": true,
+    "restartRetainsConnectionsAndHistory": true,
+    "gitOfficialShellPreviewCommitPush": true,
+    "realMenuReviewComposerAppendPreservesDraft": true,
+    "buildTrustOfficialShellCancelNativeRestore": true,
+    "nativeArtifactLeaseOpenRevealSaveAndRecheck": true,
+    "officialPresentEventArtifactProjection": true,
+    "modelToolUsesOfficialSessionShellAndProtection": true,
+    "officialSessionRecoveryNotificationsAutomaticBaseline": true,
+    "workbenchAllTabsRender": true,
+    "chineseWorkbenchAndSessionArtifacts": true,
+    "importedCopyBootsWithHistoryAndNoCredentials": true
+  },
+  "requests": [
+    {
+      "protocol": "openai",
+      "path": "/openai/v1/chat/completions",
+      "model": "shared-model",
+      "credentialMatched": true,
+      "credentialSlot": "openai",
+      "marker": "QUALIFIED_OPENAI_1",
+      "toolUse": false
+    },
+    {
+      "protocol": "openai",
+      "path": "/openai/v1/chat/completions",
+      "model": "shared-model",
+      "credentialMatched": true,
+      "credentialSlot": "openai",
+      "marker": "QUALIFIED_OPENAI_2",
+      "toolUse": false
+    },
+    {
+      "protocol": "openai",
+      "path": "/openai/v1/chat/completions",
+      "model": "shared-model",
+      "credentialMatched": true,
+      "credentialSlot": "openai",
+      "marker": "QUALIFIED_OPENAI_3",
+      "toolUse": false
+    },
+    {
+      "protocol": "anthropic",
+      "path": "/anthropic/v1/messages?beta=true",
+      "model": "shared-model",
+      "credentialMatched": true,
+      "credentialSlot": "anthropic",
+      "marker": "QUALIFIED_ANTHROPIC_4",
+      "toolUse": false
+    },
+    {
+      "protocol": "anthropic",
+      "path": "/anthropic/v1/messages?beta=true",
+      "model": "shared-model",
+      "credentialMatched": true,
+      "credentialSlot": "beta",
+      "marker": "QUALIFIED_ANTHROPIC_5",
+      "toolUse": false
+    },
+    {
+      "protocol": "anthropic",
+      "path": "/anthropic/v1/messages?beta=true",
+      "model": "shared-model",
+      "credentialMatched": true,
+      "credentialSlot": "beta",
+      "marker": "QUALIFIED_ANTHROPIC_6",
+      "toolUse": false
+    },
+    {
+      "protocol": "anthropic",
+      "path": "/anthropic/v1/messages?beta=true",
+      "model": "shared-model",
+      "credentialMatched": true,
+      "credentialSlot": "anthropic",
+      "marker": "QUALIFIED_ANTHROPIC_7",
+      "toolUse": false
+    },
+    {
+      "protocol": "anthropic",
+      "path": "/anthropic/v1/messages?beta=true",
+      "model": "shared-model",
+      "credentialMatched": true,
+      "credentialSlot": "anthropic",
+      "marker": "QUALIFIED_ANTHROPIC_8",
+      "toolUse": false
+    },
+    {
+      "protocol": "anthropic",
+      "path": "/anthropic/v1/messages?beta=true",
+      "model": "shared-model",
+      "credentialMatched": true,
+      "credentialSlot": "anthropic",
+      "marker": "QUALIFIED_ANTHROPIC_9",
+      "toolUse": true
+    },
+    {
+      "protocol": "anthropic",
+      "path": "/anthropic/v1/messages?beta=true",
+      "model": "shared-model",
+      "credentialMatched": true,
+      "credentialSlot": "anthropic",
+      "marker": "QUALIFIED_ANTHROPIC_10",
+      "toolUse": true
+    },
+    {
+      "protocol": "anthropic",
+      "path": "/anthropic/v1/messages?beta=true",
+      "model": "shared-model",
+      "credentialMatched": true,
+      "credentialSlot": "anthropic",
+      "marker": "QUALIFIED_ANTHROPIC_11",
+      "toolUse": false
+    }
+  ],
+  "modelToolContract": [
+    {
+      "name": "list_project_actions",
+      "description": "List the reviewed project build/test actions. Trust is granted only by the local user in the desktop workbench.",
+      "eager_input_streaming": true,
+      "input_schema": {
+        "type": "object",
+        "properties": {},
+        "required": []
+      }
+    },
+    {
+      "name": "run_project_action",
+      "description": "Run a locally trusted action ID under current session permissions. Never automatically repeat interrupted actions with unknown side effects.",
+      "eager_input_streaming": true,
+      "input_schema": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "string"
+          }
+        },
+        "required": [
+          "id"
+        ]
+      }
+    }
+  ]
+}

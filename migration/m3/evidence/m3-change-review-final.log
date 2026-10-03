@@ -1,0 +1,2 @@
+PASS real git: preexisting/task/committed changes, selected patches, literal Unicode path, bounded/binary/link reads, cold baseline, config execution suppressed
+PASS real hg: preexisting/task/committed changes, selected patches, literal Unicode path, bounded/binary/link reads, cold baseline, config execution suppressed

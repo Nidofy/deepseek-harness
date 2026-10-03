@@ -1,0 +1,73 @@
+{
+  "status": "PASS",
+  "milestone": "M3",
+  "baseline": "dsh-v0.2.0-rc.1",
+  "distribution": "personal",
+  "platform": "win32-x64",
+  "unsigned": true,
+  "completedAt": "2026-09-29T12:24:05.418Z",
+  "qualification": "m3-4v5CUk",
+  "packaging": "2026-09-29T12-14-25.956Z-Sz5S4H",
+  "artifacts": [
+    {
+      "path": "apps/desktop/.desktop-build/targets/win-x64/candidates/m3/personal-unsigned/win-unpacked/Nidofy DSH Desktop.exe",
+      "bytes": 244468224,
+      "sha256": "226e3b778d7ce916450b6d9cca548f6c9e50df939cd5781419093422c46355ab"
+    },
+    {
+      "path": "apps/desktop/.desktop-build/targets/win-x64/candidates/m3/personal-unsigned/win-unpacked/resources/app.asar",
+      "bytes": 118789641,
+      "sha256": "583d4500b8e8348c4c8c87505cf1446176f4bed7804c30ec2e2e6d96bb474edd"
+    },
+    {
+      "path": "apps/desktop/.desktop-build/targets/win-x64/candidates/m3/personal-unsigned/win-unpacked/resources/nidofy-protection.exe",
+      "bytes": 769024,
+      "sha256": "cd66db1db6f302c60cb7b7e441e04abc2d34206edda387b2c742aeed786d5b27"
+    }
+  ],
+  "checks": {
+    "casAndAck": true,
+    "activeRetryUsesAAndNewTurnUsesBWithoutRestart": true,
+    "sameModelIndependentConnections": true,
+    "nativeProtectionPackagedLifecycle": true,
+    "protectionFailurePreventsModelAndTools": true,
+    "desktopConnectionEditor": true,
+    "copyImportIdempotentSourceUnchanged": true,
+    "restartRetainsConnectionsAndHistory": true,
+    "gitOfficialShellPreviewCommitPush": true,
+    "realMenuReviewComposerAppendPreservesDraft": true,
+    "buildTrustOfficialShellCancelNativeRestore": true,
+    "nativeArtifactLeaseOpenRevealSaveAndRecheck": true,
+    "officialPresentEventArtifactProjection": true,
+    "modelToolUsesOfficialSessionShellAndProtection": true,
+    "officialSessionRecoveryNotificationsAutomaticBaseline": true,
+    "workbenchAllTabsRender": true,
+    "chineseWorkbenchAndSessionArtifacts": true,
+    "importedCopyBootsWithHistoryAndNoCredentials": true
+  },
+  "tests": {
+    "files": 29,
+    "passed": 425,
+    "legacyScripts": 5,
+    "nativeProtection": 5
+  },
+  "docs": {
+    "passed": 40,
+    "failed": 2,
+    "existingFailures": [
+      "M0 README missing Chinese pair",
+      "M0/M1 immutable provenance commit hashes"
+    ]
+  },
+  "boundaries": [
+    "Enterprise gateway and clean-machine acceptance deferred",
+    "Real model credentials not used",
+    "Signed installer, upstream upgrade drill and remaining M4/M5 work are separate"
+  ],
+  "reports": {
+    "desktop": "desktop.json",
+    "package": "package.json",
+    "sources": "source-inputs.json",
+    "previousPackages": "preserved-packages.json"
+  }
+}

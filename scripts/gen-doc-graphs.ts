@@ -108,6 +108,14 @@ const GROUP_ORDER = [
 
 const SERVICE_ROLES: ServiceRole[] = [
   {
+    key: 'nidofyContextPaths', pkg: 'desktop-extras', title: 'Desktop context storage paths', mode: 'service',
+    consumers: ['session-query-sqlite'], note: 'Resolves the derived search index under the active Harness home before the query provider starts.',
+  },
+  {
+    key: 'nidofyNotebook', pkg: 'desktop-extras', title: 'Desktop working notes', mode: 'service',
+    consumers: ['desktop-extras'], note: 'Exposes validated, versioned notes to the optional compaction summary hook; the owning plugin serializes writes and retains source anchors.',
+  },
+  {
     key: 'hmr',
     pkg: 'hmr',
     title: 'Serialized module and configuration reloads',
@@ -1034,7 +1042,7 @@ type CallSiteIndex = Map<ts.SignatureDeclaration | ts.JSDocSignature, ts.CallExp
  * must appear here — the prefilter drops non-members before any branch runs,
  * so a branch for an unlisted name is silently dead.
  */
-const EVENT_API_METHODS = new Set(['on', 'once', 'emit', 'parallel', 'serial', 'waterfall', 'dispatch'])
+const EVENT_API_METHODS = new Set(['on', 'once', 'emit', 'parallel', 'serial', 'bail', 'waterfall', 'dispatch'])
 
 /**
  * Collect event dispatch/listener relations from real cross-file receiver types.
@@ -1192,7 +1200,7 @@ export class EventRelationCollector {
             const eventNames = this.eventNamesFromCall(node, receiverKind)
             if (method === 'on' || method === 'once') {
               for (const event of eventNames) this.ensure(event).listeners.add(source.pkg)
-            } else if (method === 'emit' || method === 'parallel' || method === 'serial' || method === 'waterfall') {
+            } else if (method === 'emit' || method === 'parallel' || method === 'serial' || method === 'bail' || method === 'waterfall') {
               for (const event of eventNames) this.addDispatcher(event, source.pkg, method)
             }
           }

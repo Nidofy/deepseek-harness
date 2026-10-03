@@ -36,11 +36,11 @@
   en: 1d6a74c0dc874dc8
   zh: bcfa95549308c030
 /deepseek-ai-dsh-compaction-basic/understand-the-implementation:
-  en: deb655b3b1860576
-  zh: 79f56e41a9dfe01f
+  en: fdd851201be8a2ee
+  zh: 43b4dad249ec3328
 /deepseek-ai-dsh-compaction-basic/understand-the-implementation/design-philosophy:
-  en: 54945a18965f12a8
-  zh: fecd5d4fc2f2e6d6
+  en: 57e3c233aed786a4
+  zh: 87b78fe4dc400733
 /deepseek-ai-dsh-compaction-basic/understand-the-implementation/automatic-triggers-and-overflow-recovery:
   en: d62d65547dd0b2dc
   zh: 5c21671f16d94f5a

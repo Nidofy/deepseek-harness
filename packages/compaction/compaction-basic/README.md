@@ -94,6 +94,8 @@ Mount `dsh-compaction-tool-result-pruner` before this package to trim oversized 
 <a id="understand-the-implementation"></a>
 ## Understand the implementation
 
+The `compaction/basic-summary` waterfall exposes an operation-local input and cancellation signal before the basic summarizer runs. Listeners delegate with `next()` and restore temporary changes. `instructionAppendix` adds instructions to the trailing summary directive without changing replayed history. The engine retains pricing, transaction commit and call recording.
+
 <details>
 <summary>Implementation internals — click to expand</summary>
 
@@ -106,7 +108,7 @@ The backend is built on four commitments:
 - **One measurement service prices every decision.** The singleton `ctx.tokenMeter` measures the latest canonical logged envelope and current surface at one consumed-log revision. When the routed adapter declares request-image pricing, the meter applies it to image history. Pressure, recent-tail retention, range selection, and shrink validation use the same route-priced node figures; logged replacement shadow prices stay on the route-independent heuristic so pure projection folds remain consistent.
 - **The log-recorded bracket is the transaction.** All entry points share one bracket-first region transaction: validate the range and live lock, append `compaction/start` synchronously, prepare and await the summary, revalidate, append `compaction/summary` plus the replacement, and make exactly one closing attempt. Automatic and explicit-region calls require a numeric open-turn owner and whole-surface stability; `compactNow()` reserves idle admission, uses `turn: null`, accepts append-only context outside its selected span, flushes every closed attempt, and releases admission in `finally`.
 - **Summarization reuses the provider's warm prefix.** Replaying the system prompt held by the `system/message` at surface node 0, the last routed request's tools, and the shadowed-region messages byte-for-byte makes the auxiliary call a genuine prefix of the conversation, so only the trailing instruction and the summary output are uncached.
-- **`summarize()` is the sole subclass hook.** A template- or remote-summarizer subclass can override it while pressure, retention, cited source events, shrink validation, and shadowed-token accounting stay on the token meter.
+- **`summarize()` is the sole subclass hook.** Its `SummarizationInput` and `SummaryResult` types are exported from the package root. A template- or remote-summarizer subclass can override it while pressure, retention, cited source events, shrink validation, and shadowed-token accounting stay on the token meter.
 
 ### Automatic triggers and overflow recovery
 

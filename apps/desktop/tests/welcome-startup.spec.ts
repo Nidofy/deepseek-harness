@@ -46,6 +46,11 @@ vi.mock('../src/crash-report.ts', async importOriginal => ({
   writeCrashReport: vi.fn(async () => undefined),
   pruneCrashReports: vi.fn(async () => {}),
 }))
+vi.mock('node:fs', async (importOriginal) => {
+  const original = await importOriginal<typeof import('node:fs')>()
+  return { ...original, readFileSync: (...args: Parameters<typeof original.readFileSync>) =>
+    String(args[0]).replaceAll('\\', '/').endsWith('/development-app/package.json') ? '{}' : Reflect.apply(original.readFileSync, original, args) }
+})
 vi.mock('electron', () => ({
   clipboard: { writeText: state.copy },
   app: {

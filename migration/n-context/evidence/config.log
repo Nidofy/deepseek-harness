@@ -1,0 +1,4 @@
+verify-cordis-config: invalid Loader metadata or plugin package resolution:
+- apps\cli\tests\profiles\acp\cordis.yml: root must be a Loader entry array
+- packages\nidofy\desktop-bundle\cordis.patch.yml: @nidofy/dsh-desktop-extras/paths does not resolve to workspace source through tsconfig.base.json paths (add a mapping so the tsx source launch does not depend on built lib/)
+- packages\nidofy\desktop-bundle\cordis.patch.yml, packages\nidofy\desktop-extras\cordis.patch.yml: @nidofy/dsh-desktop-extras does not resolve to workspace source through tsconfig.base.json paths (add a mapping so the tsx source launch does not depend on built lib/)

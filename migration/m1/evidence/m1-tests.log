@@ -1,0 +1,16 @@
+The plugin "vite-tsconfig-paths" is detected. Vite now supports tsconfig paths resolution natively via the resolve.tsconfigPaths option. You can remove the plugin and set resolve.tsconfigPaths: true in your Vite config instead.
+The plugin "vite-tsconfig-paths" is detected. Vite now supports tsconfig paths resolution natively via the resolve.tsconfigPaths option. You can remove the plugin and set resolve.tsconfigPaths: true in your Vite config instead.
+The plugin "vite-tsconfig-paths" is detected. Vite now supports tsconfig paths resolution natively via the resolve.tsconfigPaths option. You can remove the plugin and set resolve.tsconfigPaths: true in your Vite config instead.
+
+ RUN  v4.1.8 D:/Documents/FeiyangChen/devApps/dshWinUi/electron
+
+ ✓ |thread-safe| apps/desktop/tests/host-process.spec.ts (21 tests) 3517ms
+     ✓ correlates quit inspections with task requests and fails an unanswered one at its own deadline  2085ms
+ ✓ |thread-safe| apps/desktop/tests/distribution.spec.ts (4 tests) 6ms
+ ✓ |thread-safe| apps/desktop/tests/desktop-package-environment.spec.ts (21 tests) 78ms
+ ✓ |thread-safe| apps/desktop/tests/desktop-policy-environment.spec.ts (25 tests) 7ms
+
+ Test Files  4 passed (4)
+      Tests  71 passed (71)
+   Start at  14:41:26
+   Duration  4.83s (transform 1.06s, setup 1.58s, import 12.02s, tests 3.61s, environment 0ms)
